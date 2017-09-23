@@ -1,0 +1,36 @@
+<!--othersコントローラindexアクションのビューファイル-->
+
+<% if user_signed_in? %>
+
+<p class="a1">
+<%= link_to '英語に関する質問をしてみよう！' , '/others/posting' %>
+</p>
+
+<% else %>
+
+<p class="a1">
+ログインすると、質問を行うことができます。
+</p>
+
+<% end %>
+
+<div class="postform">
+<%= form_tag('/business/search', method: :get) do %>
+<p>
+<input type="text" placeholder="検索内容" name="keyword" class="postname">
+<input type="submit" value="検索する！" class="postbutton">
+</p>
+<% end %>
+</div>
+
+<!-- 以下投稿リスト -->
+
+<%= render 'layouts/maintable' , allposts: @otherposts , kaitousu: @otherkaitousu , 
+link: @otherlink %>
+
+<br>
+<br>
+
+<div class="a4">
+<%= paginate(@otherposts) %>
+</div>

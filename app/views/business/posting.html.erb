@@ -1,0 +1,21 @@
+<!--businessコントローラpostingアクションのビューファイル-->
+
+
+<p class="a1">何でも、質問してみよう。</p>
+<p class="a1">（投稿後、内容はすぐリストに反映されます）</p>
+
+<div class="postform">
+<%= form_tag('/business', method: :post) do %>
+
+<p>
+<textarea name="text" class="postcontent" cols="20" rows="20">
+</textarea>
+</p>
+<p>
+<input type="submit" value="投稿する！" class="postbutton">
+</p>
+<% end %>
+</div>
+
+
+

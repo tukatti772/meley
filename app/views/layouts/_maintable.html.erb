@@ -1,0 +1,24 @@
+<table border="1" id="QAtable">
+<tr>
+<th id="naiyou">質問内容</th>
+<th id="toukousya">投稿者</th>
+<th id="response">回答数</th>
+</tr>
+
+<% allposts.each do |roop| %>
+<tr>
+<!--下記のようなリンク記法は覚えておく。linktoタグではうまくいかなかった。-->
+<th id="naiyou"><a href ="/<%= link %>/<%= roop.id %>"><%= roop.text %></a></th>
+<th id="toukousya"><%= roop.name %></th>
+
+<% if kaitousu[roop.id] == nil then %>
+<!-- == と記述しないと、左辺と右辺が等しいという意味にならないよ！ -->
+<th id="response"> <%= "0" %> </th>
+<% else %>
+<th id="response"> <%= kaitousu[roop.id] %> </th>
+<% end %>
+
+</tr>
+<% end %>
+
+</table>

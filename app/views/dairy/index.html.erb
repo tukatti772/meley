@@ -1,0 +1,35 @@
+<!--dairyコントローラindexアクションのビューファイル-->
+
+<% if user_signed_in? %>
+
+<p class="a1">
+<%= link_to '日常会話で使う英語について質問してみよう！' , '/dairy/posting' %>
+</p>
+
+<% else %>
+
+<p class="a1">
+ログインすると、質問を行うことができます。
+</p>
+
+<% end %>
+
+<div class="postform">
+<%= form_tag('/dairy/search', method: :get) do %>
+<p>
+<input type="text" placeholder="検索内容" name="keyword" class="postname">
+<input type="submit" value="検索する！" class="postbutton">
+</p>
+<% end %>
+</div>
+
+<!-- 以下投稿リスト -->
+
+<%= render 'layouts/maintable' , allposts: @dairyposts , kaitousu: @dairykaitousu , link: @dairylink%>
+
+<br>
+<br>
+
+<div class="a4">
+<%= paginate(@dairyposts) %>
+</div>

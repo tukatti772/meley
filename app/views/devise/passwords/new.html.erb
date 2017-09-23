@@ -1,0 +1,21 @@
+<!--パスワード変更の画面-->
+<p class="a4">
+パスワードを忘れましたか？
+</p>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="signup">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="signup">
+    <%= f.submit "パスワード変更のメールを受け取る" %>
+  </div>
+<% end %>
+
+<div class="signup">
+<%= render "devise/shared/links" %>
+</div>

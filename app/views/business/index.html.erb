@@ -1,0 +1,36 @@
+<!--businessコントローラindexアクションのビューファイル-->
+
+<% if user_signed_in? %>
+
+<p class="a1">
+<%= link_to 'ビジネスシーンで使う英語について質問してみよう！' , '/business/posting' %>
+</p>
+
+<% else %>
+
+<p class="a1">
+ログインすると、質問を行うことができます。
+</p>
+
+<% end %>
+
+<div class="postform">
+<%= form_tag('/business/search', method: :get) do %>
+<p>
+<input type="text" placeholder="検索内容" name="keyword" class="postname">
+<input type="submit" value="検索する！" class="postbutton">
+</p>
+<% end %>
+</div>
+
+<!-- 以下投稿リスト -->
+
+<%= render 'layouts/maintable' , allposts: @businesses , kaitousu: @busikaitousu , 
+link: @businesslink %>
+
+<br>
+<br>
+
+<div class="a4">
+<%= paginate(@businesses) %>
+</div>

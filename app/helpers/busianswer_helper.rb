@@ -1,0 +1,2 @@
+module BusianswerHelper
+end

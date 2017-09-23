@@ -1,0 +1,13 @@
+<!--usersコントローラーのshowアクション。ユーザーの回答一覧を表示。-->
+<p>
+<%= @user.nickname %>さんが回答した質問一覧だよ。
+</p>
+
+<% @answers.each do |happy| %>
+<div class="showbox2">
+<p> <%= happy.business.text %> </p>
+<p>（<%= happy.created_at.strftime('%Y年%m月%d日 %H:%M:%S') %>に回答しています。）</p>
+<!-- strftimeメソッドで日付の表示を変えている -->
+<p><%= link_to "Q&Aページへ", "/business/#{happy.business.id}" %></p>
+</div>
+<% end %>

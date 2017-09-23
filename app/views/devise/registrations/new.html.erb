@@ -1,0 +1,36 @@
+<!--新規登録時の画面-->
+<p class="a4">
+Outputsのご利用にはユーザー登録が必要です。ご登録をお願いします。
+</p>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="signup">
+   <%= f.label :nickname, "ニックネーム" %> (最大15文字まで)<br />
+    <%= f.text_field :nickname, autofocus: true, maxlength: "15" %>
+  </div>
+
+  <div class="signup">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="signup">
+    <%= f.label :password, "パスワード" %>
+    <% if @minimum_password_length %>
+    (<%= @minimum_password_length %> 文字以上)
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="signup">
+    <%= f.label :password_confirmation, "パスワード確認" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="signupbox">
+    <%= f.submit "新規登録", class: 'signupbutton'%>
+  </div>
+<% end %>
+

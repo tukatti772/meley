@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Outputs</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!--ここからヘッダー-->
+
+<div id="frame">   <!--全てをこの箱の入れ子にする-->
+
+
+
+<header id="head">
+
+<div id="headtext">
+<%= link_to 'Outputs!', '/toukou' %>
+</div>
+
+
+
+
+<% if user_signed_in? %>
+
+
+<div id="loginout">
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+</div>
+
+<div id="newuser">
+ようこそ、<span class="boldtext"><%= current_user.nickname %></span>さん。
+</div>
+
+<% else %>
+
+<div id="loginout">
+<%= link_to "ログイン", new_user_session_path, method: :get %>
+</div>
+
+<div id="newuser">
+<%= link_to "新規登録", new_user_registration_path, method: :get %>
+</div>
+
+<% end %>
+
+
+</header>
+
+
+<!-- メニュー -->
+
+
+<div id="mainmenu">
+
+
+<table border="1" id="menutable">
+ <tr>
+   <th>
+   <%= link_to 'about outputs', '/toukou' %>
+   </th>
+   <th>
+   <%= link_to '日常会話', '/dairy' %>
+   </th>
+   <th>
+   <%= link_to 'ビジネスシーン', '/business' %>
+   </th>
+   <th>
+   <%= link_to '英語に関するQ&A', '/others' %>
+   </th>
+</tr>
+</table>
+
+</div>
+
+
+<!-- コンテンツ -->
+
+
+<div id="contents">
+
+<%= yield %>
+
+</div>
+
+
+
+
+<!--ここからフッター-->
+
+<footer id="foot">
+copyright 2017 tukatti
+</footer>
+
+</div>
+
+</body>
+</html>
