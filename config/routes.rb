@@ -7,6 +7,27 @@ Rails.application.routes.draw do
   get 'business/search'
   get 'dairy/search'
   get 'others/search'
+
+
+  #このようにして、idに紐付けた独自のアクションを追加できる。
+  resources :users do
+    member do
+      get :questions
+      get :counts
+    end
+  end
+
+  #以下いいね！機能用のルーティング
+  resources :business do
+    member do
+      post :like
+      delete :like_delete
+    end
+  end
+
+  #いいね！用のルーティング終わり
+
+  resources :users, only: [:show, :questions, :counts]
   resources :toukou, only: [:index]
   resources :business, only: [:index, :create, :show] do
     resources :busianswer, only: [:create]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917015838) do
+ActiveRecord::Schema.define(version: 20171023150548) do
 
   create_table "busianswers", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170917015838) do
     t.datetime "updated_at",                  null: false
     t.integer  "user_id",       limit: 4
     t.string   "user_nickname", limit: 255
+    t.string   "label",         limit: 255
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -28,6 +29,9 @@ ActiveRecord::Schema.define(version: 20170917015838) do
     t.text     "text",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.string   "label",      limit: 255
+    t.integer  "likes",      limit: 4
   end
 
   create_table "dairies", force: :cascade do |t|
@@ -35,6 +39,8 @@ ActiveRecord::Schema.define(version: 20170917015838) do
     t.text     "text",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.string   "label",      limit: 255
   end
 
   create_table "dairyanswers", force: :cascade do |t|
@@ -45,6 +51,19 @@ ActiveRecord::Schema.define(version: 20170917015838) do
     t.datetime "updated_at",                  null: false
     t.integer  "user_id",       limit: 4
     t.string   "user_nickname", limit: 255
+    t.string   "label",         limit: 255
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.integer  "business_id",    limit: 4
+    t.integer  "busianswer_id",  limit: 4
+    t.integer  "dairy_id",       limit: 4
+    t.integer  "dairyanswer_id", limit: 4
+    t.integer  "other_id",       limit: 4
+    t.integer  "otheranswer_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "otheranswers", force: :cascade do |t|
@@ -55,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170917015838) do
     t.datetime "updated_at",                  null: false
     t.integer  "user_id",       limit: 4
     t.string   "user_nickname", limit: 255
+    t.string   "label",         limit: 255
   end
 
   create_table "others", force: :cascade do |t|
@@ -62,6 +82,8 @@ ActiveRecord::Schema.define(version: 20170917015838) do
     t.text     "text",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.string   "label",      limit: 255
   end
 
   create_table "users", force: :cascade do |t|

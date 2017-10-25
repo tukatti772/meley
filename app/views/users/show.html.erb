@@ -1,13 +1,83 @@
-<!--usersコントローラーのshowアクション。ユーザーの回答一覧を表示。-->
-<p>
-<%= @user.nickname %>さんが回答した質問一覧だよ。
-</p>
+<%# usersコントローラーのshowアクション。ユーザーの回答一覧を表示。%>
 
-<% @answers.each do |happy| %>
-<div class="showbox2">
-<p> <%= happy.business.text %> </p>
-<p>（<%= happy.created_at.strftime('%Y年%m月%d日 %H:%M:%S') %>に回答しています。）</p>
-<!-- strftimeメソッドで日付の表示を変えている -->
-<p><%= link_to "Q&Aページへ", "/business/#{happy.business.id}" %></p>
+<div class="tab-menu">
+
+<div class="a5 boldtext">
+ <%= @user.nickname %> さんの・・
 </div>
+
+ <ul>
+   <li class="list1">
+   <%= link_to '質問一覧' , "/users/#{@showID}" %>
+   </li>
+   <li class="list2">
+   <%= link_to '回答一覧' , "/users/#{@showID}/questions" %>
+   </li>
+   <li class="list2">
+   <%= link_to '統計' , "/users/#{@showID}/counts" %>
+   </li>
+ </ul>
+
+
+
+<% @allquestions2.each do |happy| %>
+
+
+<div class="showbox2">
+
+
+<p> <%= happy.text %> </p>
+<br>
+<% if happy.label == "B" then %>
+<%= link_to '質問のページへ' , "/business/#{happy.id}" %>
+<% elsif happy.label == "D" then %>
+<%= link_to '質問のページへ' , "/dairy/#{happy.id}" %>
+<% else happy.label == "O" %>
+<%= link_to '質問のページへ' , "/others/#{happy.id}" %>
 <% end %>
+</div>
+
+<% end %>
+
+
+<div class="a4">
+<%= paginate @allquestions2, :param_name => 'question_page' %>
+</div>
+
+
+<%
+=begin
+%>
+
+<div class="right">
+
+<% @allanswers2.each do |hey| %>
+
+<div class="showbox2 right">
+<%# 半角スペースでこのようにクラスを複数指定しないと、jqueryで反応してくれない %>
+
+
+<p><%= hey.text %></p>
+
+</div>
+
+<% end %>
+
+<div class="a4 right">
+<%= paginate @allanswers2, :param_name => 'answer_page' %>
+</div>
+
+
+</div>
+
+<%
+=end
+%>
+
+
+
+</div>
+
+
+
+

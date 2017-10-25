@@ -9,7 +9,9 @@
 <tr>
 <!--下記のようなリンク記法は覚えておく。linktoタグではうまくいかなかった。-->
 <th id="naiyou"><a href ="/<%= link %>/<%= roop.id %>"><%= roop.text %></a></th>
-<th id="toukousya"><%= roop.name %></th>
+<th id="toukousya">
+<%= link_to "#{roop.name}" , "users/#{roop.user_id}" %>
+</th>
 
 <% if kaitousu[roop.id] == nil then %>
 <!-- == と記述しないと、左辺と右辺が等しいという意味にならないよ！ -->

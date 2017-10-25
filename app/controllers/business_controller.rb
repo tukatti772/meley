@@ -9,7 +9,8 @@ def index
 end
 
 def create
-  Business.create(name: current_user.nickname, text: business_params[:text])
+  Business.create(name: current_user.nickname, text: business_params[:text], label: "B",
+    user_id: current_user.id)
   redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 
@@ -27,6 +28,16 @@ end
 def show
   @businessdata = Business.find(params[:id])
   @businessanswer = @businessdata.busianswers
+end
+
+#以下いいね！機能に関するコード
+
+def like
+  Like.create(user_id: current_user.id, business_id: params[:id])
+end
+
+def like_delete
+  Like.find_by(user_id: current_user.id, business_id: params[:id]).destroy
 end
 
 private

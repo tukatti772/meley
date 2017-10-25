@@ -31,12 +31,22 @@ html,body{
 }
 
 
-#loginout{
+
+#loginoutbutton{
   font-size: 20px;
   font-family: 'Impact', sans-serif;
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  background-color: skyblue;
+  border-style: none;
+  border-radius: 5px;
   float: right;
   margin: 2% 100px 0 0;
 }
+
+
+
 
 /* 新規登録画面のcss */
 .signup{
@@ -101,12 +111,14 @@ th{
 
 /* コンテンツのcss */
 
-#contents{
+#Acontents{
   height: 75%;
   font-size: 30px;
-  padding: 10%;
-  overflow: auto;  /*溢れた内容がスクロール可能になる*/
+  padding: 5%;
+  overflow-y: scroll;
 }
+/*↑強制的にスクロールバーを表示させることで、バーの有無によるwidthのズレに起因する
+ガタツキを防ぐ*/
 
 /* 投稿フォームのcss */
 .postform{
@@ -223,6 +235,13 @@ th#response{
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
+.a5{
+  padding: 0px 0px 25px 0px;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
 .boldtext{
   font-weight: bold;
 }
@@ -244,6 +263,68 @@ th#response{
 .text2{
   font-weight: bold;
   color: #1e90ff;
+}
+
+/* タブメニューのcss */
+.tab-menu {
+}
+
+.tab-menu ul {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 0;
+  text-align: center;
+}
+
+.tab-menu li.list1{
+  width: 120px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #FFCC99;
+  border-top-right-radius: 10px;
+  font-size: 25px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+}
+
+.tab-menu li.list2{
+  width: 120px;
+  height: 50px;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  font-size: 25px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  text-align: center;
+  background-color: #fff;
+  color: #FFCC99;
+  display: inline-block;
+}
+
+/*統計ページのcss*/
+
+.countdisplay{
+  text-align: center;
+}
+
+.countbox {
+    background: #dcefff;
+    width: 200px;
+    display: inline-block;
+}
+.countbox .box-title {
+    font-size: 1.2em;
+    background: #5fb3f5;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.countbox p {
+    padding: 15px 20px;
+    margin: 0;
 }
 
 

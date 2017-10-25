@@ -50,6 +50,7 @@ gem 'compass-rails', '~> 2.0'
 gem 'sprockets', '2.11.0'
 gem 'devise'
 gem 'kaminari'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'rails_12factor'

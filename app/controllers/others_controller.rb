@@ -8,7 +8,8 @@ def index
 end
 
 def create
-  Other.create(name: current_user.nickname, text: others_params[:text])
+  Other.create(name: current_user.nickname, text: others_params[:text], label: "O",
+    user_id: current_user.id)
   redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 

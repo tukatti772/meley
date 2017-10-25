@@ -8,7 +8,8 @@ def index
 end
 
 def create
-  Dairy.create(name: current_user.nickname, text: dairy_params[:text])
+  Dairy.create(name: current_user.nickname, text: dairy_params[:text], label: "D",
+    user_id: current_user.id)
   redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 
