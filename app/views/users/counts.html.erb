@@ -1,0 +1,43 @@
+
+<div class="tab-menu">
+
+<div class="a5 boldtext">
+ <%= @user.nickname %> さんの・・
+</div>
+
+
+ <ul>
+   <li class="list2">
+   <%= link_to '質問一覧' , "/users/#{@countsID}" %>
+   </li>
+   <li class="list2">
+   <%= link_to '回答一覧' , "/users/#{@countsID}/questions" %>
+   </li>
+   <li class="list1">
+   <%= link_to '統計' , "/users/#{@countsID}/counts" %>
+   </li>
+ </ul>
+
+<div class="countdisplay">
+
+<div class="countbox">
+    <div class="box-title">質問数</div>
+    <p><%= @sumquestion %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title">回答数</div>
+    <p><%= @sumanswer %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title">いいね！数</div>
+    <p>工事中</p>
+</div>
+
+</div>
+
+
+</div>
+
+

@@ -1,0 +1,47 @@
+<div class="tab-menu">
+
+<div class="a5 boldtext">
+ <%= @user.nickname %> さんの・・
+</div>
+
+ <ul>
+   <li class="list2">
+   <%= link_to '質問一覧' , "/users/#{@questionsID}" %>
+   </li>
+   <li class="list1">
+   <%= link_to '回答一覧' , "/users/#{@questionsID}/questions" %>
+   </li>
+   <li class="list2">
+   <%= link_to '統計' , "/users/#{@questionsID}/counts" %>
+   </li>
+ </ul>
+
+
+
+<% @allanswers2.each do |hey| %>
+
+<div class="showbox2">
+
+<p><%= hey.text %></p>
+<br>
+<% if hey.label == "B" then %>
+<%= link_to '回答のページへ' , "/business/#{hey.business_id}" %>
+<% elsif hey.label == "D" then %>
+<%= link_to '回答のページへ' , "/dairy/#{hey.dairy_id}" %>
+<% else hey.label == "O" %>
+<%= link_to '回答のページへ' , "/others/#{hey.other_id}" %>
+<% end %>
+
+
+</div>
+
+<% end %>
+
+<div class="a4">
+<%= paginate @allanswers2, :param_name => 'answer_page' %>
+</div>
+
+
+
+
+</div>
