@@ -7,8 +7,22 @@ end
 
 def create
   @dairyanswer = Dairyanswer.create(user_id: current_user.id, user_nickname: current_user.nickname,
-    dairy_id: dairyanswer_params[:dairy_id], text: dairyanswer_params[:text])  #ここの引数はbusianswer_paramsで良い気がするが
+    dairy_id: dairyanswer_params[:dairy_id], text: dairyanswer_params[:text], label: "D")  #ここの引数はbusianswer_paramsで良い気がするが
   redirect_to "/dairy/#{@dairyanswer.dairy.id}"
+end
+
+#以下いいね！機能に関するコード
+
+def like
+  Like.create(user_id: current_user.id, dairyanswer_id: params[:id])
+  @data = Dairyanswer.find(params[:id])
+  @id = params[:id]
+end
+
+def like_delete
+  Like.find_by(user_id: current_user.id, dairyanswer_id: params[:id]).destroy
+  @data = Dairyanswer.find(params[:id])
+  @id = params[:id]
 end
 
 

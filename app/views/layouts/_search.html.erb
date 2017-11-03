@@ -1,6 +1,13 @@
 <!--検索フォームのテンプレートファイル-->
 
 
+<p class="a1">
+検索結果を以下に表示しています。
+</p>
+
+<br>
+
+
 <table border="1" id="QAtable">
 <tr>
 <th id="naiyou">内容</th>
@@ -12,7 +19,7 @@
 <tr>
 <!--下記のようなリンク記法は覚えておく。linktoタグではうまくいかなかった。-->
 <th id="naiyou"><a href ="/<%= searchlink %>/<%= roop.id %>"><%= roop.text %></a></th>
-<th id="toukousya"><%= roop.name %></th>
+<th id="toukousya"><%= link_to "#{roop.name}", "/users/#{roop.user_id}" %></th>
 
 <% if kaitousub[roop.id] == nil then %>
 <!-- == と記述しないと、左辺と右辺が等しいという意味にならないよ！ -->

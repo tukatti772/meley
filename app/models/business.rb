@@ -6,7 +6,7 @@ class Business < ActiveRecord::Base
 #ユーザーがいいね！しているかどうか確認するメソッド
 
   def like_user(user_id)
-    #businessモデルのインスタンスと関連付いているモデルの情報を取得する書き方なので覚えておく
+    #下記はbusinessモデルのインスタンスと関連付いているモデルの情報を取得する書き方なので覚えておく
     likes.find_by(user_id: user_id)
   end
 

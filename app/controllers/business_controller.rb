@@ -2,7 +2,7 @@ class BusinessController < ApplicationController
 
 
 def index
-  @businesses = Business.all.page(params[:page]).per(15)
+  @businesses = Business.all.order(created_at: :desc).page(params[:page]).per(15)
   @busikaitousu = Busianswer.group(:business_id).count
   @businesslink = "business"   #変数に文字列を入れるときはダブルクォート
   #ハッシュがどうなっているかは、binding.pryで確認すると非常に便利！
@@ -15,7 +15,7 @@ def create
 end
 
 def search   #Businessテーブル内容の検索。
-  @busisearch = Business.where('text LIKE(?)', "%#{params[:keyword]}%")
+  @busisearch = Business.where('text LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
   @busikaitousub = Busianswer.group(:business_id).count
   @busisearchlink = "business"
 end
@@ -27,17 +27,19 @@ end
 
 def show
   @businessdata = Business.find(params[:id])
-  @businessanswer = @businessdata.busianswers
+  @businessanswer = @businessdata.busianswers.order(created_at: :desc)
 end
 
 #以下いいね！機能に関するコード
 
 def like
   Like.create(user_id: current_user.id, business_id: params[:id])
+  @data = Business.find(params[:id])
 end
 
 def like_delete
   Like.find_by(user_id: current_user.id, business_id: params[:id]).destroy
+  @data = Business.find(params[:id])
 end
 
 private

@@ -19,7 +19,7 @@ html,body{
   font-family: 'Impact', sans-serif;
   border: none;
   float: left;
-  margin: 1% 0 0 150px;
+  margin: 1% 0 0 150px
 }
 
 
@@ -208,6 +208,10 @@ th#response{
 
 
 /* 汎用テキスト・boxのcss */
+.indexbox{
+  margin: 0 0 0 150px;
+}
+
 .a1{
   padding: 0px 0px 50px 0px;
   text-align: center;
@@ -224,7 +228,7 @@ th#response{
 
 .a3{
   padding: 0px 0px 50px 0px;
-  text-align: center;
+  margin: 0 0 0 250px;
   font-size: 20px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
@@ -248,7 +252,7 @@ th#response{
 
 .h1{
   width: 40%;
-  margin: 0% auto;
+  margin: 0 auto;
   text-align: center;
   background: linear-gradient(transparent 70%, #a7d6ff 70%);
   font-size: 40px;
@@ -314,7 +318,7 @@ th#response{
     display: inline-block;
 }
 .countbox .box-title {
-    font-size: 1.2em;
+    font-size: 25px;
     background: #5fb3f5;
     padding: 4px;
     text-align: center;
@@ -325,6 +329,17 @@ th#response{
 .countbox p {
     padding: 15px 20px;
     margin: 0;
+}
+
+/* いいね！機能用のcss */
+#like_button{
+  color: blue;
+  border: none;
+  background-color: white;
+}
+
+.likes{
+  color: blue;
 }
 
 

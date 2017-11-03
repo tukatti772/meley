@@ -1,7 +1,7 @@
 class DairyController < ApplicationController
 
 def index
-  @dairyposts = Dairy.all.page(params[:page]).per(15)
+  @dairyposts = Dairy.all.order(created_at: :desc).page(params[:page]).per(15)
   @dairykaitousu = Dairyanswer.group(:dairy_id).count
   @dairylink = "dairy"
   #ハッシュがどうなっているかは、binding.pryで確認すると非常に便利！
@@ -14,7 +14,7 @@ def create
 end
 
 def search   #Dairyテーブル内容の検索。
-  @dairysearch = Dairy.where('text LIKE(?)', "%#{params[:keyword]}%")
+  @dairysearch = Dairy.where('text LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
   @dairykaitousub = Dairyanswer.group(:dairy_id).count
   @dairysearchlink = "dairy"
 end
@@ -26,9 +26,20 @@ end
 
 def show
   @dairydata = Dairy.find(params[:id])
-  @dairyanswer = @dairydata.dairyanswers
+  @dairyanswer = @dairydata.dairyanswers.order(created_at: :desc)
 end
 
+#以下いいね！機能に関するコード
+
+def like
+  Like.create(user_id: current_user.id, dairy_id: params[:id])
+  @data = Dairy.find(params[:id])
+end
+
+def like_delete
+  Like.find_by(user_id: current_user.id, dairy_id: params[:id]).destroy
+  @data = Dairy.find(params[:id])
+end
 
 private
 def dairy_params

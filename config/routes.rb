@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'toukou#index'
+  get 'toukou/history'
   get 'business/posting' #この記法は覚えておく。
   get 'dairy/posting'
   get 'others/posting'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  #以下いいね！機能用のルーティング
+#------------以下いいね！機能用のルーティング---------------------------------
   resources :business do
     member do
       post :like
@@ -25,7 +26,43 @@ Rails.application.routes.draw do
     end
   end
 
-  #いいね！用のルーティング終わり
+  resources :busianswer do
+    member do
+      post :like
+      delete :like_delete
+    end
+  end
+
+  resources :dairy do
+    member do
+      post :like
+      delete :like_delete
+    end
+  end
+
+  resources :dairyanswer do
+    member do
+      post :like
+      delete :like_delete
+    end
+  end
+
+  resources :others do
+    member do
+      post :like
+      delete :like_delete
+    end
+  end
+
+  resources :otheranswer do
+    member do
+      post :like
+      delete :like_delete
+    end
+  end
+
+#------------いいね！用のルーティング終わり---------------------------------
+
 
   resources :users, only: [:show, :questions, :counts]
   resources :toukou, only: [:index]
