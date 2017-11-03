@@ -1,0 +1,33 @@
+<%#質問の表示の部分テンプレート%>
+
+<div class="showbox">
+<p class="text1">質問No：  <%= data.id %>　　　<%=link_to "#{data.name}", "/users/#{data.user_id}" %>　さんの質問</p>
+<p><%= simple_format data.text %></p>
+<br>
+
+<%#以下いいね！機能%>
+<div class="likes">
+<% if user_signed_in? %>
+
+<%#以下は恐らく、返り値がnilでなければtrue,nilならfalseとなっている。Ruby独特。%>
+ <% if data.like_user(current_user.id) %>
+  <%= button_to like_delete_business_path(data), method: :delete, id: :like_button, remote: true do %>
+    <%= image_tag 'heart.png', width: 20, height: 20 %>
+    いいね！<%= data.likes_count %>
+  <% end %>
+ <% else %>
+  <%= button_to like_business_path(data), id: :like_button, remote: true do %>
+  <%= image_tag 'nonheart.png', width: 20, height: 20 %>
+  いいね！<%= data.likes_count %>
+  <% end %>
+ <% end %>
+
+<% else %>
+<%= image_tag 'heart.png', width: 20, height: 20 %>
+ いいね！<%= data.likes_count %>
+
+<% end %>
+
+</div>
+
+</div>
