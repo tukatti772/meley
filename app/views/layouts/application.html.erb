@@ -6,14 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+<%# asset_urlは絶対パスになる。asset_pathでは画像表示されなかった。%>
 <meta name="twitter:card" content="summary_large_image" /> 
 <meta name="twitter:site" content="@tukatti7772" /> 
 <meta name="twitter:title" content="Outputs!" /> 
-<meta name="twitter:description" content="英語表現データベースのOutputs!を作りました。ぜひご利用ください。" />
+<meta name="twitter:description" content="英語表現データベースのOutputs!を作りました。英語表現の実例を蓄積していきたいと思っています。ぜひご利用ください。" />
 <meta name="twitter:image" content="<%= asset_url('fortwitter.jpg') %>" />
 <meta property="og:url" content="https://enoutputs.herokuapp.com/toukou" /> 
 <meta property="og:title" content="Outputs!" /> 
-<meta property="og:description" content="英語表現データベースのOutputs!を作りました。ぜひご利用ください。" /> 
+<meta property="og:description" content="英語表現データベースのOutputs!を作りました。英語表現の実例を蓄積していきたいと思っています。ぜひご利用ください。" /> 
 <meta property="og:image" content="<%= asset_url('fortwitter.jpg') %>" /> 
 </head>
 <body>
