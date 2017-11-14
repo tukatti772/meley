@@ -9,7 +9,8 @@
 <% if roop.user_nickname == data.name %>
 
 <div class="showbox">
-<p class="text1"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの回答　　<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+<p class="text1"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの回答　　投稿：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+<br>
 <p> <%= simple_format roop.text %> </p>
 <br>
 
@@ -42,7 +43,8 @@
 <% else %>
 
 <div class="showbox2">
-<p class="text2"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの回答　　<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+<p class="text2"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの回答　　投稿：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+<br>
 <p> <%= simple_format roop.text %> </p>
 <br>
 
