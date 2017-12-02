@@ -8,6 +8,20 @@ html,body{
 }
 
 
+/*シェアボタン用　vertical-alignで縦位置を親要素の中央に合わせる*/
+.inline{
+  display: inline-block;
+}
+
+.twitter-share-button{
+  vertical-align: middle;
+}
+
+.fb-share-button{
+  vertical-align: middle;
+}
+
+
 /* ヘッダーのcss */
 #head{
   background-color: #fdf5e6;
@@ -348,7 +362,6 @@ th#response{
   color: blue;
 }
 
-/*twitterシェアボタン用 */
 
 
 /* フッターのcss */
