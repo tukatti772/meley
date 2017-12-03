@@ -1,6 +1,6 @@
 <!--businessコントローラshowアクションのビューファイル-->
 
-<% provide(:og_url, "https://enoutputs.herokuapp.com/business/<%= @businessdata.id %>") %>
+
 <% provide(:og_description, @businessdata.text) %>
 
 <%= render 'business/question1' , data: @businessdata%>
