@@ -1,5 +1,7 @@
 <!--businessコントローラshowアクションのビューファイル-->
 
+<% provide(:og_description, @businessdata.text) %>
+
 <%= render 'business/question1' , data: @businessdata%>
 
 <br>
