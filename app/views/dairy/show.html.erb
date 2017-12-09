@@ -1,9 +1,9 @@
-<!--dairyコントローラshowアクションのビューファイル-->
+<%#dairyコントローラshowアクションのビューファイル%>
 
-<!-- facebookシェアボタンの内容表示に必要 -->
+<%#facebookシェアボタンの内容表示に必要%>
 <% provide(:og_url, "dairy/#{@dairydata.id}") %>
 <% provide(:og_description, @dairydata.text) %>
-<!-- facebookシェアボタンの内容表示に必要 -->
+<%#facebookシェアボタンの内容表示に必要%>
 
 
 <%= render 'dairy/question2' , data: @dairydata%>
@@ -15,7 +15,7 @@
 
 <div class="postform">
 <%= form_tag("/dairy/#{@dairydata.id}/dairyanswer", method: :post) do %>
-<!--Rubyの式展開の記法は覚えておくこと-->
+<%#Rubyの式展開の記法は覚えておくこと%>
 <textarea name="text" class="postcontent" cols="20" rows="20">
 </textarea>
 <br>
