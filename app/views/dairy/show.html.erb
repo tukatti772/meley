@@ -1,5 +1,11 @@
 <!--dairyコントローラshowアクションのビューファイル-->
 
+<!-- facebookシェアボタンの内容表示に必要 -->
+<% provide(:og_url, "dairy/#{@dairydata.id}") %>
+<% provide(:og_description, @dairydata.text) %>
+<!-- facebookシェアボタンの内容表示に必要 -->
+
+
 <%= render 'dairy/question2' , data: @dairydata%>
 
 <br>

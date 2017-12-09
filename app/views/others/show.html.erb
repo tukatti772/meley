@@ -1,5 +1,11 @@
 <!--othersコントローラshowアクションのビューファイル-->
 
+<!-- facebookシェアボタンの内容表示に必要 -->
+<% provide(:og_url, "others/#{@otherdata.id}") %>
+<% provide(:og_description, @otherdata.text) %>
+<!-- facebookシェアボタンの内容表示に必要 -->
+
+
 <%= render 'others/question3' , data: @otherdata %>
 
 <br>

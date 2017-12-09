@@ -1,7 +1,10 @@
 <!--businessコントローラshowアクションのビューファイル-->
 
+<!-- facebookシェアボタンの内容表示に必要 -->
 <% provide(:og_url, "business/#{@businessdata.id}") %>
 <% provide(:og_description, @businessdata.text) %>
+<!-- facebookシェアボタンの内容表示に必要 -->
+
 
 <%= render 'business/question1' , data: @businessdata%>
 
