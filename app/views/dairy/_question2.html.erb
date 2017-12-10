@@ -32,11 +32,16 @@
 <br>
 
 <div class="inline">
-<!-- twitterシェアボタン -->
+<%# twitterシェアボタン %>
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-hashtags="英語,英語学習,英会話,ライティング,TOEIC,TOEFL,大学受験,English" data-text="英訳してみよう！→「<%=data.text%>」" data-url="https://enoutputs.herokuapp.com/dairy/<%=data.id%>" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<!--facebookシェアボタン-->
+<%#facebookシェアボタン%>
 <div class="fb-share-button" data-href="http://enoutputs.herokuapp.com/dairy/<%=data.id%>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">シェア</a></div>
 </div>
+
+<%# Lineシェアボタン %>
+<a href="http://line.me/R/msg/text/?http://enoutputs.herokuapp.com/dairy/<%=data.id%>">
+  <img src="//media.line.me/img/button/ja/82x20.png", width="82" height="20" alt="LINEで送る">
+</a>
 
 </div>
