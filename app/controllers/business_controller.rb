@@ -10,7 +10,7 @@ end
 
 def create
   Business.create(name: current_user.nickname, text: business_params[:text], label: "B",
-    user_id: current_user.id)
+    user_id: current_user.id, title: business_params[:title], tag: business_params[:field])
   redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 
@@ -44,7 +44,7 @@ end
 
 private
 def business_params
-  params.permit(:text)
+  params.permit(:text, :title, :field)
 end
 
 end

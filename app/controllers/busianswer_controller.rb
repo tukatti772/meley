@@ -6,8 +6,9 @@ def index
 end
 
 def create
+  @busiload = Business.find(params[:business_id])
   @busianswer = Busianswer.create(user_id: current_user.id, user_nickname: current_user.nickname,
-    business_id: busianswer_params[:business_id], text: busianswer_params[:text], label: "B")  #ここの引数はbusianswer_paramsで良い気がするが
+    business_id: busianswer_params[:business_id], text: busianswer_params[:text], business_text: @busiload.text, label: "B")  #ここの引数はbusianswer_paramsで良い気がするが
   redirect_to "/business/#{@busianswer.business.id}"
 end
 

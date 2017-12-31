@@ -9,8 +9,8 @@ end
 
 def create
   Dairy.create(name: current_user.nickname, text: dairy_params[:text], label: "D",
-    user_id: current_user.id)
-  redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
+    user_id: current_user.id, title: dairy_params[:title], tag: dairy_params[:field])
+   redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 
 def search   #Dairyテーブル内容の検索。
@@ -43,7 +43,7 @@ end
 
 private
 def dairy_params
-  params.permit(:text)
+  params.permit(:text, :title, :field)
 end
 
 

@@ -8,7 +8,7 @@
 <% allposts.each do |roop| %>
 <tr>
 <!--下記のようなリンク記法は覚えておく。linktoタグではうまくいかなかった。-->
-<th id="naiyou"><a href ="/<%= link %>/<%= roop.id %>"><%= roop.text %></a></th>
+<th id="naiyou"><a href ="/<%= link %>/<%= roop.id %>"><%= roop.title %></a></th>
 <th id="toukousya">
 <%= link_to "#{roop.name}" , "users/#{roop.user_id}" %>
 </th>

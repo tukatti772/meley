@@ -14,14 +14,19 @@
 <% if user_signed_in? %>
 
 <div class="postform">
+
+<%# idにfroalaってつけるとfroalaエディタが使えるようになる%>
+
 <%= form_tag("/business/#{@businessdata.id}/busianswer", method: :post) do %>
-<!--Rubyの式展開の記法は覚えておくこと-->
-<textarea name="text" class="postcontent" cols="20" rows="20">
+<%#Rubyの式展開の記法は覚えておくこと%>
+
+<textarea name="text" class="postcontent" id="froala" cols="20" rows="20">
 </textarea>
 <br>
 <br>
 <input type="submit" value="投稿に回答" class="postbutton">
 <% end %>
+
 </div>
 
 <% else %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028234856) do
+ActiveRecord::Schema.define(version: 20171231062024) do
 
   create_table "busianswers", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20171028234856) do
     t.string   "user_nickname", limit: 255
     t.string   "label",         limit: 255
     t.integer  "likes_count",   limit: 4,     default: 0
+    t.text     "business_text", limit: 65535
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -33,6 +34,8 @@ ActiveRecord::Schema.define(version: 20171028234856) do
     t.integer  "user_id",     limit: 4
     t.string   "label",       limit: 255
     t.integer  "likes_count", limit: 4,     default: 0
+    t.text     "title",       limit: 65535
+    t.text     "tag",         limit: 65535
   end
 
   create_table "dairies", force: :cascade do |t|
@@ -43,6 +46,8 @@ ActiveRecord::Schema.define(version: 20171028234856) do
     t.integer  "user_id",     limit: 4
     t.string   "label",       limit: 255
     t.integer  "likes_count", limit: 4,     default: 0
+    t.string   "title",       limit: 255
+    t.string   "tag",         limit: 255
   end
 
   create_table "dairyanswers", force: :cascade do |t|
@@ -55,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171028234856) do
     t.string   "user_nickname", limit: 255
     t.string   "label",         limit: 255
     t.integer  "likes_count",   limit: 4,     default: 0
+    t.text     "dairy_text",    limit: 65535
   end
 
   create_table "likes", force: :cascade do |t|
@@ -79,6 +85,7 @@ ActiveRecord::Schema.define(version: 20171028234856) do
     t.string   "user_nickname", limit: 255
     t.string   "label",         limit: 255
     t.integer  "likes_count",   limit: 4,     default: 0
+    t.text     "other_text",    limit: 65535
   end
 
   create_table "others", force: :cascade do |t|
@@ -89,6 +96,8 @@ ActiveRecord::Schema.define(version: 20171028234856) do
     t.integer  "user_id",     limit: 4
     t.string   "label",       limit: 255
     t.integer  "likes_count", limit: 4,     default: 0
+    t.text     "title",       limit: 65535
+    t.text     "tag",         limit: 65535
   end
 
   create_table "users", force: :cascade do |t|

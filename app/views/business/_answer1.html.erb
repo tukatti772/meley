@@ -10,8 +10,13 @@
 
 <div class="showbox">
 <p class="text1"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの回答　　投稿：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+
 <br>
-<p> <%= simple_format roop.text %> </p>
+
+<%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
+<p><%= sanitize roop.text, tags: %w(p strong em u s sub sup span h1 h2 h3 h4 h5 h6 
+pre ul ol li blockquote table tr td br hr a), attributes: %w(href style class id height width)%></p>
+<br>
 <br>
 
 <%# jqueryで置き換える箇所を判別するために、下記のdivを作る %>
@@ -44,8 +49,13 @@
 
 <div class="showbox2">
 <p class="text2"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの回答　　投稿：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+
 <br>
-<p> <%= simple_format roop.text %> </p>
+
+<%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
+<p><%= sanitize roop.text, tags: %w(p strong em u s sub sup span h1 h2 h3 h4 h5 h6 
+pre ul ol li blockquote table tr td br hr a), attributes: %w(href style class id height width)%></p>
+<br>
 <br>
 
 <%# jqueryで置き換える箇所を判別するために、下記のdivを作る %>

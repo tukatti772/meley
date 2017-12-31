@@ -7,13 +7,40 @@
 <div class="postform">
 <%= form_tag('/business', method: :post) do %>
 
-<p>
-<textarea name="text" class="postcontent" cols="20" rows="20">
+<label>
+質問タイトル：<input type="text" name="title">
+</label>
+
+<br>
+<br>
+<b>カテゴリー：</b>
+<label><input type="radio" name="field" value="ビジネスメール">ビジネスメール</label>
+<label><input type="radio" name="field" value="プレゼン">プレゼン</label>
+<label><input type="radio" name="field" value="会議">会議</label>
+<label><input type="radio" name="field" value="交渉">交渉</label>
+<label><input type="radio" name="field" value="電話">電話</label>
+<label><input type="radio" name="field" value="面接">面接</label>
+<label><input type="radio" name="field" value="ビジネス全般" checked>ビジネス全般</label>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<%# idにfroalaってつけるとfroalaエディタが使えるようになる%>
+<textarea name="text" class="postcontent" id="froala" cols="20" rows="20">
 </textarea>
 </p>
+
+<br>
+<br>
+<br>
+
 <p>
 <input type="submit" value="投稿する！" class="postbutton">
 </p>
+
 <% end %>
 </div>
 

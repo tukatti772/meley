@@ -99,7 +99,17 @@
 
 </div>
 
-
+<%# Froriaエディタの表示 %>
+<script>
+    $(function() {
+      $('textarea#froala').froalaEditor({
+      heightMin: 200,
+      heightMax: 500
+      })
+     });
+</script>
+<%# heightMin will prevent the rich text editor's box being smaller than the value passed.
+heightMax will prevent the rich text editor's box being taller than the value passed. If the text is too long, then the WYSIWYG HTML editor will get a vertical scrollbar. %>
 
 
 <%#ここからフッター%>

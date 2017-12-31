@@ -9,7 +9,7 @@ end
 
 def create
   Other.create(name: current_user.nickname, text: others_params[:text], label: "O",
-    user_id: current_user.id)
+    user_id: current_user.id, title: others_params[:title], tag: others_params[:field])
   redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 
@@ -44,7 +44,7 @@ end
 
 private
 def others_params
-  params.permit(:text)
+  params.permit(:text, :title, :field)
 end
 
 end

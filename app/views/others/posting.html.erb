@@ -7,13 +7,43 @@
 <div class="postform">
 <%= form_tag('/others', method: :post) do %>
 
-<p>
-<textarea name="text" class="postcontent" cols="20" rows="20">
+
+<label>
+質問タイトル：<input type="text" name="title">
+</label>
+
+<br>
+<br>
+<b>カテゴリー：</b>
+<label><input type="radio" name="field" value="スピーキング">スピーキング</label>
+<label><input type="radio" name="field" value="リスニング">リスニング</label>
+<label><input type="radio" name="field" value="ライティング">ライティング</label>
+<label><input type="radio" name="field" value="リーディング">リーディング</label>
+<label><input type="radio" name="field" value="英文法">英文法</label>
+<label><input type="radio" name="field" value="TOEIC">TOEIC</label>
+<label><input type="radio" name="field" value="TOEFL">TOEFL</label>
+<label><input type="radio" name="field" value="受験">受験</label>
+<label><input type="radio" name="field" value="英語全般" checked>英語全般</label>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<%# idにfroalaってつけるとfroalaエディタが使えるようになる%>
+<textarea name="text" class="postcontent" id="froala" cols="20" rows="20">
 </textarea>
 </p>
+
+<br>
+<br>
+<br>
+
 <p>
 <input type="submit" value="投稿する！" class="postbutton">
 </p>
+
 <% end %>
 </div>
 

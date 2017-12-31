@@ -6,8 +6,9 @@ def index
 end
 
 def create
+  @otherload = Other.find(params[:other_id])
   @otheranswer = Otheranswer.create(user_id: current_user.id, user_nickname: current_user.nickname,
-    other_id: otheranswer_params[:other_id], text: otheranswer_params[:text], label: "O")  #ここの引数はbusianswer_paramsで良い気がするが
+    other_id: otheranswer_params[:other_id], text: otheranswer_params[:text], other_text: @otherload.text, label: "O")  #ここの引数はbusianswer_paramsで良い気がするが
   redirect_to "/others/#{@otheranswer.other.id}"
 end
 

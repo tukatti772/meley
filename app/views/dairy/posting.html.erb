@@ -1,16 +1,44 @@
-<!--dairyコントローラpostingアクションのビューファイル-->
+<%#dairyコントローラpostingアクションのビューファイル%>
 
 
 <p class="a1">何でも、質問してみよう。</p>
 <p class="a1">（投稿後、内容はすぐリストに反映されます）</p>
 
 <div class="postform">
+
 <%= form_tag('/dairy', method: :post) do %>
 
 <p>
-<textarea name="text" class="postcontent" cols="20" rows="20">
+
+<label>
+質問タイトル：<input type="text" name="title">
+</label>
+
+<br>
+<br>
+<b>カテゴリー：</b>
+<label><input type="radio" name="field" value="家庭生活">家庭生活</label>
+<label><input type="radio" name="field" value="学校">学校</label>
+<label><input type="radio" name="field" value="旅行">旅行</label>
+<label><input type="radio" name="field" value="買い物">買い物</label>
+<label><input type="radio" name="field" value="病院">病院</label>
+<label><input type="radio" name="field" value="レストラン">レストラン</label>
+<label><input type="radio" name="field" value="日常会話全般" checked>日常会話全般</label>
+
+<br>
+<br>
+<br>
+<br>
+
+<%# idにfroalaってつけるとfroalaエディタが使えるようになる%>
+<textarea name="text" class="postcontent" id="froala" cols="20" rows="20">
 </textarea>
 </p>
+
+<br>
+<br>
+<br>
+
 <p>
 <input type="submit" value="投稿する！" class="postbutton">
 </p>

@@ -22,8 +22,25 @@
 
 <div class="showbox2">
 
-<p><%= hey.text %></p>
+<%# strip_tags で文字列からタグを取り除いて表示 %>
+
+<% if hey.label == "B" then %>
+<p>質問：<%= strip_tags hey.business_text %></p>
+
+<% elsif hey.label == "D" then %>
+<p>質問：<%= strip_tags hey.dairy_text %></p>
+
+<% else hey.label == "O" %>
+<p>質問：<%= strip_tags hey.other_text %></p>
+<% end %>
+
 <br>
+
+<%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
+<p><%= sanitize hey.text, tags: %w(p strong em u s sub sup span h1 h2 h3 h4 h5 h6 
+pre ul ol li blockquote table tr td br hr a), attributes: %w(href style class id height width)%></p>
+<br>
+
 <% if hey.label == "B" then %>
 <%= link_to '回答のページへ' , "/business/#{hey.business_id}" %>
 <% elsif hey.label == "D" then %>
