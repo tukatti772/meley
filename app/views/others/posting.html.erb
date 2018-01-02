@@ -31,10 +31,34 @@
 <br>
 
 
-<%# idにfroalaってつけるとfroalaエディタが使えるようになる%>
-<textarea name="text" class="postcontent" id="froala" cols="20" rows="20">
+
+<textarea name="text" class="wysihtml5" placeholder="ここに質問を入力してください。" cols="10" rows="10">
 </textarea>
-</p>
+
+<%# bootstrap-wysiwigの記述 %>
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function(){
+<%# 下の1行で、要素が存在しない場合のみツールバーを表示する%>
+<%# もしこうしなければ、turbolinksにより無限に表示される%>
+  if (!$('ul.wysihtml5-toolbar')[0]){
+   $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5({ toolbar:{ "fa": true, 'font-styles': true,
+      'color': true,
+      'emphasis': {
+        'small': true
+      },
+      'blockquote': true,
+      'lists': true,
+      'html': false,
+      'link': true,
+      'image': false,
+      'smallmodals': false }});
+    });
+ } 
+})
+
+</script>
 
 <br>
 <br>

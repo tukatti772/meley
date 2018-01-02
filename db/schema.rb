@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231062024) do
+ActiveRecord::Schema.define(version: 20180102111521) do
 
   create_table "busianswers", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "business_id",   limit: 4
-    t.text     "text",          limit: 65535
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.integer  "user_id",       limit: 4
-    t.string   "user_nickname", limit: 255
-    t.string   "label",         limit: 255
-    t.integer  "likes_count",   limit: 4,     default: 0
-    t.text     "business_text", limit: 65535
+    t.string   "name",           limit: 255
+    t.integer  "business_id",    limit: 4
+    t.text     "text",           limit: 65535
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "user_id",        limit: 4
+    t.string   "user_nickname",  limit: 255
+    t.string   "label",          limit: 255
+    t.integer  "likes_count",    limit: 4,     default: 0
+    t.text     "business_title", limit: 65535
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20171231062024) do
     t.string   "user_nickname", limit: 255
     t.string   "label",         limit: 255
     t.integer  "likes_count",   limit: 4,     default: 0
-    t.text     "dairy_text",    limit: 65535
+    t.text     "dairy_title",   limit: 65535
   end
 
   create_table "likes", force: :cascade do |t|
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20171231062024) do
     t.string   "user_nickname", limit: 255
     t.string   "label",         limit: 255
     t.integer  "likes_count",   limit: 4,     default: 0
-    t.text     "other_text",    limit: 65535
+    t.text     "other_title",   limit: 65535
   end
 
   create_table "others", force: :cascade do |t|

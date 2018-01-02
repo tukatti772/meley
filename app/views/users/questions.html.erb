@@ -25,13 +25,13 @@
 <%# strip_tags で文字列からタグを取り除いて表示 %>
 
 <% if hey.label == "B" then %>
-<p>質問：<%= strip_tags hey.business_text %></p>
+<p>質問：<%= strip_tags hey.business_title %></p>
 
 <% elsif hey.label == "D" then %>
-<p>質問：<%= strip_tags hey.dairy_text %></p>
+<p>質問：<%= strip_tags hey.dairy_title %></p>
 
 <% else hey.label == "O" %>
-<p>質問：<%= strip_tags hey.other_text %></p>
+<p>質問：<%= strip_tags hey.other_title %></p>
 <% end %>
 
 <br>

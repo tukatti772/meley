@@ -7,6 +7,50 @@ html,body{
   height: 100%;
 }
 
+/* wysihtml5用 */
+.wysiwyg-color-black {
+  color: black;
+}
+
+.wysiwyg-color-silver {
+  color: silver;
+}
+
+.wysiwyg-color-gray {
+  color: gray;
+}
+
+.wysiwyg-color-maroon {
+  color: maroon;
+}
+
+.wysiwyg-color-red {
+  color: red;
+}
+
+.wysiwyg-color-purple {
+  color: purple;
+}
+
+.wysiwyg-color-green {
+  color: green;
+}
+
+.wysiwyg-color-olive {
+  color: olive;
+}
+
+.wysiwyg-color-navy {
+  color: navy;
+}
+
+.wysiwyg-color-blue {
+  color: blue;
+}
+
+.wysiwyg-color-orange {
+  color: orange;
+}
 
 /*シェアボタン用　vertical-alignで縦位置を親要素の中央に合わせる*/
 .inline{
@@ -136,7 +180,6 @@ th{
 .postform{
   font-size: 20px;
   text-align: center;
-  margin: 50px 0px;
 }
 
 .postname{
@@ -149,11 +192,18 @@ th{
 
 .postcontent{
   font-size: 20px;
-  height: 400px;
-  width: 1000px;
+  height: 200px;
+  width: 600px;
   border-radius: 5px;
   border: solid 1px;
 }
+
+.wysihtml5{
+  height: 200px;
+  width: 1300px;
+}
+
+
 
 .postbutton{
   font-size: 20px;

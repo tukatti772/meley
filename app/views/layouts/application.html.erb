@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>英語表現データベース Outputs!</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>英語表現データベース Outputs!(β)</title>
+  <%# turbolinks用の記述 %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   <%= csrf_meta_tags %>
+
 
 <%# asset_urlは絶対パスになる。asset_pathでは画像表示されなかった。%>
 <meta name="twitter:card" content="summary_large_image" /> 
@@ -22,7 +24,10 @@
 <%#facebookのシェアボタン用%>
 <div id="fb-root"></div>
 
-<!--
+<%
+=begin
+%>
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -30,7 +35,10 @@
   js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.11';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
--->
+
+<%
+=end
+%>
 
 
 <%#ここからヘッダー%>
@@ -48,7 +56,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/toukou"><span class="deepskyblue boldtext">英語表現データベース　Outputs!</span></a>
+      <a class="navbar-brand" href="/toukou"><span class="deepskyblue boldtext">英語表現データベース　Outputs!(β)
+      </span></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -99,17 +108,7 @@
 
 </div>
 
-<%# Froriaエディタの表示 %>
-<script>
-    $(function() {
-      $('textarea#froala').froalaEditor({
-      heightMin: 200,
-      heightMax: 500
-      })
-     });
-</script>
-<%# heightMin will prevent the rich text editor's box being smaller than the value passed.
-heightMax will prevent the rich text editor's box being taller than the value passed. If the text is too long, then the WYSIWYG HTML editor will get a vertical scrollbar. %>
+
 
 
 <%#ここからフッター%>

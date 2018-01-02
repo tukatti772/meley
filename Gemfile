@@ -52,6 +52,8 @@ gem 'devise'
 gem 'kaminari'
 gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
+gem 'bootstrap-wysihtml5-rails'
+
 
 group :production do
   gem 'rails_12factor'
