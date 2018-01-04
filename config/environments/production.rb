@@ -22,6 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
+  #ここをtrueにすると、本番環境で静的なassetsを扱えるようになるらしい
   config.serve_static_files = true
 
   # Compress JavaScripts and CSS.
