@@ -289,8 +289,8 @@ th#response{
 }
 
 .a3{
-  padding: 0px 0px 50px 0px;
-  margin: 0 0 0 250px;
+  padding: 0px 0px 50px 250px;
+  text-align: left;
   font-size: 20px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
