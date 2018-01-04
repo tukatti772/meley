@@ -15,7 +15,7 @@ def create
 end
 
 def search   #Businessテーブル内容の検索。
-  @busisearch = Business.where('text LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
+  @busisearch = Business.where('title LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
   @busikaitousub = Busianswer.group(:business_id).count
   @busisearchlink = "business"
 end

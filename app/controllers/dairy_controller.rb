@@ -14,7 +14,7 @@ def create
 end
 
 def search   #Dairyテーブル内容の検索。
-  @dairysearch = Dairy.where('text LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
+  @dairysearch = Dairy.where('title LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
   @dairykaitousub = Dairyanswer.group(:dairy_id).count
   @dairysearchlink = "dairy"
 end

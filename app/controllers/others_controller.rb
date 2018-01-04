@@ -14,7 +14,7 @@ def create
 end
 
 def search   #Otherテーブル内容の検索。
-  @othersearch = Other.where('text LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
+  @othersearch = Other.where('title LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
   @otherkaitousub = Otheranswer.group(:other_id).count
   @othersearchlink = "others"
 end
