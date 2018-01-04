@@ -1,4 +1,4 @@
-<!--businessコントローラindexアクションのビューファイル-->
+<%# businessコントローラindexアクションのビューファイル %>
 
 <% if user_signed_in? %>
 
@@ -23,7 +23,9 @@
 <% end %>
 </div>
 
-<!-- 以下投稿リスト -->
+<br>
+<br>
+<%# 以下投稿リスト %>
 
 <%= render 'layouts/maintable' , allposts: @businesses , kaitousu: @busikaitousu , 
 link: @businesslink %>
