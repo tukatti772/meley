@@ -177,6 +177,11 @@ th{
 ガタツキを防ぐ*/
 
 /* 投稿フォームのcss */
+
+#title{
+  width: 800px;
+}
+
 .postform{
   font-size: 20px;
   text-align: center;
