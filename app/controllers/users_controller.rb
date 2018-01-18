@@ -13,6 +13,10 @@ def show
   #kaminariで配列に対してページネーションする方法。便利なので覚えておこう。
   @showID = params[:id]
   @user = User.find(params[:id])
+  #以下回答数表示用
+  @countB = Busianswer.group(:business_id).count
+  @countD = Dairyanswer.group(:dairy_id).count
+  @countO = Otheranswer.group(:other_id).count
 end
 
 

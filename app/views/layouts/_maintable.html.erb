@@ -1,26 +1,31 @@
-<table border="1" id="QAtable">
-<tr>
-<th id="naiyou">質問内容</th>
-<th id="toukousya">投稿者</th>
-<th id="response">回答数</th>
-</tr>
+
 
 <% allposts.each do |roop| %>
-<tr>
-<!--下記のようなリンク記法は覚えておく。linktoタグではうまくいかなかった。-->
-<th id="naiyou"><a href ="/<%= link %>/<%= roop.id %>"><%= roop.title %></a></th>
-<th id="toukousya">
-<%= link_to "#{roop.name}" , "users/#{roop.user_id}" %>
-</th>
+<div class='showbox'>
+
+
+<%#下記のようなリンク記法は覚えておく。linktoタグではうまくいかなかった。%>
+<div id='indextitle'><a href ="/<%= link %>/<%= roop.id %>"><%= roop.title %></a></div>
+<br>
+<br>
+
+<div class='ellipsis'><%= strip_tags roop.text %></div>
+<br>
+<br>
+
+<span>
+投稿者：<%= link_to "#{roop.name}" , "users/#{roop.user_id}" %>
 
 <% if kaitousu[roop.id] == nil then %>
-<!-- == と記述しないと、左辺と右辺が等しいという意味にならないよ！ -->
-<th id="response"> <%= "0" %> </th>
+<%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
+　　回答数：<span> <%= "0" %> </span>
 <% else %>
-<th id="response"> <%= kaitousu[roop.id] %> </th>
+　　回答数：<span> <%= kaitousu[roop.id] %> </span>
 <% end %>
 
-</tr>
+　　投稿日：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %>
+</span>
+
+</div>
 <% end %>
 
-</table>

@@ -219,33 +219,47 @@ th{
   border: none;
 }
 
-/* Q&Aテーブルのcss */
-table#QAtable{
-  margin: 0% auto;
-  width: 100%;
-  height: 10%;
+/* maintableのcss */
+#indextitle{
+  font-size: 28px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  table-layout: fixed;
 }
 
-th#No{
-  width: 5%;
+#indexcontent{
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
-th#naiyou{
-  width: 63%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* 2行以上の文章は...で表示するcss */
+
+.ellipsis {
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 15px;
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
-th#toukousya{
-  width: 20%;
+.ellipsis:before, .ellipsis:after {
+    position: absolute;
+    background: #fff;
 }
 
-th#response{
-  width: 12%;
+.ellipsis:before {
+    content: "･･･";
+    bottom: 0;
+    right: 0;
 }
+
+.ellipsis:after {
+    content: "";
+    width: 100%;
+    height: 100%
+}
+
+/* 2行以上の文章は...で表示するcss */
+
 
 
 /* 個別投稿ページ(showアクション)のcss */
@@ -257,7 +271,7 @@ th#response{
   font-size: 15px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
   padding: 20px;
-  margin: 30px;
+  margin: 80px 30px 80px 30px;
 }
 
 .showbox2{
