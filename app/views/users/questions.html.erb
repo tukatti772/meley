@@ -23,11 +23,11 @@
 <div class="showbox">
 
 <% if hey.label == "B" then %>
-<div id='indextitle'><a href ="/business/<%= hey.business_id %>"><%= strip_tags hey.business_title %>（ビジネスシーン）</a></div>
+<div id='indextitle'><a href ="/business/<%= hey.business_id %>"><%= strip_tags hey.business_title %>（ビジネス）</a></div>
 <% elsif hey.label == "D" then %>
-<div id='indextitle'><a href ="/dairy/<%= hey.dairy_id %>"><%= strip_tags hey.dairy_title %>（日常会話）</a></div>
+<div id='indextitle'><a href ="/dairy/<%= hey.dairy_id %>"><%= strip_tags hey.dairy_title %>（日常生活）</a></div>
 <% else hey.label == "O" %>
-<div id='indextitle'><a href ="/others/<%= hey.other_id %>"><%= strip_tags hey.other_title %>（英語に関するQ&A）</a></div>
+<div id='indextitle'><a href ="/others/<%= hey.other_id %>"><%= strip_tags hey.other_title %>（英語全般）</a></div>
 <% end %>
 
 

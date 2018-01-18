@@ -26,11 +26,11 @@
 
 
 <% if happy.label == "B" then %>
-<div id='indextitle'><a href ="/business/<%= happy.id %>"><%= happy.title %>（ビジネスシーン）</a></div>
+<div id='indextitle'><a href ="/business/<%= happy.id %>"><%= happy.title %>（ビジネス）</a></div>
 <% elsif happy.label == "D" then %>
-<div id='indextitle'><a href ="/dairy/<%= happy.id %>"><%= happy.title %>（日常会話）</a></div>
+<div id='indextitle'><a href ="/dairy/<%= happy.id %>"><%= happy.title %>（日常生活）</a></div>
 <% else happy.label == "O" %>
-<div id='indextitle'><a href ="/others/<%= happy.id %>"><%= happy.title %>（英語に関するQ&A)</a></div>
+<div id='indextitle'><a href ="/others/<%= happy.id %>"><%= happy.title %>（英語全般)</a></div>
 <% end %>
 
 
