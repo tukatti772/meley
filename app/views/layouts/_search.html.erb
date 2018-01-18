@@ -24,7 +24,7 @@
 <br>
 
 <span>
-投稿者：<%= link_to "#{roop.name}" , "users/#{roop.user_id}" %>
+投稿者：<%= link_to "#{roop.name}" , "/users/#{roop.user_id}" %>
 
 <% if kaitousub[roop.id] == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
