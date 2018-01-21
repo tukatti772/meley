@@ -8,8 +8,29 @@ def index
 end
 
 def create
-  Dairy.create(name: current_user.nickname, text: dairy_params[:text], label: "D",
+
+
+  #create!メソッドは検証が通らなかった際にエラーを返す
+  newdairy = Dairy.create!(name: current_user.nickname, text: dairy_params[:text], label: "D",
     user_id: current_user.id, title: dairy_params[:title], tag: dairy_params[:field])
+
+  #以下、投稿にタグを関連付けていく。入力フォームに空白があっても対応させている。
+  tags = dairy_params[:field]
+
+  f = 0
+  while f <= 4 do
+   if tags[f] != "" 
+    existTag = Tag.find_by(tag: tags[f])
+     if existTag == nil
+      tag = Tag.create!(tag: tags[f])
+       newdairy.tags << tag  #newdairyに新規に作ったtag0を関連付け
+     else 
+       newdairy.tags << existTag  #newdairyに既存のタグを関連付け
+     end
+   end
+  f += 1
+  end
+
    redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
 end
 
@@ -41,9 +62,10 @@ def like_delete
   @data = Dairy.find(params[:id])
 end
 
+#配列がparamsに入っている時の記述に注意
 private
 def dairy_params
-  params.permit(:text, :title, :field)
+  params.permit(:text, :title, field:[])
 end
 
 

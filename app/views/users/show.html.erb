@@ -20,18 +20,12 @@
 
 
 
-<% @allquestions3.each do |happy| %>
+<% @questions.each do |happy| %>
 
 <div class='showbox'>
 
 
-<% if happy.label == "B" then %>
-<div id='indextitle'><a href ="/business/<%= happy.id %>"><%= happy.title %>（ビジネス）</a></div>
-<% elsif happy.label == "D" then %>
-<div id='indextitle'><a href ="/dairy/<%= happy.id %>"><%= happy.title %>（日常生活）</a></div>
-<% else happy.label == "O" %>
-<div id='indextitle'><a href ="/others/<%= happy.id %>"><%= happy.title %>（英語全般)</a></div>
-<% end %>
+<div id='indextitle'><a href ="/dairy/<%= happy.id %>"><%= happy.title %></a></div>
 
 
 <br>
@@ -41,45 +35,23 @@
 <br>
 <br>
 
-<% if happy.label == "B" then %>
+<%# 投稿に紐づいているタグを1つずつ表示する %>
+<% happy.tags.each do |yeah| %>
+<div class="tag"><%= link_to "#{yeah.tag}" , "/tags/#{yeah.id}", :style => "color:white;"%></div>
+<% end %>
+
+<br>
 <span>
-<% if @countB[happy.id] == nil then %>
+<% if @count[happy.id] == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
 回答数：<span> <%= "0" %> </span>
 <% else %>
-回答数：<span> <%= @countB[happy.id] %> </span>
+回答数：<span> <%= @count[happy.id] %> </span>
 <% end %>
 
 　　投稿日：<%= happy.created_at.strftime('%Y/%m/%d %H:%M') %>
 </span>
 
-
-<% elsif happy.label == "D" then %>
-<span>
-<% if @countD[happy.id] == nil then %>
-<%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
-回答数：<span> <%= "0" %> </span>
-<% else %>
-回答数：<span> <%= @countD[happy.id] %> </span>
-<% end %>
-
-　　投稿日：<%= happy.created_at.strftime('%Y/%m/%d %H:%M') %>
-</span>
-
-
-<% else happy.label == "O" %>
-<span>
-<% if @countO[happy.id] == nil then %>
-<%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
-回答数：<span> <%= "0" %> </span>
-<% else %>
-回答数：<span> <%= @countO[happy.id] %> </span>
-<% end %>
-
-　　投稿日：<%= happy.created_at.strftime('%Y/%m/%d %H:%M') %>
-</span>
-
-<% end %>
 
 </div>
 <% end %>
@@ -87,7 +59,7 @@
 
 
 <div class="a4">
-<%= paginate @allquestions3, :param_name => 'question_page' %>
+<%= paginate(@questions) %>
 </div>
 
 

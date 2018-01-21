@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102111521) do
+ActiveRecord::Schema.define(version: 20180120093405) do
 
   create_table "busianswers", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -47,7 +47,12 @@ ActiveRecord::Schema.define(version: 20180102111521) do
     t.string   "label",       limit: 255
     t.integer  "likes_count", limit: 4,     default: 0
     t.string   "title",       limit: 255
-    t.string   "tag",         limit: 255
+    t.text     "tag",         limit: 65535
+  end
+
+  create_table "dairies_tags", force: :cascade do |t|
+    t.integer "tag_id",   limit: 4
+    t.integer "dairy_id", limit: 4
   end
 
   create_table "dairyanswers", force: :cascade do |t|
@@ -98,6 +103,13 @@ ActiveRecord::Schema.define(version: 20180102111521) do
     t.integer  "likes_count", limit: 4,     default: 0
     t.text     "title",       limit: 65535
     t.text     "tag",         limit: 65535
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer  "dairy_id",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "tag",        limit: 65535
   end
 
   create_table "users", force: :cascade do |t|

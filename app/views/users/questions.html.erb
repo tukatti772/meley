@@ -18,17 +18,13 @@
 
 
 
-<% @allanswers3.each do |hey| %>
+<% @answers.each do |hey| %>
 
 <div class="showbox">
 
-<% if hey.label == "B" then %>
-<div id='indextitle'><a href ="/business/<%= hey.business_id %>"><%= strip_tags hey.business_title %>（ビジネス）</a></div>
-<% elsif hey.label == "D" then %>
-<div id='indextitle'><a href ="/dairy/<%= hey.dairy_id %>"><%= strip_tags hey.dairy_title %>（日常生活）</a></div>
-<% else hey.label == "O" %>
-<div id='indextitle'><a href ="/others/<%= hey.other_id %>"><%= strip_tags hey.other_title %>（英語全般）</a></div>
-<% end %>
+
+<div id='indextitle'><a href ="/dairy/<%= hey.dairy_id %>"><%= strip_tags hey.dairy_title %></a></div>
+
 
 
 <br>
@@ -37,6 +33,14 @@
 <div class='ellipsis'><%= strip_tags hey.text %></div>
 <br>
 
+<%# 投稿に紐づいているタグを1つずつ表示する %>
+<% hey.dairy.tags.each do |yeah| %>
+<div class="tag"><%= link_to "#{yeah.tag}" , "/tags/#{yeah.id}", :style => "color:white;" %></div>
+<% end %>
+
+
+
+<br>
 回答日：<%= hey.created_at.strftime('%Y/%m/%d %H:%M') %>
 <%# strip_tags で文字列からタグを取り除いて表示 %>
 
@@ -46,7 +50,7 @@
 <% end %>
 
 <div class="a4">
-<%= paginate @allanswers3, :param_name => 'answer_page' %>
+<%= paginate (@answers) %>
 </div>
 
 

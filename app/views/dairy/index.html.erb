@@ -1,19 +1,11 @@
 <%# dairyコントローラindexアクションのビューファイル %>
 
-<% if user_signed_in? %>
 
-<p class="a1">
-<%= link_to '日常会話で使う英語について質問してみよう！' , '/dairy/posting' %>
-</p>
+<%
+=begin
+%>
 
-<% else %>
-
-<p class="a1">
-ログインすると、質問を行うことができます。
-</p>
-
-<% end %>
-
+使わないけどコードだけ参考に残しとく
 <div class="postform">
 <%= form_tag('/dairy/search', method: :get) do %>
 <p>
@@ -23,8 +15,12 @@
 <% end %>
 </div>
 
-<br>
-<br>
+<%
+=end
+%>
+
+<p class="a1">質問一覧です。</p>
+
 <%# 以下投稿リスト %>
 
 <%= render 'layouts/maintable' , allposts: @dairyposts , kaitousu: @dairykaitousu , link: @dairylink%>

@@ -1,5 +1,7 @@
-<!--検索フォームのテンプレートファイル-->
+<%# 検索フォームのテンプレートファイル %>
 
+<br>
+<br>
 
 <p class="a1">
 検索結果を以下に表示しています。
@@ -23,6 +25,13 @@
 <br>
 <br>
 
+<%# 投稿に紐づいているタグを1つずつ表示する %>
+<% roop.tags.each do |yeah| %>
+<div class="tag"><%= link_to "#{yeah.tag}" , "/tags/#{yeah.id}", :style => "color:white;" %></div>
+<% end %>
+
+
+<br>
 <span>
 投稿者：<%= link_to "#{roop.name}" , "/users/#{roop.user_id}" %>
 

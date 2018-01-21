@@ -13,8 +13,16 @@
 <br>
 <br>
 
+<%# 投稿に紐づいているタグを1つずつ表示する %>
+<% roop.tags.each do |yeah| %>
+<div class="tag"><%= link_to "#{yeah.tag}" , "/tags/#{yeah.id}", :style => "color:white;"%></div>
+<% end %>
+
+
+<br>
+
 <span>
-投稿者：<%= link_to "#{roop.name}" , "users/#{roop.user_id}" %>
+投稿者：<%= link_to "#{roop.name}" , "/users/#{roop.user_id}" %>
 
 <% if kaitousu[roop.id] == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
