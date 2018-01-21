@@ -1,0 +1,15 @@
+<%# tagsコントローラshowアクションのビューファイル %>
+
+<br>
+<br>
+
+<p class="a1">タグ「<%= @tagname %>」の付いている投稿一覧です。</p>
+<%= render 'layouts/maintable' , allposts: @posts , kaitousu: @dairykaitousu , link: @dairylink%>
+
+<br>
+<br>
+
+<div class="a4">
+<%= paginate(@posts) %>
+</div>
+
