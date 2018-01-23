@@ -20,7 +20,7 @@
 <%#Rubyの式展開の記法は覚えておくこと%>
 
 
-<textarea name="text" class="wysihtml5" placeholder="ここに回答を入力してください。" cols="10" rows="10">
+<textarea name="text" class="wysihtml5" placeholder="ここにコメントを入力してください。" cols="10" rows="10">
 </textarea>
 
 <%# bootstrap-wysiwigの記述 %>
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function(){
 
 <br>
 <br>
-<input type="submit" value="投稿に回答" class="postbutton">
+<input type="submit" value="コメントする" class="postbutton">
 <% end %>
 
 </div>
@@ -59,7 +59,7 @@ $(document).on('turbolinks:load', function(){
 
 <% else %>
 
-<p class="a1">ログインすると、投稿に回答できます。</p>
+<p class="a1">ログインすると、投稿にコメントできます。</p>
 
 <% end %>
 

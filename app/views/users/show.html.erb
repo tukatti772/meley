@@ -8,10 +8,10 @@
 
  <ul>
    <li class="list1">
-   <%= link_to '質問一覧' , "/users/#{@showID}" %>
+   <%= link_to '投稿一覧' , "/users/#{@showID}" %>
    </li>
    <li class="list2">
-   <%= link_to '回答一覧' , "/users/#{@showID}/questions" %>
+   <%= link_to 'コメント一覧' , "/users/#{@showID}/questions" %>
    </li>
    <li class="list2">
    <%= link_to '統計' , "/users/#{@showID}/counts" %>
@@ -44,9 +44,9 @@
 <span>
 <% if @count[happy.id] == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
-回答数：<span> <%= "0" %> </span>
+コメント数：<span> <%= "0" %> </span>
 <% else %>
-回答数：<span> <%= @count[happy.id] %> </span>
+コメント数：<span> <%= @count[happy.id] %> </span>
 <% end %>
 
 　　投稿日：<%= happy.created_at.strftime('%Y/%m/%d %H:%M') %>

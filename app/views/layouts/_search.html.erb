@@ -37,9 +37,9 @@
 
 <% if kaitousub[roop.id] == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
-　　回答数：<span> <%= "0" %> </span>
+　　コメント数：<span> <%= "0" %> </span>
 <% else %>
-　　回答数：<span> <%= kaitousub[roop.id] %> </span>
+　　コメント数：<span> <%= kaitousub[roop.id] %> </span>
 <% end %>
 
 　　投稿日：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %>
