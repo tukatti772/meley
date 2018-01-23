@@ -8,8 +8,8 @@ class Dairy < ActiveRecord::Base
   serialize :tag
 
 #投稿の検証
-  validates :text, presence: true, length: {mininum: 1, maximum: 100 }
-  validates :title, presence: true
+  validates :text, presence: true
+  validates :title, presence: true, length: {mininum: 1, maximum: 100 }
   validate :tag_content?
   validate :tag_length?
    #ユーザーがいいね！しているかどうか確認するメソッド
