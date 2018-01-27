@@ -52,7 +52,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'font-awesome-rails'
 gem 'bootstrap-wysihtml5-rails'
-gem 'paperclip'
+gem 'paperclip', '4.3.6'
 gem 'fog'
 gem 'aws-sdk', '< 2.0'
 

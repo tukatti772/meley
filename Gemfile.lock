@@ -263,7 +263,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
+    mimemagic (0.3.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
@@ -271,12 +271,12 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    paperclip (5.2.1)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
+    paperclip (4.3.6)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
       cocaine (~> 0.5.5)
       mime-types
-      mimemagic (~> 0.3.0)
+      mimemagic (= 0.3.0)
     pry (0.11.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -380,7 +380,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2 (= 0.3.18)
-  paperclip
+  paperclip (= 4.3.6)
   pry-rails
   rails (= 4.2.6)
   rails_12factor
