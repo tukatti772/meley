@@ -13,8 +13,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  #大塚追記。静的なassetsは読み込まない。プリコンパイルした後にdevelopmentでバグるの防止
-  config.serve_static_files = false
+  #大塚追記。falseで静的なassetsは読み込まない。プリコンパイルした後にdevelopmentでバグるの防止?
+  #trueにすると静的なassetsも読み込む。public以下のファイルも読み込む
+  config.serve_static_files = true
 
   #大塚が追記
   config.action_mailer.default_url_options =  { host: 'localhost', port: 3000 }

@@ -16,6 +16,12 @@ Outputsのご利用にはユーザー登録が必要です。ご登録をお願�
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <br>
+  
+  <div class="avatar">
+    <%= f.file_field :avatar %><br />
+  </div>
+
   <div class="signup">
     <%= f.label :password, "パスワード" %>
     <% if @minimum_password_length %>

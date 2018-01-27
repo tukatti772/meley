@@ -113,6 +113,16 @@ html,body{
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
+.avatar{
+  border: solid 1px;
+  width: 40%;
+  height: 5%;
+  padding: 2%;
+  font-size: 20px;
+  margin: 1% auto;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
 .signupbox{
   text-align: center;
 }
@@ -365,6 +375,16 @@ th{
   font-size: 40px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
+
+.h2{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+  font-size: 30px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
 
 .text1{
   font-weight: bold;

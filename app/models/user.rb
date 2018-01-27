@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
   has_many :businesses
   has_many :dairies
   has_many :others
+
+
+#paperclip用の記述
+
+has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" }
+validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
+
+
+
 end
