@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
 
 #paperclip用の記述
 
-has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" }
+has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" },
+  :storage => :s3,
+  :bucket  => ENV['eigokun']
 validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
 
 
