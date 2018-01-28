@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
 
 has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" },
   :storage => :s3,
-  :bucket  => ENV['eigokun'],
   :s3_credentials => {
+                    :bucket  => ENV['eigokun'],
                     :access_key_id => ENV['AKIAJPK4ZDXVIOZVH5VA'],
                     :secret_access_key => ENV['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']
                 }
