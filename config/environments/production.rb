@@ -80,14 +80,15 @@ Rails.application.configure do
 
   #AWS S3用の設定
 
-config.paperclip_defaults = {
+ config.paperclip_defaults = {
   :storage        => :s3,
-  :bucket         => 'eigokun',
-  :s3_region      => 'ap-northeast-1',
+  :bucket         => ENV['S3_BUCKET_NAME'],
+  :s3_region      => ENV['AWS_REGION'],
   :s3_host_name   => 's3-ap-northeast-1.amazonaws.com',
   :s3_credentials => {
-    access_key_id: ENV['AKIAJPK4ZDXVIOZVH5VA'],
-    secret_access_key: ENV['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']
+    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
+
 end
