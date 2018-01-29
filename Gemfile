@@ -54,7 +54,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-wysihtml5-rails'
 gem 'paperclip', :git => 'https://github.com/thoughtbot/paperclip.git'
 gem 'fog'
-gem 'aws-sdk', '2.2.14'
+gem 'aws-sdk', '~> 2.3'
 
 group :production do
   gem 'rails_12factor'

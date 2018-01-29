@@ -49,12 +49,14 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.4)
-    aws-sdk (2.2.14)
-      aws-sdk-resources (= 2.2.14)
-    aws-sdk-core (2.2.14)
+    aws-sdk (2.10.125)
+      aws-sdk-resources (= 2.10.125)
+    aws-sdk-core (2.10.125)
+      aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.2.14)
-      aws-sdk-core (= 2.2.14)
+    aws-sdk-resources (2.10.125)
+      aws-sdk-core (= 2.10.125)
+    aws-sigv4 (1.0.2)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -375,7 +377,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (= 2.2.14)
+  aws-sdk (~> 2.3)
   bootstrap-wysihtml5-rails
   byebug
   coffee-rails (~> 4.1.0)
