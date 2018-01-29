@@ -84,7 +84,7 @@ config.paperclip_defaults = {
   :storage        => :s3,
   :bucket         => ENV['eigokun'],
   :s3_region      => ENV['ap-northeast-1'],
-  :s3_host_name   => ENV['s3-ap-northeast-1.amazonaws.com'],
+  :s3_host_name   => 's3-ap-northeast-1.amazonaws.com',
   :s3_credentials => {
     access_key_id: ENV['AKIAJPK4ZDXVIOZVH5VA'],
     secret_access_key: ENV['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']
