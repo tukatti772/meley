@@ -14,13 +14,8 @@ class User < ActiveRecord::Base
 #paperclip用の記述
 
 has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" },
-  :storage => :s3,
-  :bucket  => ENV['eigokun'],
-  :s3_credentials => {
-                    :access_key_id => ENV['AKIAJPK4ZDXVIOZVH5VA'],
-                    :secret_access_key => ENV['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']
-                }
-
+:path => ":attachment/:id/:style.:extension"
+  
 
 validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
 
