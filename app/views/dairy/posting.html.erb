@@ -5,31 +5,42 @@
 
 <div class="postform">
 
-<%= form_tag('/dairy', method: :post) do %>
+<%= form_for(@post, url: dairy_index_path, html: {method: :post}) do |f| %>
 
-<p>
+<% if @post.errors.any? %>
+
+<% @post.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+
+<% end %>
+
+
 
 <label>
-<input type="text" name="title" id="title" placeholder="タイトル(最大100文字)">
+<%= f.text_field :title, maxlength: 100, placeholder: "タイトル（最大100文字）" %>
 </label>
 
 <br>
 <br>
 <label>
-<input type="text" name="field[]"  placeholder="タグ1(最大20文字)">
-<input type="text" name="field[]"  placeholder="タグ2(最大20文字)">
-<input type="text" name="field[]"  placeholder="タグ3(最大20文字)">
-<input type="text" name="field[]"  placeholder="タグ4(最大20文字)">
-<input type="text" name="field[]"  placeholder="タグ5(最大20文字)">
-</label>
+
+<%# f.text_fieldであっても、明示的にname属性を下記のように指定することで、paramsに配列を送れる%>
+<% i=0 %>
+<% while i<5 do %>
+<%= f.text_field :tag, name:"dairy[tag][]", maxlength: 20, placeholder: "タグ#{i+1}(最大20文字)" %>
+<% i+=1 %>
+<% end %>
+
+</label> 
 
 <br>
 <br>
 <br>
 <br>
 
-<textarea name="text" class="wysihtml5" placeholder="ここに投稿内容を入力してください。" cols="10" rows="10">
-</textarea>
+<%= f.text_area :text, cols: 10, rows: 10, placeholder: "ここに投稿内容を入力してください。", class: :wysihtml5 %>
+
 
 <%# bootstrap-wysiwigの記述 %>
 <script type="text/javascript">
@@ -61,8 +72,9 @@ $(document).on('turbolinks:load', function(){
 <br>
 
 <p>
-<input type="button" onclick="submit();" value="投稿する！" class="postbutton">
+<%= f.submit '投稿する!', data: { confirm: 'この内容で投稿しますか？'}, class: :postbutton %>
 </p>
+
 <% end %>
 </div>
 
