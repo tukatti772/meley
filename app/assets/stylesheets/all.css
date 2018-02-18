@@ -196,6 +196,10 @@ th{
   width: 800px;
 }
 
+#error_messages{
+  color: red;
+  border: solid red;
+}
 
 .postform{
   font-size: 20px;
@@ -221,6 +225,10 @@ th{
 .wysihtml5{
   height: 200px;
   width: 1300px;
+}
+
+.tagform{
+  display:inline-block;
 }
 
 

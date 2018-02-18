@@ -1,0 +1,10 @@
+#バリデーションのエラーメッセージの翻訳ファイル。
+ja:
+  attributes:
+    title: 投稿タイトル
+    tag: タグ
+    text: 投稿内容
+  errors:
+    format:  !  '%{attribute}%{message}'
+    messages:
+      blank: を入力してください。

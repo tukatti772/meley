@@ -11,26 +11,35 @@ def create
 
 
   #create!メソッドは検証が通らなかった際にエラーを返す
-  newdairy = Dairy.create!(dairy_params)
+  @newdairy = Dairy.new(dairy_params)
+
+  #@newdairy.saveがtrueならば、以下の処理を実行
+  if @newdairy.save
 
   #以下、投稿にタグを関連付けていく。入力フォームに空白があっても対応させている。
-  tags = newdairy.tag
+  tags = @newdairy.tag
 
   f = 0
   while f <= 4 do
    if tags[f] != ""
     existTag = Tag.find_by(tag: tags[f])
      if existTag == nil
-      tag = Tag.create!(tag: tags[f])
-       newdairy.tags << tag  #newdairyに新規に作ったtag0を関連付け
+      tag = Tag.create(tag: tags[f])
+       @newdairy.tags << tag  #newdairyに新規に作ったtag0を関連付け
      else 
-       newdairy.tags << existTag  #newdairyに既存のタグを関連付け
+       @newdairy.tags << existTag  #newdairyに既存のタグを関連付け
      end
    end
   f += 1
   end
 
    redirect_to action: :index    #投稿後にQ&A一覧画面に戻る
+
+  #@newdairy.saveがfalseならば、以下の処理を実行。@newdairyに格納された値ごとpostingに返す
+  else
+    render 'dairy/posting'
+  end
+  
 end
 
 def search   #Dairyテーブル内容の検索。
@@ -43,7 +52,8 @@ def posting
     redirect_to action: :index unless user_signed_in?
   #サインインしてない状態で投稿しようとした場合、indexに返す
 
-  @post = Dairy.new
+  #form_forを使用するために、空のDairyモデルのインスタンスを作成
+  @newdairy = Dairy.new
 
 end
 
@@ -65,6 +75,8 @@ def like_delete
 end
 
 #paramsで配列が送られてきたとき、カラム名:[]のようにすると、カラムに配列を格納できる
+#require(:dairy)とつけることで、[:dairy][:text]..のような形のハッシュを受けられる
+#mergeメソッドで、フォームから送られてきていない値もparamsに加えられる
 private
 def dairy_params
   params.require(:dairy).permit(:text, :title, tag:[]).merge(name: current_user.nickname, label: "D", user_id: current_user.id)

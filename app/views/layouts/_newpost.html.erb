@@ -1,0 +1,85 @@
+
+<%# 新規投稿画面の部分テンプレートファイル %>
+
+<p class="a1">投稿してみよう!</p>
+
+<div class="postform">
+
+<%= form_for(dairy, url: dairy_index_path, html: {method: :post}) do |f| %>
+
+<% if dairy.errors.any? %>
+
+<div id="error_messages">
+<% dairy.errors.full_messages.each do |message| %>
+<p>・<%= message %></p>
+<% end %>
+</div>
+
+<% end %>
+
+<br>
+<br>
+
+<label>
+<%= f.text_field :title, maxlength: 100, placeholder: "タイトル（最大100文字）" %>
+</label>
+
+<br>
+<br>
+
+
+<%# f.text_fieldであっても、明示的にname属性を下記のように指定することで、paramsに配列を送れる%>
+<%# f.text_fieldのvalueを明示的に空文字にしないと、バリデーションエラー時にテキストボックスに空白が入ってplaceholderが消える。%>
+<%# name属性を明示的に記述したからだと思われる。そうしなければ、空白は入らない。%>
+<% i=0 %>
+<% while i<5 do %>
+<label>
+<%= f.text_field :tag, name:"dairy[tag][]", maxlength: 20, placeholder: "タグ#{i+1}(最大20文字)", value: "" %>
+</label>
+<% i+=1 %>
+<% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<%= f.text_area :text, cols: 10, rows: 10, placeholder: "ここに投稿内容を入力してください。", class: :wysihtml5 %>
+
+
+<%# bootstrap-wysiwigの記述 %>
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function(){
+<%# 下の1行で、要素が存在しない場合のみツールバーを表示する%>
+<%# もしこうしなければ、turbolinksにより無限に表示される%>
+  if (!$('ul.wysihtml5-toolbar')[0]){
+   $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5({ toolbar:{ "fa": true, 'font-styles': true,
+      'color': true,
+      'emphasis': {
+        'small': true
+      },
+      'blockquote': true,
+      'lists': true,
+      'html': false,
+      'link': true,
+      'image': false,
+      'smallmodals': false }});
+    });
+ } 
+})
+
+</script>
+
+<br>
+<br>
+<br>
+
+<p>
+<%= f.submit '投稿する!', data: { confirm: 'この内容で投稿しますか？'}, class: :postbutton %>
+</p>
+
+<% end %>
+</div>

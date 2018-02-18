@@ -4,7 +4,7 @@ class Dairy < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
 
-#配列に対応させる
+#データベースのtagカラムに配列を格納できるようにする
   serialize :tag
 
 #投稿の検証
@@ -23,7 +23,7 @@ private
 #タグ配列の全て空でないか？の検証
   def tag_content?
     if tag[0]=="" && tag[1]=="" && tag[2]=="" && tag[3]=="" && tag[4]==""
-      errors.add(:tag, "タグを最低1つ入力してください！")
+      errors.add(:tag, "を最低1つ入力してください。")
     end
   end
 

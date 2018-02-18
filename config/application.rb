@@ -19,7 +19,14 @@ module Outputs
     config.active_record.default_timezone = :local
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    #バリデーションのエラーメッセージを日本語化
+    config.i18n.default_locale = :ja
+
+    #バリデーションのエラー部に付加されるdiv class="field_with_errors"を生成しないようにする。
+    #スタイルが崩れるのを防止するため。
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
