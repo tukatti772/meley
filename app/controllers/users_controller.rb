@@ -40,6 +40,24 @@ def counts
   sum4 = sum4 + count4.likes_count
  end
  @lastsum = sum3 + sum4 
+
+ @follows = @user.following
+ @followers = @user.followers
+
 end
+
+
+def follows
+ @followsID = params[:id]
+ @user = User.find(params[:id])
+ @follows = @user.following
+end
+
+def followers
+  @followersID = params[:id]
+  @user = User.find(params[:id])
+  @followers = @user.followers
+end
+
 
 end

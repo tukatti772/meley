@@ -2,31 +2,53 @@
 <div class="tab-menu">
 
 <div class="a5 boldtext">
- <%= @user.nickname %> さんの・・
+
+<% if user_signed_in? %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<br>
+<br>
+
+<% unless current_user.id == @user.id %>
+
+<div id="followbutton">
+<%= render 'users/followbutton', sodane: @user %>
+</div>
+
+<% end %>
+
+<% else %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<% end %>
 </div>
 
 
  <ul>
    <li class="list2">
-   <%= link_to '質問一覧' , "/users/#{@countsID}" %>
+   <%= link_to '投稿' , "/users/#{@countsID}" %>
    </li>
    <li class="list2">
-   <%= link_to '回答一覧' , "/users/#{@countsID}/questions" %>
+   <%= link_to 'コメント' , "/users/#{@countsID}/questions" %>
    </li>
    <li class="list1">
    <%= link_to '統計' , "/users/#{@countsID}/counts" %>
+   </li>
+    <li class="list2">
+   <%= link_to 'フォロー' , "/users/#{@countsID}/follows" %>
+   </li>
+    <li class="list2">
+   <%= link_to 'フォロワー' , "/users/#{@countsID}/followers" %>
    </li>
  </ul>
 
 <div class="countdisplay">
 
 <div class="countbox">
-    <div class="box-title">質問数</div>
+    <div class="box-title">投稿</div>
     <p><%= @questiond %></p>
 </div>
 
 <div class="countbox">
-    <div class="box-title">回答数</div>
+    <div class="box-title">コメント</div>
     <p><%= @answerd %></p>
 </div>
 
@@ -34,6 +56,18 @@
     <div class="box-title">貰ったいいね！</div>
     <p><%= @lastsum %></p>
 </div>
+
+<div class="countbox">
+    <div class="box-title">フォロー</div>
+    <p><%= @follows.count %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title">フォロワー</div>
+    <p><%= @followers.count %></p>
+</div>
+
+
 
 </div>
 

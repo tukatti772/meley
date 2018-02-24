@@ -416,7 +416,7 @@ th{
 }
 
 .tab-menu li.list1{
-  width: 120px;
+  width: 150px;
   height: 50px;
   cursor: pointer;
   background-color: #FFCC99;
@@ -429,7 +429,7 @@ th{
 }
 
 .tab-menu li.list2{
-  width: 120px;
+  width: 150px;
   height: 50px;
   cursor: pointer;
   border-top-right-radius: 10px;

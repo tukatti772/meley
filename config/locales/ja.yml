@@ -1,4 +1,4 @@
-#バリデーションのエラーメッセージの翻訳ファイル。
+#バリデーションとdeviseのエラーメッセージの翻訳ファイル。
 ja:
   attributes:
     title: 投稿タイトル
@@ -8,3 +8,4 @@ ja:
     format:  !  '%{attribute}%{message}'
     messages:
       blank: を入力してください。
+

@@ -1,0 +1,49 @@
+<%# usersコントローラーのfollowsアクション。フォローしているユーザー一覧を表示。%>
+
+<div class="tab-menu">
+
+<div class="a5 boldtext">
+
+<% if user_signed_in? %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<br>
+<br>
+
+<% unless current_user.id == @user.id %>
+
+<div id="followbutton">
+<%= render 'users/followbutton', sodane: @user %>
+</div>
+
+<% end %>
+
+<% else %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<% end %>
+</div>
+
+
+ <ul>
+   <li class="list2">
+   <%= link_to '投稿' , "/users/#{@followsID}" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'コメント' , "/users/#{@followsID}/questions" %>
+   </li>
+   <li class="list2">
+   <%= link_to '統計' , "/users/#{@followsID}/counts" %>
+   </li>
+   <li class="list1">
+   <%= link_to 'フォロー' , "/users/#{@followsID}/follows" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'フォロワー' , "/users/#{@followsID}/followers" %>
+   </li>
+ </ul>
+
+
+<% @follows.each do |followlist| %>
+<div class="showbox2">
+ <%= image_tag followlist.avatar.url(:thumb) %>  <%= link_to followlist.nickname, "/users/#{followlist.id}" %>
+</div>
+<% end %>

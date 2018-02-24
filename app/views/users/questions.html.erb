@@ -1,18 +1,41 @@
 <div class="tab-menu">
 
 <div class="a5 boldtext">
- <%= @user.nickname %> さんの・・
+
+<% if user_signed_in? %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<br>
+<br>
+
+<% unless current_user.id == @user.id %>
+
+<div id="followbutton">
+<%= render 'users/followbutton', sodane: @user %>
 </div>
+
+<% end %>
+
+<% else %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<% end %>
+</div>
+
 
  <ul>
    <li class="list2">
-   <%= link_to '投稿一覧' , "/users/#{@questionsID}" %>
+   <%= link_to '投稿' , "/users/#{@questionsID}" %>
    </li>
    <li class="list1">
-   <%= link_to 'コメント一覧' , "/users/#{@questionsID}/questions" %>
+   <%= link_to 'コメント' , "/users/#{@questionsID}/questions" %>
    </li>
    <li class="list2">
    <%= link_to '統計' , "/users/#{@questionsID}/counts" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'フォロー' , "/users/#{@questionsID}/follows" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'フォロワー' , "/users/#{@questionsID}/followers" %>
    </li>
  </ul>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127002822) do
+ActiveRecord::Schema.define(version: 20180218022212) do
 
   create_table "busianswers", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -104,6 +104,17 @@ ActiveRecord::Schema.define(version: 20180127002822) do
     t.text     "title",       limit: 65535
     t.text     "tag",         limit: 65535
   end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id", limit: 4
+    t.integer  "followed_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.integer  "dairy_id",   limit: 4

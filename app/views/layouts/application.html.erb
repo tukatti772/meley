@@ -58,7 +58,7 @@
       </button>
       <a class="navbar-brand" href="/toukou"><span class="deepskyblue boldtext">英語SNS 英語くん(β)</span></a>
       <p class="navbar-text">  </p>
-      <a class="navbar-brand" href="/dairy"><span class="deepskyblue boldtext">Home</span></a>
+      <a class="navbar-brand" href="/dairy"><span class="deepskyblue boldtext">Timeline</span></a>
     </div>
 
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,7 +67,7 @@
         <div class="form-group">
        <input type="text" class="form-control" placeholder="検索内容" name="keyword">
         </div>
-        <button type="submit" class="btn btn-default">検索する</button>
+        <button type="submit" class="btn btn-default">投稿検索</button>
        </form>
 
 <% if user_signed_in? %>
@@ -94,7 +94,7 @@
 
 <p class="navbar-text">
 <%= image_tag current_user.avatar.url(:thumb) %>
-　<span class="black boldtext">ようこそ、<%= current_user.nickname %>さん。</span>
+　<span class="black boldtext">ようこそ、<%= link_to current_user.nickname, "/users/#{current_user.id}" %>さん。</span>
 </p>
 
 <% else %>

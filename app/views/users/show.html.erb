@@ -3,18 +3,41 @@
 <div class="tab-menu">
 
 <div class="a5 boldtext">
- <%= @user.nickname %> さんの・・
+
+<% if user_signed_in? %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<br>
+<br>
+
+<% unless current_user.id == @user.id %>
+
+<div id="followbutton">
+<%= render 'users/followbutton', sodane: @user %>
+</div>
+
+<% end %>
+
+<% else %>
+<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<% end %>
+
 </div>
 
  <ul>
    <li class="list1">
-   <%= link_to '投稿一覧' , "/users/#{@showID}" %>
+   <%= link_to '投稿' , "/users/#{@showID}" %>
    </li>
    <li class="list2">
-   <%= link_to 'コメント一覧' , "/users/#{@showID}/questions" %>
+   <%= link_to 'コメント' , "/users/#{@showID}/questions" %>
    </li>
    <li class="list2">
    <%= link_to '統計' , "/users/#{@showID}/counts" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'フォロー' , "/users/#{@showID}/follows" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'フォロワー' , "/users/#{@showID}/followers" %>
    </li>
  </ul>
 
@@ -62,11 +85,4 @@
 <%= paginate(@questions) %>
 </div>
 
-
-
-
 </div>
-
-
-
-
