@@ -6,8 +6,11 @@
 
 <% if user_signed_in? %>
 <%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+
 <br>
-<br>
+<div class="showbox3">
+<%= @user.comment %>
+</div>
 
 <% unless current_user.id == @user.id %>
 
@@ -19,6 +22,10 @@
 
 <% else %>
 <%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+<br>
+<div class="showbox3">
+<%= @user.comment %>
+</div>
 <% end %>
 
 </div>
@@ -38,6 +45,9 @@
    </li>
    <li class="list2">
    <%= link_to 'フォロワー' , "/users/#{@showID}/followers" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'スコア' , "/users/#{@showID}/scores" %>
    </li>
  </ul>
 

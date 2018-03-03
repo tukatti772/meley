@@ -1,16 +1,21 @@
 <!--パスワード変更メールのリンクからの画面-->
-<p class="a4">
-パスワードを変更します。
+<p class="h1">
+パスワード変更
 </p>
+
+<br>
+<br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
+  <br>
+  
   <div class="signup">
     <%= f.label :password, "新しいパスワード" %><br />
     <% if @minimum_password_length %>
-      (<%= @minimum_password_length %> 文字以上で入力してください)<br />
+      (<%= @minimum_password_length %> 文字以上)<br />
     <% end %>
     <p></p>
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
@@ -28,6 +33,8 @@
     <%= f.submit "パスワードを変更する", class: 'signupbutton' %>
   </div>
 <% end %>
+
+<br>
 
 <div class="signup">
 <%= render "devise/shared/links" %>

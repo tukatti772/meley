@@ -1,8 +1,9 @@
 <!--ログイン時の画面-->
-<p class="a4">
-ご利用にはログインしてください。
+<p class="h1">
+ログイン
 </p>
 
+<br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="signup">
@@ -10,10 +11,14 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <br>
+
   <div class="signup">
     <%= f.label :password, "パスワード" %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+
+  <br>
 
   <% if devise_mapping.rememberable? -%>
     <div class="signup">
@@ -21,6 +26,8 @@
       <%= f.label :remember_me, "パスワードを記憶する" %>
     </div>
   <% end -%>
+  
+  <br>
 
   <div class="signupbox">
     <%= f.submit "ログイン", class: 'signupbutton' %>

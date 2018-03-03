@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+ :registrations => 'users/registrations'
+}
   root 'toukou#index'
   get 'dairy/posting'
   get 'dairy/search'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
       get :counts
       get :follows
       get :followers
+      get :scores
     end
   end
 
@@ -34,7 +37,7 @@ Rails.application.routes.draw do
 #------------いいね！用のルーティング終わり---------------------------------
 
 
-  resources :users, only: [:show, :questions, :counts]
+  resources :users, only: [:show]
   resources :toukou, only: [:index]
   resources :tags, only: [:show]
   resources :dairy, only: [:index, :create, :show] do

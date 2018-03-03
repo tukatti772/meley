@@ -59,5 +59,14 @@ def followers
   @followers = @user.followers
 end
 
+def scores
+  @scoresID = params[:id]
+  @user = User.find(params[:id])
+  @toeic = @user.toeic
+  @toefl = @user.toefl
+  @ielts = @user.ielts
+  @eiken = @user.eiken
+end
+
 
 end

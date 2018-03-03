@@ -1,20 +1,26 @@
 <!--パスワード変更の画面-->
 <p class="a4">
-パスワードを忘れましたか？
+パスワードを忘れましたか？メールアドレスを入力して、変更のためのメールを受け取りましょう。
 </p>
+
+<br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="signup">
     <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, size: "50", maxlength: "100" %>
   </div>
 
-  <div class="signup">
-    <%= f.submit "パスワード変更のメールを受け取る" %>
+  <br>
+
+  <div class="signupbox">
+    <%= f.submit "メールを受け取る", class: "signupbutton" %>
   </div>
 <% end %>
+
+<br>
 
 <div class="signup">
 <%= render "devise/shared/links" %>

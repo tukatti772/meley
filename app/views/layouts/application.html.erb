@@ -89,6 +89,7 @@
 <% if user_signed_in? %>
 
 <%# bootstrapの記述に合わせるため、classを指定している%>
+<%= link_to "登録内容変更", edit_user_registration_path, class: 'btn btn-default navbar-btn' %>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn' %>
 
 

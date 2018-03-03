@@ -4,8 +4,18 @@ ja:
     title: 投稿タイトル
     tag: タグ
     text: 投稿内容
+    current_password: 現在のパスワード
+    comment: 自己紹介文
+    email: メールアドレス
+    password_confirmation: 確認のためのパスワードが
+    password: パスワード
+    current_password: 現在のパスワード
+    nickname: ニックネーム
   errors:
-    format:  !  '%{attribute}%{message}'
+    format:  !  '・%{attribute}%{message}'
     messages:
       blank: を入力してください。
+      confirmation: 正しいことを確認してください。
+      too_short: は6文字以上入力してください。
+      invalid: が正しくありません。
 

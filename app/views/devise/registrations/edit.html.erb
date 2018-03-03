@@ -1,43 +1,89 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%# ユーザー登録内容の編集画面 %>
+<p class="h1">登録内容変更</p>
+
+<br>
+<br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <br>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+  <div class="signup">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, size: "50", maxlength: "100" %>
   </div>
+  <br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div class="signup">
+   <%= f.label :comment, "自己紹介文" %> (最大150文字)<br />
+    <%= f.text_area :comment, maxlength: "150", size: "50x4"%>
+  </div>
+
+  <br>
+
+  <div class="userstext">
+  <%= f.label :avatar, "プロフィール画像" %>
+  </div>
+  
+  <div class="avatar">
+    <%= f.file_field :avatar %><br />
+  </div>
+
+  <br>
+  <div class="inline2">
+   <%= f.label :toeic, "TOEICスコア" %>
+    <%= f.text_field :toeic, maxlength: "3" %>
+
+   <%= f.label :toefl, "TOEFLスコア" %>
+    <%= f.text_field :toefl, maxlength: "3" %>
+
+   <%= f.label :ielts, "IELTSスコア" %>
+    <%= f.select :ielts, [["なし","なし"],["1.5","1.5"],["2","2"],["2.5","2.5"],["3","3"],["3.5","3.5"],["4","4"],["4.5","4.5"],["5","5"],["5.5","5.5"],["6","6"],["6.5","6.5"],["7","7"],["7.5","7.5"],["8","8"],["8.5","8.5"],["9","9"]]%>
+ 
+   <%= f.label :eiken, "英検" %>
+    <%= f.select :eiken, [["なし","なし"],["5級","5級"],["4級","4級"],["3級","3級"],["準2級","準2級"],["2級","2級"],["準1級","準1級"],["1級","1級"]] %>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="signup">
+    <%= f.label :password, "新しいパスワード" %> <b>（最低<%= @minimum_password_length %>文字）</b> <br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <br>
+  
+  <div class="signup">
+    <%= f.label :password_confirmation, "新しいパスワードの確認" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <br>
+
+  <div class="signup">
+    <%= f.label :current_password, "現在のパスワード" %><b>（入力必須）</b><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <br>
+
+  <div class="signupbox">
+    <%= f.submit "更新する", class: "signupbutton" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<br>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div class="signup">
+<%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に登録を削除しますか？" }, method: :delete, class: "signupbutton" %>
+<br>
 
-<%= link_to "Back", :back %>
+</div>

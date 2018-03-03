@@ -57,6 +57,16 @@ html,body{
   display: inline-block;
 }
 
+.inline2{
+  display: inline-block;
+  font-size: 20px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
 .twitter-share-button{
   vertical-align: middle;
 }
@@ -105,10 +115,18 @@ html,body{
 
 
 /* 新規登録画面のcss */
+
+
 .signup{
   font-size: 20px;
-  height: 30px;
-  margin: 5% auto;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+.userstext{
+  font-size: 20px;
+  margin: 0 auto;
   text-align: center;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
@@ -222,6 +240,14 @@ th{
   border: solid 1px;
 }
 
+.postcontent2{
+  font-size: 20px;
+  height: 50px;
+  width: 600px;
+  border-radius: 5px;
+  border: solid 1px;
+}
+
 .wysihtml5{
   height: 200px;
   width: 1300px;
@@ -320,6 +346,18 @@ th{
   margin: 80px auto;
 }
 
+.showbox3{
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: #ff4500;
+  height: auto;
+  width: 60%;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  padding: 20px;
+  margin: 20px auto;
+}
+
 
 
 /* 汎用テキスト・boxのcss */
@@ -402,6 +440,12 @@ th{
 .text2{
   font-weight: bold;
   color: #1e90ff;
+}
+
+.text3{
+  font-size: 20px;
+  text-align: center;
+  list-style: none;
 }
 
 /* タブメニューのcss */
