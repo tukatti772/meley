@@ -18,6 +18,7 @@ private
 def require_login
   unless user_signed_in?
   redirect_to controller: :dairy, action: :index
+  end
 end
 
 
