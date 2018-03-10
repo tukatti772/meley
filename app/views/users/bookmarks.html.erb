@@ -1,4 +1,3 @@
-<%# usersコントローラーのshowアクション。ユーザーの回答一覧を表示。%>
 
 <div class="tab-menu">
 
@@ -6,7 +5,6 @@
 
 <% if user_signed_in? %>
 <%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
-
 <br>
 <div class="showbox3">
 <%= @user.comment %>
@@ -30,69 +28,70 @@
 
 </div>
 
+
  <ul>
+   <li class="list2">
+   <%= link_to '投稿' , "/users/#{@bookmarksID}" %>
+   </li>
+   <li class="list2">
+   <%= link_to 'コメント' , "/users/#{@bookmarksID}/questions" %>
+   </li>
+   <li class="list2">
+   <%= link_to '統計/スコア' , "/users/#{@bookmarksID}/counts" %>
+   </li>
+    <li class="list2">
+   <%= link_to 'フォロー' , "/users/#{@bookmarksID}/follows" %>
+   </li>
+    <li class="list2">
+   <%= link_to 'フォロワー' , "/users/#{@bookmarksID}/followers" %>
+   </li>
    <li class="list1">
-   <%= link_to '投稿' , "/users/#{@showID}" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'コメント' , "/users/#{@showID}/questions" %>
-   </li>
-   <li class="list2">
-   <%= link_to '統計/スコア' , "/users/#{@showID}/counts" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'フォロー' , "/users/#{@showID}/follows" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'フォロワー' , "/users/#{@showID}/followers" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'ブックマーク' , "/users/#{@showID}/bookmarks" %>
+   <%= link_to 'ブックマーク' , "/users/#{@bookmarksID}/bookmarks" %>
    </li>
  </ul>
 
 
 
-<% @questions.each do |happy| %>
+<% @bookmarklist.each do |cat| %>
 
 <div class='showbox'>
 
 
-<div id='indextitle'><a href ="/dairy/<%= happy.id %>"><%= happy.title %></a></div>
+<div id='indextitle'><a href ="/dairy/<%= cat.id %>"><%= cat.title %></a></div>
 
 
 <br>
 <br>
 
-<div class='ellipsis'><%= strip_tags happy.text %></div>
+<div class='ellipsis'><%= strip_tags cat.text %></div>
 <br>
 <br>
+
 
 <%# 投稿に紐づいているタグを1つずつ表示する %>
-<% happy.tags.each do |yeah| %>
+<% cat.tags.each do |yeah| %>
 <div class="tag"><%= link_to "#{yeah.tag}" , "/tags/#{yeah.id}", :style => "color:white;"%></div>
 <% end %>
 
 <br>
 <span>
-<% if @count[happy.id] == nil then %>
+<% if cat.dairyanswers.count == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
 コメント数：<span> <%= "0" %> </span>
 <% else %>
-コメント数：<span> <%= @count[happy.id] %> </span>
+コメント数：<span> <%= cat.dairyanswers.count %> </span>
 <% end %>
 
-　　投稿日：<%= happy.created_at.strftime('%Y/%m/%d %H:%M') %>
+　　投稿日：<%= cat.created_at.strftime('%Y/%m/%d %H:%M') %>
 </span>
 
-
 </div>
-<% end %>
 
+<% end %>
 
 
 <div class="a4">
-<%= paginate(@questions) %>
+<%= paginate(@bookmarklist) %>
 </div>
 
 </div>

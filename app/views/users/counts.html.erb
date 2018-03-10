@@ -36,7 +36,7 @@
    <%= link_to 'コメント' , "/users/#{@countsID}/questions" %>
    </li>
    <li class="list1">
-   <%= link_to '統計' , "/users/#{@countsID}/counts" %>
+   <%= link_to '統計/スコア' , "/users/#{@countsID}/counts" %>
    </li>
     <li class="list2">
    <%= link_to 'フォロー' , "/users/#{@countsID}/follows" %>
@@ -45,7 +45,7 @@
    <%= link_to 'フォロワー' , "/users/#{@countsID}/followers" %>
    </li>
    <li class="list2">
-   <%= link_to 'スコア' , "/users/#{@countsID}/scores" %>
+   <%= link_to 'ブックマーク' , "/users/#{@countsID}/bookmarks" %>
    </li>
  </ul>
 
@@ -76,9 +76,35 @@
     <p><%= @followers.count %></p>
 </div>
 
+</div>
 
+<br>
+<br>
+
+<div class="countdisplay">
+
+<div class="countbox">
+    <div class="box-title">TOEIC</div>
+    <p><%= @toeic %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title">TOEFL</div>
+    <p><%= @toefl %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title">IELTS</div>
+    <p><%= @ielts %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title">英検</div>
+    <p><%= @eiken %></p>
+</div>
 
 </div>
+
 
 
 </div>

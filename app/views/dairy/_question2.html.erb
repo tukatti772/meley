@@ -1,5 +1,18 @@
 <%#質問の表示の部分テンプレート%>
 
+<p class="text4">
+<%= data.title %>
+</p>
+
+<br>
+
+<div class="bookmark">
+<%= render 'dairy/bookmark' , var: @dairydata %>
+</div>
+
+<br>
+
+
 <div class="showbox2">
 <p class="text1"><%=link_to "#{data.name}", "/users/#{data.user_id}" %>　さんの投稿　　<%= data.created_at.strftime('%Y/%m/%d %H:%M') %></p>
 

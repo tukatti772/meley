@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get :counts
       get :follows
       get :followers
-      get :scores
+      get :bookmarks
     end
   end
 
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     member do
       post :like
       delete :like_delete
+      post :bookmark
+      delete :bookmark_delete
     end
   end
 
@@ -36,7 +38,6 @@ Rails.application.routes.draw do
 
 #------------いいね！用のルーティング終わり---------------------------------
 
-
   resources :users, only: [:show]
   resources :toukou, only: [:index]
   resources :tags, only: [:show]
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

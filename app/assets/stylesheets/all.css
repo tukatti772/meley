@@ -448,6 +448,14 @@ th{
   list-style: none;
 }
 
+.text4{
+  font-weight: bold;
+  font-size: 30px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  text-align: center;
+}
+
+
 /* タブメニューのcss */
 .tab-menu {
 }
@@ -520,6 +528,13 @@ th{
 .likes{
   color: blue;
 }
+
+
+/* ブックマーク機能用 */
+.bookmark{
+  text-align: center;
+}
+
 
 
 

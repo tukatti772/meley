@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :dairyanswers
   has_many :dairies
+  has_many :dairies, through: :bookmarks
+  has_many :bookmarks, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   #:sourceパラメーターを使用し、「following配列の元はfollowed idの集合である」ということを明示的にRailsに伝えます。
   has_many :following, through: :active_relationships, source: :followed
@@ -37,6 +39,7 @@ validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpe
   def following?(other_user)
     following.include?(other_user)
   end
+
 
 
 end

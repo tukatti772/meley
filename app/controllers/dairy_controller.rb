@@ -62,6 +62,20 @@ def show
   @dairyanswer = @dairydata.dairyanswers.order(created_at: :desc)
 end
 
+def bookmark
+  redirect_to action: :index unless user_signed_in?
+  @data = Dairy.find(params[:id])
+  Bookmark.create(user_id: current_user.id, dairy_id: params[:id])
+end
+
+def bookmark_delete
+  redirect_to action: :index unless user_signed_in?
+  @data = Dairy.find(params[:id])
+  @breakbookmark = Bookmark.find_by(user_id: current_user.id, dairy_id: params[:id])
+  @breakbookmark.destroy
+end
+
+
 #以下いいね！機能に関するコード
 
 def like

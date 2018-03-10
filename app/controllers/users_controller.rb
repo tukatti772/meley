@@ -43,6 +43,10 @@ def counts
 
  @follows = @user.following
  @followers = @user.followers
+ @toeic = @user.toeic
+ @toefl = @user.toefl
+ @ielts = @user.ielts
+ @eiken = @user.eiken
 
 end
 
@@ -59,13 +63,10 @@ def followers
   @followers = @user.followers
 end
 
-def scores
-  @scoresID = params[:id]
+def bookmarks
+  @bookmarksID = params[:id]
   @user = User.find(params[:id])
-  @toeic = @user.toeic
-  @toefl = @user.toefl
-  @ielts = @user.ielts
-  @eiken = @user.eiken
+  @bookmarklist = @user.dairies.order(created_at: :desc).page(params[:page]).per(15)
 end
 
 
