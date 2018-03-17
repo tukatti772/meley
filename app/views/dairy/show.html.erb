@@ -16,12 +16,25 @@
 <div class="postform">
 
 
-<%= form_tag("/dairy/#{@dairydata.id}/dairyanswer", method: :post) do %>
-<%#Rubyの式展開の記法は覚えておくこと%>
+<%# ルーティングがネストされているときのform_forは、下記のように記述する。難しい。。 %>
+<%= form_for [@dairydata, @dairyanswerinstance], url: dairy_dairyanswer_index_path(@dairydata) do |f| %>
+
+<% if @dairyanswerinstance.errors.any? %>
+
+<div class="alert alert-danger">
+投稿できませんでした。下記の箇所を修正してください。
+<br>
+<br>
+<% @dairyanswerinstance.errors.full_messages.each do |message| %>
+<p><%= message %></p>
+<% end %>
+</div>
+
+<% end %>
 
 
-<textarea name="text" class="wysihtml5" placeholder="ここにコメントを入力してください。" cols="10" rows="10">
-</textarea>
+<%= f.text_area :text, cols: 10, rows: 10, placeholder: "ここに投稿内容を入力してください。", class: :wysihtml5 %>
+
 
 <%# bootstrap-wysiwigの記述 %>
 <script type="text/javascript">
@@ -50,7 +63,11 @@ $(document).on('turbolinks:load', function(){
 
 <br>
 <br>
-<input type="submit" value="コメントする" class="postbutton">
+
+<p>
+<%= f.submit 'コメントする!', data: { confirm: 'この内容でコメントしますか？'}, class: :postbutton %>
+</p>
+
 <% end %>
 
 </div>

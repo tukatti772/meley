@@ -60,18 +60,19 @@ end
 def show
   @dairydata = Dairy.find(params[:id])
   @dairyanswer = @dairydata.dairyanswers.order(created_at: :desc)
+  @dairyanswerinstance = Dairyanswer.new
 end
 
 def bookmark
   redirect_to action: :index unless user_signed_in?
-  @data = Dairy.find(params[:id])
-  Bookmark.create(user_id: current_user.id, dairy_id: params[:id])
+  @data = Dairy.find(params[:dairy_id])
+  Bookmark.create(user_id: current_user.id, dairy_id: params[:dairy_id])
 end
 
 def bookmark_delete
   redirect_to action: :index unless user_signed_in?
-  @data = Dairy.find(params[:id])
-  @breakbookmark = Bookmark.find_by(user_id: current_user.id, dairy_id: params[:id])
+  @data = Dairy.find(params[:dairy_id])
+  @breakbookmark = Bookmark.find_by(user_id: current_user.id, dairy_id: params[:dairy_id])
   @breakbookmark.destroy
 end
 
@@ -79,13 +80,13 @@ end
 #以下いいね！機能に関するコード
 
 def like
-  Like.create(user_id: current_user.id, dairy_id: params[:id])
-  @data = Dairy.find(params[:id])
+  Like.create(user_id: current_user.id, dairy_id: params[:dairy_id])
+  @data = Dairy.find(params[:dairy_id])
 end
 
 def like_delete
-  Like.find_by(user_id: current_user.id, dairy_id: params[:id]).destroy
-  @data = Dairy.find(params[:id])
+  Like.find_by(user_id: current_user.id, dairy_id: params[:dairy_id]).destroy
+  @data = Dairy.find(params[:dairy_id])
 end
 
 #paramsで配列が送られてきたとき、カラム名:[]のようにすると、カラムに配列を格納できる

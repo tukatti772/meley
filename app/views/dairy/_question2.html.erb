@@ -37,12 +37,12 @@ pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href styl
 
 <%#以下は恐らく、返り値がnilでなければtrue,nilならfalseとなっている。Ruby独特。%>
  <% if data.like_user(current_user.id) %>
-  <%= button_to like_delete_dairy_path(data), method: :delete, id: :like_button, remote: true do %>
+  <%= button_to dairy_like_delete_path(data), method: :delete, id: :like_button, remote: true do %>
     <%= image_tag 'heart.png', width: 20, height: 20 %>
     いいね！<%= data.likes_count %>
   <% end %>
  <% else %>
-  <%= button_to like_dairy_path(data), id: :like_button, remote: true do %>
+  <%= button_to dairy_like_path(data), id: :like_button, remote: true do %>
   <%= image_tag 'nonheart.png', width: 20, height: 20 %>
   いいね！<%= data.likes_count %>
   <% end %>

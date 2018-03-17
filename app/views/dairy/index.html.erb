@@ -1,25 +1,39 @@
 <%# dairyコントローラindexアクションのビューファイル %>
 
 
+<div>
+
+
+<p class="h1">
+About 英語くん
+</p>
+
+<br>
+<br>
+
+<div class="a3">
+<i class="fa fa-check-circle fa-x" aria-hidden="true"></i>
+学生、受験生、社会人、生涯学習、、英語を必要とする全ての方へ。
+<br>
+英語に関する情報をみんなで持ち寄って繋がれるwebサービスです。
+</div>
+
 <%
 =begin
 %>
-
-使わないけどコードだけ参考に残しとく
-<div class="postform">
-<%= form_tag('/dairy/search', method: :get) do %>
-<p>
-<input type="text" placeholder="検索内容" name="keyword" class="postname">
-<input type="submit" value="検索する！" class="postbutton">
+<br>
+<br>
+<p class="a4">
+ご質問・ご要望は下記twitterまでどうぞ。<br>
+<br>
+<a href="https://twitter.com/intent/tweet?screen_name=tukatti7772&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-size="large" data-show-count="false">Tweet to @tukatti7772</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </p>
-<% end %>
-</div>
 
 <%
 =end
 %>
 
-<p class="h1">投稿一覧です。</p>
+
 
 <%# 以下投稿リスト %>
 
@@ -30,4 +44,6 @@
 
 <div class="a4">
 <%= paginate(@dairyposts) %>
+</div>
+
 </div>

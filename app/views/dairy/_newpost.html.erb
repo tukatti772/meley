@@ -9,9 +9,12 @@
 
 <% if dairy.errors.any? %>
 
-<div id="error_messages">
+<div class="alert alert-danger">
+投稿できませんでした。下記の箇所を修正してください。
+<br>
+<br>
 <% dairy.errors.full_messages.each do |message| %>
-<p>・<%= message %></p>
+<p><%= message %></p>
 <% end %>
 </div>
 

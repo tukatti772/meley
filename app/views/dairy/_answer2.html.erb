@@ -1,10 +1,10 @@
-<!--回答の表示のテンプレートファイル-->
+<%# 回答の表示のテンプレートファイル %>
 
 
 
 <% answer.each do |roop| %>
 
-<!-- 質問者と回答者が同じ場合は、色分けする -->
+<%# 質問者と回答者が同じ場合は、色分けする %>
 
 <% if roop.user_nickname == data.name %>
 
@@ -24,12 +24,12 @@ pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href styl
 
 <%#以下は恐らく、返り値がnilでなければtrue,nilならfalseとなっている。Ruby独特。%>
  <% if roop.like_user(current_user.id) %>
-  <%= button_to like_delete_dairyanswer_path(roop), method: :delete, id: :like_button, remote: true do %>
+  <%= button_to dairyanswer_like_delete_path(roop), method: :delete, id: :like_button, remote: true do %>
     <%= image_tag 'heart.png', width: 20, height: 20 %>
     いいね！<%= roop.likes_count %>
   <% end %>
  <% else %>
-  <%= button_to like_dairyanswer_path(roop), id: :like_button, remote: true do %>
+  <%= button_to dairyanswer_like_path(roop), method: :post, id: :like_button, remote: true do %>
    <%= image_tag 'nonheart.png', width: 20, height: 20 %>
    いいね！<%= roop.likes_count %>
   <% end %>
@@ -62,12 +62,12 @@ pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href styl
 
 <%#以下は恐らく、返り値がnilでなければtrue,nilならfalseとなっている。Ruby独特。%>
  <% if roop.like_user(current_user.id) %>
-  <%= button_to like_delete_dairyanswer_path(roop), method: :delete, id: :like_button, remote: true do %>
+  <%= button_to dairyanswer_like_delete_path(roop), method: :delete, id: :like_button, remote: true do %>
     <%= image_tag 'heart.png', width: 20, height: 20 %>
     いいね！<%= roop.likes_count %>
   <% end %>
  <% else %>
-  <%= button_to like_dairyanswer_path(roop), id: :like_button, remote: true do %>
+  <%= button_to dairyanswer_like_path(roop), method: :post, id: :like_button, remote: true do %>
    <%= image_tag 'nonheart.png', width: 20, height: 20 %>
    いいね！<%= roop.likes_count %>
   <% end %>

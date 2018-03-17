@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>英語SNS 英語くん(β)</title>
+  <title>英語webアプリ 英語くん(β)</title>
   <%# turbolinks用の記述 %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', :debug => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', :debug => true  %>
@@ -43,77 +43,86 @@
 
 <%#ここからヘッダー%>
 
-<div id="frame">   <%#全てをこの箱の入れ子にする%>
+
 
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <%# Brand and toggle get grouped for better mobile display %>
-    <div class="navbar-header">
+     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/toukou"><span class="deepskyblue boldtext">英語SNS 英語くん(β)</span></a>
-      <p class="navbar-text">  </p>
-      <a class="navbar-brand" href="/dairy"><span class="deepskyblue boldtext">Timeline</span></a>
-    </div>
+      <%# navbar-brandの部分はスマホサイズでも隠れない %>
+      <a class="navbar-brand" href="/dairy"><span class="deepskyblue boldtext">英語webアプリ　英語くん(β)</span></a>
+     </div>   <%# /.navbar-header %>
 
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<%# 検索フォーム %>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<%# 投稿検索フォーム %>
        <form class="navbar-form navbar-left" action="/dairy/search" method="get">
         <div class="form-group">
-       <input type="text" class="form-control" placeholder="検索内容" name="keyword">
+         <input type="text" class="form-control" placeholder="検索内容" name="keyword">
         </div>
         <button type="submit" class="btn btn-default">投稿検索</button>
        </form>
+<%# 投稿検索フォーム終わり %>
 
-<% if user_signed_in? %>
-
-<%# 質問ボタン %>
-<%# bootstrapの記述に合わせるため、classを指定している%>
-<a class="btn btn-default navbar-btn" href="/dairy/posting" role="button">投稿する！</a>
-
-<% else %>
-
-<p class="navbar-text">
-ログインして質問！
-</p>
-
-<% end %>
-
+<%# 右側のnavbar %>
 <ul class="nav navbar-nav navbar-right">
 
 <% if user_signed_in? %>
 
+<li>
+<span class="navbar-text">
+<%= image_tag current_user.avatar.url(:thumb) %><%= link_to current_user.nickname, "/users/#{current_user.id}" %>
+</span>
+</li>
+
+
+<%# 質問ボタン %>
 <%# bootstrapの記述に合わせるため、classを指定している%>
-<%= link_to "登録内容変更", edit_user_registration_path, class: 'btn btn-default navbar-btn' %>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn' %>
-
-
-<p class="navbar-text">
-<%= image_tag current_user.avatar.url(:thumb) %>
-　<span class="black boldtext">ようこそ、<%= link_to current_user.nickname, "/users/#{current_user.id}" %>さん。</span>
-</p>
+<li>
+<a class="btn btn-default" href="/dairy/posting" role="button">投稿</a>
+</li>
 
 <% else %>
 
+<li>
+<span class="navbar-text">ログインして質問！</span>
+</li>
 
-<%= link_to "ログイン", new_user_session_path, method: :get, class: 'btn btn-default navbar-btn' %>
+<% end %>
 
+<% if user_signed_in? %>
 
+<%# bootstrapの記述に合わせるため、classを指定している%>
+<li>
+<%= link_to "登録内容変更", edit_user_registration_path, class: 'btn btn-default' %>
+</li>
 
-<%= link_to "新規登録", new_user_registration_path, method: :get, class: 'btn btn-default navbar-btn' %>
+<li>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-default' %>
+</li>
 
+<% else %>
+
+<li>
+<%= link_to "ログイン", new_user_session_path, method: :get, class: 'btn btn-default' %>
+</li>
+
+<li>
+<%= link_to "新規登録", new_user_registration_path, method: :get, class: 'btn btn-default' %>
+</li>
 
 <% end %>
 
 
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+      </ul><%# /.navbar-right %>
+    </div><%# /.navbar-collapse %>
+  </div><%# /.container %>
 </nav>
 
 
@@ -130,12 +139,10 @@
 
 
 <%#ここからフッター%>
-
-<footer id="foot">
+<div id="foot">
 copyright 2017 tukatti
-</footer>
-
 </div>
+
 
 </body>
 </html>

@@ -3,14 +3,14 @@
 <% if var.bookmarkornot(current_user.id,var.id) %>
 
 <%# ブックマーク解除ボタン %>
-<%= button_to bookmark_delete_dairy_path, method: :delete, remote: true, class: "postbutton" do %>
+<%= button_to dairy_bookmark_delete_path(var), method: :delete, remote: true, class: "postbutton" do %>
 ブックマーク中
 <% end %>
 
 <% else %>
 
 <%# ブックマークボタン %>
-<%= button_to bookmark_dairy_path, method: :post, remote: true, class: "postbutton" do %>
+<%= button_to dairy_bookmark_path(var), method: :post, remote: true, class: "postbutton" do %>
 ブックマークする
 <% end %>
 

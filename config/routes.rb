@@ -2,38 +2,34 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
  :registrations => 'users/registrations'
 }
-  root 'toukou#index'
+  root 'dairy#index'
   get 'dairy/posting'
   get 'dairy/search'
 
 
-  #このようにして、idに紐付けた独自のアクションを追加できる。
-  resources :users do
-    member do
+  resources :users, only: [:questions, :counts, :follows, :followers, :bookmarks] do
       get :questions
       get :counts
       get :follows
       get :followers
       get :bookmarks
-    end
   end
 
 #------------以下いいね！機能用のルーティング---------------------------------
 
-  resources :dairy do
-    member do
+#member doならばdairy/:id/...,下記のように書けばdairy/dairy_id/...のようになる。
+#dairyに紐づいていれば:dairy_id,userに紐づいていれば:user_idを渡すように、直感的になるように統一しておいた方が良い。
+#:idと:dairy_idなどが混在していると、パラメータの受け渡しの際に混乱するし齟齬が生じる。
+  resources :dairy, only: [:like, :like_delete, :bookmark, :bookmark_delete] do
       post :like
       delete :like_delete
       post :bookmark
       delete :bookmark_delete
-    end
   end
 
-  resources :dairyanswer do
-    member do
+  resources :dairyanswer, only: [:like, :like_delete] do
       post :like
       delete :like_delete
-    end
   end
 
 #------------いいね！用のルーティング終わり---------------------------------
@@ -43,7 +39,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:show]
   resources :dairy, only: [:index, :create, :show] do
     resources :dairyanswer, only: [:create]
-    #ネストすると、dairyテーブルのid情報をparamsとしてdairyanswerテーブルに送れる
+    #ネストすると、dairy_idをparamsとしてdairyanswerテーブルに送れる
   end
   resources :relationships, only: [:create, :destroy]
 

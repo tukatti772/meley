@@ -3,6 +3,9 @@ class Dairyanswer < ActiveRecord::Base
   has_many :likes
   belongs_to :user
 
+  #投稿の検証
+  validates :text, presence: true
+
    #ユーザーがいいね！しているかどうか確認するメソッド
 
   def like_user(user_id)

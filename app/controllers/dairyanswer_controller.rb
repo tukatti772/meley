@@ -6,30 +6,41 @@ def index
 end
 
 def create
-  @dairyload = Dairy.find(params[:dairy_id])
-  @dairyanswer = Dairyanswer.create(user_id: current_user.id, user_nickname: current_user.nickname,
-    dairy_id: dairyanswer_params[:dairy_id], text: dairyanswer_params[:text], dairy_title: @dairyload.title, label: "D")  #ここの引数はbusianswer_paramsで良い気がするが
-  redirect_to "/dairy/#{@dairyanswer.dairy.id}"
+  @dairydata = Dairy.find_by(id: params[:dairy_id])
+  @dairyanswer = @dairydata.dairyanswers.order(created_at: :desc)
+  @dairyanswerinstance = Dairyanswer.new(dairyanswer_params)
+
+  if @dairyanswerinstance.save
+
+  redirect_to "/dairy/#{@dairydata.id}"
+
+  else
+
+  #falseの場合、createアクションのインスタンス変数の情報を持ったまま、dairyコントローラーのshowアクションを描画する。
+  render template: "dairy/show"
+
+  end
+
 end
 
 #以下いいね！機能に関するコード
 
 def like
-  Like.create(user_id: current_user.id, dairyanswer_id: params[:id])
-  @data = Dairyanswer.find(params[:id])
-  @id = params[:id]
+  Like.create(user_id: current_user.id, dairyanswer_id: params[:dairyanswer_id])
+  @data = Dairyanswer.find(params[:dairyanswer_id])
+  @id = params[:dairyanswer_id]
 end
 
 def like_delete
-  Like.find_by(user_id: current_user.id, dairyanswer_id: params[:id]).destroy
-  @data = Dairyanswer.find(params[:id])
-  @id = params[:id]
+  Like.find_by(user_id: current_user.id, dairyanswer_id: params[:dairyanswer_id]).destroy
+  @data = Dairyanswer.find(params[:dairyanswer_id])
+  @id = params[:dairyanswer_id]
 end
 
 
 private
 def dairyanswer_params
-  params.permit(:text, :dairy_id)
+   params.require(:dairyanswer).permit(:text).merge(dairy_id: params[:dairy_id], user_nickname: current_user.nickname, label: "D", user_id: current_user.id, dairy_title: @dairydata.title)
 end
 
 def move_to_QAs
