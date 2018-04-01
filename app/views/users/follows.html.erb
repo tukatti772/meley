@@ -2,59 +2,75 @@
 
 <div class="tab-menu">
 
-<div class="a5 boldtext">
+ <% if user_signed_in? %>
 
-<% if user_signed_in? %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+   <div class="userbox">
+
+     <%= image_tag @user.avatar.url(:thumb) %>  <span class="a5 boldtext"><%= @user.nickname %></span> 
+
+       <% unless current_user.id == @user.id %>
+
+          <div id="followbutton">
+          <%= render 'users/followbutton', sodane: @user %>
+          </div>
+
+       <% end %> <%# unless current_user.id ... %>
+
+   </div> <%# /.userbox%>
+
+ <% else %>  <%# if user_signed_in? %>
+
+
+   <div class="userbox">
+
+     <%= image_tag @user.avatar.url(:thumb) %> <span class="a5 boldtext"><%= @user.nickname %></span> 
+
+
+   </div> <%# /.userbox%>
+
+ <% end %> <%# if user_signed_in? %>
+
+
 <br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
 
-<% unless current_user.id == @user.id %>
-
-<div id="followbutton">
-<%= render 'users/followbutton', sodane: @user %>
-</div>
-
-<% end %>
-
-<% else %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
-<br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
-<% end %>
-</div>
+     <div class="menubox">
+      <%# Single button %>
+      <div class="btn-group inline">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         メニュー <span class="caret"></span>
+        </button>
+       <ul class="dropdown-menu">
+          <%# htmlなので、@questionsIDを表示させる際にrubyの式展開は使えないっぽい %>
+        <li><a href="/users/<%= @followsID %>">投稿一覧</a></li>
+        <li><a href="/users/<%= @followsID %>/questions">コメントした投稿</a></li>
+        <li><a href="/users/<%= @followsID %>/follows">フォロー</a></li>
+        <li><a href="/users/<%= @followsID %>/followers">フォロワー</a></li>
+        <li><a href="/users/<%= @followsID %>/bookmarks">ブックマークした投稿</a></li>
+        <li><a href="/users/<%= @followsID %>/counts">統計・スコア</a></li>
+       </ul>
+      </div> <%# /.btn-group %>
+     </div> <%# ./menubox %>
 
 
- <ul>
-   <li class="list2">
-   <%= link_to '投稿' , "/users/#{@followsID}" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'コメント' , "/users/#{@followsID}/questions" %>
-   </li>
-   <li class="list2">
-   <%= link_to '統計/スコア' , "/users/#{@followsID}/counts" %>
-   </li>
-   <li class="list1">
-   <%= link_to 'フォロー' , "/users/#{@followsID}/follows" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'フォロワー' , "/users/#{@followsID}/followers" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'ブックマーク' , "/users/#{@followsID}/bookmarks" %>
-   </li>
- </ul>
+     <div class="panel panel-danger mainbox">
+      <div class="panel-body">
+       <%= @user.comment %>
+      </div>
+     </div>
+
+
+<div class="a6">フォロー</div>
 
 
 <% @follows.each do |followlist| %>
-<div class="showbox2">
- <%= image_tag followlist.avatar.url(:thumb) %>  <%= link_to followlist.nickname, "/users/#{followlist.id}" %>
- <br>
- <%= followlist.comment %>
-</div>
+<div class="panel panel-info mainbox">
+  <div class="panel-body">
+    <%= image_tag followlist.avatar.url(:thumb) %> <span class="font1"> <%= link_to followlist.nickname, "/users/#{followlist.id}" %> </span>
+    <br>
+    <span class="font1"><%= followlist.comment %></span>
+  </div> <%# /.panel-body %>
+</div> <%# /.panel panel-info mainbox %>
 <% end %>
+
+
+</div> <%# /.tab-menu %>

@@ -1,66 +1,82 @@
+
+<%# usersコントローラーのquestionsアクション。ユーザーがコメントした投稿一覧を表示。%>
+
 <div class="tab-menu">
 
-<div class="a5 boldtext">
+ <% if user_signed_in? %>
 
-<% if user_signed_in? %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+   <div class="userbox">
+
+     <%= image_tag @user.avatar.url(:thumb) %>  <span class="a5 boldtext"><%= @user.nickname %></span> 
+
+       <% unless current_user.id == @user.id %>
+
+          <div id="followbutton">
+          <%= render 'users/followbutton', sodane: @user %>
+          </div>
+
+       <% end %> <%# unless current_user.id ... %>
+
+   </div> <%# /.userbox%>
+
+ <% else %>  <%# if user_signed_in? %>
+
+
+   <div class="userbox">
+
+     <%= image_tag @user.avatar.url(:thumb) %> <span class="a5 boldtext"><%= @user.nickname %></span> 
+
+
+   </div> <%# /.userbox%>
+
+ <% end %> <%# if user_signed_in? %>
+
+
 <br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
 
-<% unless current_user.id == @user.id %>
-
-<div id="followbutton">
-<%= render 'users/followbutton', sodane: @user %>
-</div>
-
-<% end %>
-
-<% else %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
-<br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
-<% end %>
-</div>
+     <div class="menubox">
+      <%# Single button %>
+      <div class="btn-group inline">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         メニュー <span class="caret"></span>
+        </button>
+       <ul class="dropdown-menu">
+          <%# htmlなので、@questionsIDを表示させる際にrubyの式展開は使えないっぽい %>
+        <li><a href="/users/<%= @questionsID %>">投稿一覧</a></li>
+        <li><a href="/users/<%= @questionsID %>/questions">コメントした投稿</a></li>
+        <li><a href="/users/<%= @questionsID %>/follows">フォロー</a></li>
+        <li><a href="/users/<%= @questionsID %>/followers">フォロワー</a></li>
+        <li><a href="/users/<%= @questionsID %>/bookmarks">ブックマークした投稿</a></li>
+        <li><a href="/users/<%= @questionsID %>/counts">統計・スコア</a></li>
+       </ul>
+      </div> <%# /.btn-group %>
+     </div> <%# ./menubox %>
 
 
- <ul>
-   <li class="list2">
-   <%= link_to '投稿' , "/users/#{@questionsID}" %>
-   </li>
-   <li class="list1">
-   <%= link_to 'コメント' , "/users/#{@questionsID}/questions" %>
-   </li>
-   <li class="list2">
-   <%= link_to '統計/スコア' , "/users/#{@questionsID}/counts" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'フォロー' , "/users/#{@questionsID}/follows" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'フォロワー' , "/users/#{@questionsID}/followers" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'ブックマーク' , "/users/#{@questionsID}/bookmarks" %>
-   </li>
- </ul>
+     <div class="panel panel-danger mainbox">
+      <div class="panel-body">
+       <%= @user.comment %>
+      </div>
+     </div>
 
+
+<div class="a6">コメントした投稿</div>
 
 
 <% @answers.each do |hey| %>
 
-<div class="showbox">
+<div class="panel panel-success mainbox">
+
+<div class="panel-heading">
 
 
-<div id='indextitle'><a href ="/dairy/<%= hey.dairy_id %>"><%= strip_tags hey.dairy_title %></a></div>
+<h3 class="panel-title bigtitle"><a href ="/dairy/<%= hey.dairy_id %>"><%= strip_tags hey.dairy_title %></a></h3>
 
-
+</div> <%# /.panel-heading %>
 
 <br>
-<br>
+
+<div class="panel-body">
 
 <div class='ellipsis'><%= strip_tags hey.text %></div>
 <br>
@@ -73,19 +89,19 @@
 
 
 <br>
-回答日：<%= hey.created_at.strftime('%Y/%m/%d %H:%M') %>
+<span class="font1"><%= time_ago_in_words(hey.created_at) %>前</span>
 <%# strip_tags で文字列からタグを取り除いて表示 %>
 
 
-</div>
+</div> <%# /.panel-body %>
 
-<% end %>
+</div> <%# /.panel panel-success mainbox %>
+
+<% end %> <%# @answers.each do... %>
 
 <div class="a4">
 <%= paginate (@answers) %>
 </div>
-
-
 
 
 </div>

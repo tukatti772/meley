@@ -4,14 +4,14 @@
 
 <%# ブックマーク解除ボタン %>
 <%= button_to dairy_bookmark_delete_path(var), method: :delete, remote: true, class: "postbutton" do %>
-ブックマーク中
+投稿をブックマーク中
 <% end %>
 
 <% else %>
 
 <%# ブックマークボタン %>
 <%= button_to dairy_bookmark_path(var), method: :post, remote: true, class: "postbutton" do %>
-ブックマークする
+投稿をブックマークする
 <% end %>
 
 <% end %>

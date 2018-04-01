@@ -2,21 +2,17 @@
 
 
 <div>
+<%# 画像のdigest値を取得するため、インラインのcssでasset_pathを使用している %>
+<div class="topimage" style="background-image:url(<%= asset_path "world.jpg" %>);" >
 
 
-<p class="h1">
-About 英語くん
-</p>
-
+<div class="topimagebox">
+学生、社会人、生涯学習、、英語を必要とする全ての方へ。
 <br>
-<br>
+英語の話題をみんなでシェアして、学習に役立てよう。
+</div> <%# /.topimagebox %>
 
-<div class="a3">
-<i class="fa fa-check-circle fa-x" aria-hidden="true"></i>
-学生、受験生、社会人、生涯学習、、英語を必要とする全ての方へ。
-<br>
-英語に関する情報をみんなで持ち寄って繋がれるwebサービスです。
-</div>
+</div> 
 
 <%
 =begin
@@ -46,4 +42,4 @@ About 英語くん
 <%= paginate(@dairyposts) %>
 </div>
 
-</div>
+</div> 

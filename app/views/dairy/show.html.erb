@@ -33,7 +33,7 @@
 <% end %>
 
 
-<%= f.text_area :text, cols: 10, rows: 10, placeholder: "ここに投稿内容を入力してください。", class: :wysihtml5 %>
+<%= f.text_area :text, placeholder: "コメントを入力してください。", class: :wysihtml5 %>
 
 
 <%# bootstrap-wysiwigの記述 %>
@@ -44,13 +44,13 @@ $(document).on('turbolinks:load', function(){
 <%# もしこうしなければ、turbolinksにより無限に表示される%>
   if (!$('ul.wysihtml5-toolbar')[0]){
    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5({ toolbar:{ "fa": true, 'font-styles': true,
+      $(elem).wysihtml5({ toolbar:{ "fa": true, 'font-styles': false,
       'color': true,
       'emphasis': {
-        'small': true
+        'small': false
       },
-      'blockquote': true,
-      'lists': true,
+      'blockquote': false,
+      'lists': false,
       'html': false,
       'link': true,
       'image': false,
@@ -64,25 +64,15 @@ $(document).on('turbolinks:load', function(){
 <br>
 <br>
 
-<p>
-<%= f.submit 'コメントする!', data: { confirm: 'この内容でコメントしますか？'}, class: :postbutton %>
-</p>
+<div class="postbuttonbox">
+<%= f.submit 'コメントする', data: { confirm: 'この内容でコメントしますか？'}, class: :postbutton2 %>
+</div>
 
 <% end %>
 
 </div>
 
-
-
-<% else %>
-
-<p class="a1">ログインすると、投稿にコメントできます。</p>
-
-<% end %>
-
-
-<br>
-
+<% end %> <%# if_user_signed_in?%>
 
 <%= render 'dairy/answer2' , answer: @dairyanswer , data: @dairydata%>
 

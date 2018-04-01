@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>英語webアプリ 英語くん(β)</title>
+  <title>英語SNS MELEY(β)</title>
   <%# turbolinks用の記述 %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', :debug => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', :debug => true  %>
@@ -11,15 +11,22 @@
 <%# asset_urlは絶対パスになる。asset_pathでは画像表示されなかった。%>
 <meta name="twitter:card" content="summary_large_image" /> 
 <meta name="twitter:site" content="@tukatti7772" /> 
-<meta name="twitter:title" content="英語SNS 英語くん" /> 
-<meta name="twitter:description" content="日々改良中。英語学習・英語圏に関する情報交換の場としてご活用ください。受験生、TOEIC、留学etc..">
+<meta property="og:title" content="英語SNS MELEY(β)" />
+<meta name="twitter:title" content="" /> 
+<meta name="twitter:description" content="英語を必要とする全ての方へ。英語の話題をシェアして、学習に役立てよう。">
 <meta name="twitter:image" content="<%= asset_url('fortwitter.jpg') %>" />
 <meta property="og:url" content="http://enoutputs.herokuapp.com/<%= yield(:og_url) %>" /> 
-<meta property="og:title" content="英語SNS 英語くん" />
+<meta property="og:title" content="英語SNS MELEY(β)" />
 <meta property="og:description" content="<%= yield(:og_description) %>" /> 
 <meta property="og:image" content="<%= asset_url('fortwitter.jpg') %>" /> 
+<%# ビューポートの設定（レスポンシブデザイン用) %>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
+
+
+<div id="frame">
+
 
 <%#facebookのシェアボタン用%>
 <div id="fb-root"></div>
@@ -41,12 +48,7 @@
 %>
 
 
-<%#ここからヘッダー%>
-
-
-
-
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default color">
   <div class="container">
     <%# Brand and toggle get grouped for better mobile display %>
      <div class="navbar-header">
@@ -57,7 +59,7 @@
         <span class="icon-bar"></span>
       </button>
       <%# navbar-brandの部分はスマホサイズでも隠れない %>
-      <a class="navbar-brand" href="/dairy"><span class="deepskyblue boldtext">英語webアプリ　英語くん(β)</span></a>
+      <a class="navbar-brand" href="/dairy"><span class="navbartitle">英語SNS MELEY(β)</span></a>
      </div>   <%# /.navbar-header %>
 
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -83,15 +85,14 @@
 
 
 <%# 質問ボタン %>
-<%# bootstrapの記述に合わせるため、classを指定している%>
 <li>
-<a class="btn btn-default" href="/dairy/posting" role="button">投稿</a>
+   <%= button_to "投稿", dairy_posting_path, method: :get, class: 'btn btn-default navbar-btn padding' %>
 </li>
 
 <% else %>
 
 <li>
-<span class="navbar-text">ログインして質問！</span>
+<span class="navbar-text" style="color: red">ログインして質問！</span>
 </li>
 
 <% end %>
@@ -100,21 +101,21 @@
 
 <%# bootstrapの記述に合わせるため、classを指定している%>
 <li>
-<%= link_to "登録内容変更", edit_user_registration_path, class: 'btn btn-default' %>
+<%= button_to "登録内容変更", edit_user_registration_path, method: :get, class: 'btn btn-default navbar-btn padding' %>
 </li>
 
 <li>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-default' %>
+  <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn padding' %>
 </li>
 
 <% else %>
 
 <li>
-<%= link_to "ログイン", new_user_session_path, method: :get, class: 'btn btn-default' %>
+<%= button_to "ログイン", new_user_session_path, method: :get, class: 'btn btn-default navbar-btn padding' %>
 </li>
 
 <li>
-<%= link_to "新規登録", new_user_registration_path, method: :get, class: 'btn btn-default' %>
+<%= button_to "新規登録", new_user_registration_path, method: :get, class: 'btn btn-default navbar-btn padding' %>
 </li>
 
 <% end %>
@@ -129,20 +130,23 @@
 <%# コンテンツ %>
 
 
-<div id="Acontents">
+<div id="contents">
 
 <%= yield %>
 
-</div>
-
+</div> <%# /#contents %>
 
 
 
 <%#ここからフッター%>
-<div id="foot">
-copyright 2017 tukatti
-</div>
+<footer>
+ <div id="foot">
+  <br>
+   Copyright 2018 tukatti
+ </div>
+</footer>
 
+</div> <%# /#frame %>
 
 </body>
 </html>

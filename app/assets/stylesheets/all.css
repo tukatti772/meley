@@ -3,11 +3,94 @@ html,body{
   height: 100%;
 }
 
+/* ページ全体を包む箱。フッターを最下部に表示するために必要 使用中*/
 #frame{
+  width: 100%;
+  position: relative;
+  height: auto !important;
   height: 100%;
+  min-height: 100%;
 }
 
-/* wysihtml5用 */
+/* コンテンツを包む箱。フッターを最下部に表示するために必要。#footのheightと同じ値にする 使用中*/
+#contents{
+  padding-bottom: 40px;
+}
+
+/* フッターのcss 使用中*/
+#foot{
+  color: white;
+  background: linear-gradient(to bottom, gray, silver);
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
+/* ナビバーの色変更用 bootstrapを継承　使用中*/
+.navbar.navbar-default.color{
+  background: linear-gradient(to bottom, #FFCC99, white);
+}
+
+/* ナビバーのボタンの位置調整。bootstrapを継承 使用中*/
+.btn.btn-default.navbar-btn.padding{
+ margin-left: 10px;
+ margin-right: 10px;
+}
+
+/* topページ画像用 使用中*/
+.topimage{
+  width: 100%;
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* topページの画像の中のbox 使用中*/
+.topimagebox{
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 250px 0 0 0;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: white;
+}
+
+/* フォローボタン用 remote true しているので名前は変えない 使用中*/
+#followbutton{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 20px;
+}
+
+/* ユーザーの画像・名前・フォローボタンの表示用　inline-blockを包む箱 使用中*/
+.userbox{
+  text-align: center;
+  margin: 80px auto 40px auto;
+}
+
+/* bootstrapのカスタマイズ 使用中*/
+.navbar{
+    border-radius: 0;
+    border: none;
+    margin: 0;
+}
+
+/* ユーザーページのメニューの表示用。bootstrapを継承 使用中*/
+.btn-group.inline{
+  display: inline-block;
+}
+
+/* ユーザーページのメニューの表示用。.btn-group.inlineを包む箱　使用中 */
+.menubox{
+  text-align: center;
+}
+
+/* wysihtml5用 使用中*/
 .wysiwyg-color-black {
   color: black;
 }
@@ -52,7 +135,8 @@ html,body{
   color: orange;
 }
 
-/*シェアボタン用　vertical-alignで縦位置を親要素の中央に合わせる*/
+
+/*シェアボタン用　vertical-alignで縦位置を親要素の中央に合わせる　使用中*/
 .inline{
   display: inline-block;
 }
@@ -82,69 +166,60 @@ html,body{
   height: 10%;
 }
 
-#headtext{
-  font-size: 27px;
-  font-family: 'Impact', sans-serif;
-  border: none;
-  float: left;
-  margin: 1% 0 0 150px
-}
-
-
-#newuser{
-  font-size: 18px;
-  font-family: 'Impact', sans-serif;
-}
-
-
-
-#loginoutbutton{
-  font-size: 20px;
-  font-family: 'Impact', sans-serif;
-  text-align: center;
-  height: 30px;
-  width: 100px;
-  background-color: skyblue;
-  border-style: none;
-  border-radius: 5px;
-  float: right;
-  margin: 2% 100px 0 0;
-}
-
-
-
 
 /* 新規登録画面のcss */
 
-
+/* 使用中 */
 .signup{
   font-size: 20px;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   text-align: center;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
-.userstext{
+/* 使用中 */
+.signup2{
   font-size: 20px;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   text-align: center;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
+/* 使用中 */
+.signup3{
+  font-size: 20px;
+  margin: 50px auto 50px auto;
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+/* 使用中 */
+.signup4{
+  font-size: 20px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+/* 新規登録画面のフォーム用。widthでフォームの幅が変えられる！ 使用中 */
+.registerbox{
+  width: 300px;
+}
+
+/* 新規登録画面のフォーム用。widthでフォームの幅が変えられる！ 使用中 */
+.registerbox2{
+  width: 500px;
+  height: 100px;
+}
+
+/* 使用中 */
 .avatar{
-  border: solid 1px;
-  width: 40%;
-  height: 5%;
-  padding: 2%;
-  font-size: 20px;
-  margin: 1% auto;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  border: none;
+  width: 90%;
+  margin: 0 auto 20px auto;
 }
 
-.signupbox{
-  text-align: center;
-}
-
+/*  使用中 */
 .signupbutton{
   font-size: 20px;
   height: 30px;
@@ -153,42 +228,6 @@ html,body{
   background-color: skyblue;
   border-style: none;
   border-radius: 5px;
-}
-
-
-/* レスポンシブデザイン */
-
-
-@media screen and (max-width: 480px){
- #headtext{
-  font-size: 5px;
- }
-}
-
-
-
-/* メニューのcss */
-
-
-
-#mainmenu{
- background-color: #f0f8ff;
- height: 10%;
- border: solid 1px #f0f8ff;
-}
-
-table#menutable{
-  margin: 2% auto;
-  width: 80%;
-  height: 15%;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  border: solid 1px #f0f8ff;
-}
-
-
-th{
-  text-align:center;
-  font-size: 18px;
 }
 
 
@@ -219,9 +258,25 @@ th{
   border: solid red;
 }
 
+/*投稿画面を覆う箱 使用中 */
 .postform{
+  width: 50%;
   font-size: 20px;
-  text-align: center;
+  margin: 0 auto;
+}
+
+/* 投稿タイトル　使用中 */
+.posttitle{
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* 使用中 */
+.tagbox{
+  width: 130px;
+  margin-bottom: 50px;
+  font-size: 15px;
 }
 
 .postname{
@@ -240,6 +295,7 @@ th{
   border: solid 1px;
 }
 
+/* 使用中 */
 .postcontent2{
   font-size: 20px;
   height: 50px;
@@ -248,9 +304,16 @@ th{
   border: solid 1px;
 }
 
+/* 投稿フォーム　使用中 */
 .wysihtml5{
   height: 200px;
-  width: 1300px;
+  width: 100%;
+}
+
+/* wysiwygエディタのボタン　使用中*/
+ul.wysihtml5-toolbar .btn.btn-default{
+  width: 70px;
+  font-size: 13px;
 }
 
 .tagform{
@@ -258,12 +321,27 @@ th{
 }
 
 
-
+/* 投稿ボタン・フォローボタン用 */
 .postbutton{
   font-size: 20px;
   height: 30px;
   border-radius: 5px;
   background-color: skyblue;
+  color: white;
+  border: none;
+}
+
+/* 使用中 */
+.postbuttonbox{
+  text-align: center;
+}
+
+.postbutton2{
+  font-size: 20px;
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  background-color: #CC6666;
   color: white;
   border: none;
 }
@@ -279,7 +357,7 @@ th{
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
-/* タグの見た目を記述 */
+/* タグの見た目を記述  使用中*/
 .tag{
   color: white;
   background-color: skyblue;
@@ -289,7 +367,7 @@ th{
   padding: 5px 5px 5px 5px;
 }
 
-/* 2行以上の文章は...で表示するcss */
+/* 2行以上の文章は...で表示するcss 使用中*/
 
 .ellipsis {
     position: relative;
@@ -322,41 +400,39 @@ th{
 
 
 /* 個別投稿ページ(showアクション)のcss */
-.showbox{
-  border: solid 1px;
-  border-radius: 5px;
-  border-color: #ff4500;
-  height: auto;
-  width: 60%;
+
+/* bootstrapを継承  使用中*/
+.panel.panel-success.mainbox{
+  width: 90%;
   font-size: 15px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  padding: 20px;
   margin: 80px auto;
 }
 
-.showbox2{
-  border: solid 1px;
-  border-radius: 5px;
-  border-color: #ff4500;
-  height: auto;
-  width: 80%;
+/* bootstrapを継承 使用中*/
+.panel.panel-info.mainbox{
+  width: 90%;
   font-size: 15px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  padding: 20px;
   margin: 80px auto;
 }
 
-.showbox3{
-  border: solid 1px;
-  border-radius: 5px;
-  border-color: #ff4500;
-  height: auto;
-  width: 60%;
+/* bootstrapを継承 */
+/* ユーザー自己紹介欄に使用 */
+.panel.panel-danger.mainbox{
+  width: 90%;
   font-size: 15px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  padding: 20px;
-  margin: 20px auto;
+  margin: 40px auto;
 }
+
+/* bootstrapを継承 */
+.panel-title.bigtitle{
+  color: black;
+  font-size: 25px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
 
 
 
@@ -380,20 +456,20 @@ th{
 }
 
 .a3{
-  width: 63%;
-  margin: 0 auto;
-  padding: 0px 0px 50px 0px;
-  text-align: left;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: white;
 }
 
+/* 使用中 */
 .a4{
   text-align: center;
+  margin: 50px auto;
   font-size: 20px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
+/* 使用中 */
 .a5{
   padding: 0px 0px 25px 0px;
   text-align: center;
@@ -401,12 +477,23 @@ th{
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
-.boldtext{
+/* a5を継承 */
+.a5.boldtext{
   font-weight: bold;
 }
 
-.deepskyblue{
+.a6{
+  text-align: center;
+  font-size: 25px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: orange;
+  text-decoration: underline;
+}
+
+/* ナビバーのタイトルのフォント。使用中 */
+.navbartitle{
   color: deepskyblue;
+  font-weight: bold;
 }
 
 .black{
@@ -423,12 +510,21 @@ th{
 }
 
 .h2{
-  width: 60%;
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+.h3{
+  width: 40%;
   margin: 0 auto;
   text-align: center;
   background: linear-gradient(transparent 70%, #a7d6ff 70%);
-  font-size: 30px;
+  font-size: 40px;
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: white;
 }
 
 
@@ -456,47 +552,18 @@ th{
 }
 
 
-/* タブメニューのcss */
-.tab-menu {
+
+
+/*統計ページのcss 使用中*/
+
+.countdisplay1{
+  text-align: center;
+  margin-top: 100px;
 }
 
-.tab-menu ul {
-  margin-top: 50px;
+.countdisplay2{
+  text-align: center;
   margin-bottom: 100px;
-  padding: 0;
-  text-align: center;
-}
-
-.tab-menu li.list1{
-  width: 150px;
-  height: 50px;
-  cursor: pointer;
-  background-color: #FFCC99;
-  border-top-right-radius: 10px;
-  font-size: 25px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  color: #fff;
-  text-align: center;
-  display: inline-block;
-}
-
-.tab-menu li.list2{
-  width: 150px;
-  height: 50px;
-  cursor: pointer;
-  border-top-right-radius: 10px;
-  font-size: 25px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  text-align: center;
-  background-color: #fff;
-  color: #FFCC99;
-  display: inline-block;
-}
-
-/*統計ページのcss*/
-
-.countdisplay{
-  text-align: center;
 }
 
 .countbox {
@@ -504,8 +571,10 @@ th{
     width: 200px;
     display: inline-block;
 }
-.countbox .box-title {
-    font-size: 25px;
+
+/* クラス間のスペースの有無で全く違う・・*/
+.countbox .box-title1 {
+    font-size: 20px;
     background: #5fb3f5;
     padding: 4px;
     text-align: center;
@@ -513,9 +582,22 @@ th{
     font-weight: bold;
     letter-spacing: 0.05em;
 }
-.countbox p {
-    padding: 15px 20px;
-    margin: 0;
+
+/* クラス間のスペースの有無で全く違う・・*/
+.countbox .box-title2 {
+    font-size: 20px;
+    background: #ff9900;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+/* 統計ページの数字のフォント　使用中 */
+.countfont{
+  font-size: 20px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
 
 /* いいね！機能用のcss */
@@ -533,14 +615,267 @@ th{
 /* ブックマーク機能用 */
 .bookmark{
   text-align: center;
+  margin: 50px auto;
 }
 
 
 
 
-/* フッターのcss */
-#foot{
-  background-color: #f8f8f8;
+/* レスポンシブデザイン */
+/* cssは、後から書かれた方が優先されるので、メディアクエリは後に書いておく */
+
+@media screen and (max-width: 480px){
+ #headtext{
+  font-size: 5px;
+ }
+
+.h2{
+  width: auto;
+  margin: 0 auto;
   text-align: center;
   font-weight: bold;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
 }
+
+ .a3{
+  font-size: 10px !important;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: white;
+}
+
+/* 使用中 */
+.a4{
+  text-align: center;
+  margin: 50px auto;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+/* 使用中 */
+.a5{
+  padding: 0px 0px 25px 0px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+/* a5を継承 */
+.a5.boldtext{
+  font-weight: bold;
+}
+
+.a6{
+  text-align: center;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: orange;
+  text-decoration: underline;
+}
+
+.topimage{
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* topページの画像の中のbox */
+.topimagebox{
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 50px 0 0 0;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  color: white;
+}
+
+/* 投稿ボタン・フォローボタン用 */
+.postbutton{
+  font-size: 15px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: skyblue;
+  color: white;
+  border: none;
+}
+
+/* ユーザーの画像・名前・フォローボタンの表示用　inline-blockを包む箱 */
+.userbox{
+  text-align: center;
+  margin: 40px auto 20px auto;
+}
+
+/* maintableのcss */
+
+/* bootstrapを継承 */
+.panel.panel-success.mainbox{
+  width: 90%;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  margin: 40px auto;
+}
+
+/* bootstrapを継承 */
+.panel.panel-info.mainbox{
+  width: 90%;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  margin: 40px auto;
+}
+
+/* bootstrapを継承 */
+/* ユーザー自己紹介欄に使用 */
+.panel.panel-danger.mainbox{
+  width: 90%;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  margin: 40px auto;
+}
+
+/* bootstrapを継承 */
+.panel-title.bigtitle{
+  color: black;
+  font-size: 15px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+
+.font1{
+  font-size: 10px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+/* タグの見た目を記述 */
+.tag{
+  color: white;
+  background-color: skyblue;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  padding: 5px 5px 5px 5px;
+  font-size: 10px;
+}
+
+/* 2行以上の文章は...で表示するcss */
+
+.ellipsis {
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 10px;
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+.ellipsis:before, .ellipsis:after {
+    position: absolute;
+    background: #fff;
+}
+
+.ellipsis:before {
+    content: "･･･";
+    bottom: 0;
+    right: 0;
+}
+
+.ellipsis:after {
+    content: "";
+    width: 100%;
+    height: 100%
+}
+
+/*統計ページのcss 使用中*/
+
+.countdisplay1{
+  text-align: center;
+  margin-top: 60px;
+}
+
+.countdisplay2{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.countbox {
+    background: #dcefff;
+    width: 60px;
+    display: inline-block;
+}
+
+/* クラス間のスペースの有無で全く違う・・*/
+.countbox .box-title1 {
+    font-size: 9px;
+    background: #5fb3f5;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    letter-spacing: 0.05em;
+}
+
+/* クラス間のスペースの有無で全く違う・・*/
+.countbox .box-title2 {
+    font-size: 9px;
+    background: #ff9900;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    letter-spacing: 0.05em;
+}
+
+/* 統計ページの数字のフォント　使用中 */
+.countfont{
+  font-size: 12px;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+}
+
+/* 新規登録画面のフォーム用。widthでフォームの幅が変えられる！ 使用中 */
+.registerbox2{
+  width: 300px;
+  height: 100px;
+}
+
+/* 使用中 */
+.avatarbox{
+  font-size: 10px;
+}
+
+/*投稿画面を覆う箱 使用中 */
+.postform{
+  width: 90%;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+/* 投稿タイトル　使用中 */
+.posttitle{
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* 投稿フォーム　使用中 */
+.wysihtml5{
+  height: 150px;
+  width: 100%;
+  font-size: 12px;
+}
+
+/* 使用中 */
+.tagbox{
+  width: 80px;
+  height: 30px;
+  margin-bottom: 50px;
+  font-size: 8px;
+}
+
+/* wysiwygエディタのボタン　使用中*/
+ul.wysihtml5-toolbar .btn.btn-default{
+  width: 50px;
+  height: 25px;
+  font-size: 8px;
+  padding: auto;
+  text-align: center;
+  }

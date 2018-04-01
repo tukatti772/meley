@@ -1,9 +1,4 @@
-<!--ログイン時の画面-->
-<p class="h1">
-ログイン
-</p>
-
-<br>
+<%#ログイン時の画面%>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="signup">
@@ -13,7 +8,7 @@
 
   <br>
 
-  <div class="signup">
+  <div class="signup2">
     <%= f.label :password, "パスワード" %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -21,7 +16,7 @@
   <br>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="signup">
+    <div class="signup2">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me, "パスワードを記憶する" %>
     </div>
@@ -29,13 +24,13 @@
   
   <br>
 
-  <div class="signupbox">
+  <div style="text-align: center">
     <%= f.submit "ログイン", class: 'signupbutton' %>
   </div>
 <% end %>
 
 <br>
 
-<div class="signup">
+<div class="signup3">
 <%= render "devise/shared/links" %>
 </div>

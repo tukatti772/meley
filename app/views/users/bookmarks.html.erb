@@ -1,71 +1,87 @@
+<%# usersコントローラーのbookmarksアクション。ブックマークしている投稿一覧を表示。%>
 
 <div class="tab-menu">
 
-<div class="a5 boldtext">
+ <% if user_signed_in? %>
 
-<% if user_signed_in? %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
+   <div class="userbox">
+
+     <%= image_tag @user.avatar.url(:thumb) %>  <span class="a5 boldtext"><%= @user.nickname %></span> 
+
+       <% unless current_user.id == @user.id %>
+
+          <div id="followbutton">
+          <%= render 'users/followbutton', sodane: @user %>
+          </div>
+
+       <% end %> <%# unless current_user.id ... %>
+
+   </div> <%# /.userbox%>
+
+ <% else %>  <%# if user_signed_in? %>
+
+
+   <div class="userbox">
+
+     <%= image_tag @user.avatar.url(:thumb) %> <span class="a5 boldtext"><%= @user.nickname %></span> 
+
+
+   </div> <%# /.userbox%>
+
+ <% end %> <%# if user_signed_in? %>
+
+
 <br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
 
-<% unless current_user.id == @user.id %>
-
-<div id="followbutton">
-<%= render 'users/followbutton', sodane: @user %>
-</div>
-
-<% end %>
-
-<% else %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
-<br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
-<% end %>
-
-</div>
+     <div class="menubox">
+      <%# Single button %>
+      <div class="btn-group inline">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         メニュー <span class="caret"></span>
+        </button>
+       <ul class="dropdown-menu">
+          <%# htmlなので、@questionsIDを表示させる際にrubyの式展開は使えないっぽい %>
+        <li><a href="/users/<%= @bookmarksID %>">投稿一覧</a></li>
+        <li><a href="/users/<%= @bookmarksID %>/questions">コメントした投稿</a></li>
+        <li><a href="/users/<%= @bookmarksID %>/follows">フォロー</a></li>
+        <li><a href="/users/<%= @bookmarksID %>/followers">フォロワー</a></li>
+        <li><a href="/users/<%= @bookmarksID %>/bookmarks">ブックマークした投稿</a></li>
+        <li><a href="/users/<%= @bookmarksID %>/counts">統計・スコア</a></li>
+       </ul>
+      </div> <%# /.btn-group %>
+     </div> <%# ./menubox %>
 
 
- <ul>
-   <li class="list2">
-   <%= link_to '投稿' , "/users/#{@bookmarksID}" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'コメント' , "/users/#{@bookmarksID}/questions" %>
-   </li>
-   <li class="list2">
-   <%= link_to '統計/スコア' , "/users/#{@bookmarksID}/counts" %>
-   </li>
-    <li class="list2">
-   <%= link_to 'フォロー' , "/users/#{@bookmarksID}/follows" %>
-   </li>
-    <li class="list2">
-   <%= link_to 'フォロワー' , "/users/#{@bookmarksID}/followers" %>
-   </li>
-   <li class="list1">
-   <%= link_to 'ブックマーク' , "/users/#{@bookmarksID}/bookmarks" %>
-   </li>
- </ul>
+     <div class="panel panel-danger mainbox">
+      <div class="panel-body">
+       <%= @user.comment %>
+      </div>
+     </div>
 
+
+<div class="a6">ブックマークした投稿</div>
 
 
 <% @bookmarklist.each do |cat| %>
 
-<div class='showbox'>
+
+<div class="panel panel-success mainbox">
 
 
-<div id='indextitle'><a href ="/dairy/<%= cat.id %>"><%= cat.title %></a></div>
+ <div class="panel-heading">
 
+
+  <h3 class="panel-title bigtitle"><a href ="/dairy/<%= cat.id %>"><%= cat.title %></a></h3>
+
+ </div> <%# /.panel-heading %>
 
 <br>
-<br>
+
+<div class="panel-body">
 
 <div class='ellipsis'><%= strip_tags cat.text %></div>
 <br>
-<br>
+
 
 
 <%# 投稿に紐づいているタグを1つずつ表示する %>
@@ -74,24 +90,29 @@
 <% end %>
 
 <br>
-<span>
+
 <% if cat.dairyanswers.count == nil then %>
 <%# == と記述しないと、左辺と右辺が等しいという意味にならないよ！ %>
-コメント数：<span> <%= "0" %> </span>
+<span class="font1"> <%= "0" %>comment</span>
 <% else %>
-コメント数：<span> <%= cat.dairyanswers.count %> </span>
+<span class="font1"> <%= cat.dairyanswers.count %>comments</span>
 <% end %>
 
-　　投稿日：<%= cat.created_at.strftime('%Y/%m/%d %H:%M') %>
+<span class="font1">
+　<%= time_ago_in_words(cat.created_at) %>前
 </span>
 
-</div>
 
-<% end %>
+</div> <%# /.panel-body %>
+
+</div> <%# /.panel panel-success mainbox %>
+
+
+<% end %> <%# @bookmarklist.each do... %>
 
 
 <div class="a4">
 <%= paginate(@bookmarklist) %>
 </div>
 
-</div>
+</div> <%# /.tab-menu %>

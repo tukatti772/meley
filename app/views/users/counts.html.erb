@@ -1,106 +1,119 @@
 
+<%# usersコントローラーのcountsアクション。ユーザーの統計・スコアを表示。%>
+
 <div class="tab-menu">
 
-<div class="a5 boldtext">
+ <% if user_signed_in? %>
 
-<% if user_signed_in? %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
-<br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
+   <div class="userbox">
 
-<% unless current_user.id == @user.id %>
+     <%= image_tag @user.avatar.url(:thumb) %>  <span class="a5 boldtext"><%= @user.nickname %></span> 
 
-<div id="followbutton">
-<%= render 'users/followbutton', sodane: @user %>
-</div>
+       <% unless current_user.id == @user.id %>
 
-<% end %>
+          <div id="followbutton">
+          <%= render 'users/followbutton', sodane: @user %>
+          </div>
 
-<% else %>
-<%= image_tag @user.avatar.url(:thumb) %> <%= @user.nickname %> さんのページです。
-<br>
-<div class="showbox3">
-<%= @user.comment %>
-</div>
-<% end %>
-</div>
+       <% end %> <%# unless current_user.id ... %>
+
+   </div> <%# /.userbox%>
+
+ <% else %>  <%# if user_signed_in? %>
 
 
- <ul>
-   <li class="list2">
-   <%= link_to '投稿' , "/users/#{@countsID}" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'コメント' , "/users/#{@countsID}/questions" %>
-   </li>
-   <li class="list1">
-   <%= link_to '統計/スコア' , "/users/#{@countsID}/counts" %>
-   </li>
-    <li class="list2">
-   <%= link_to 'フォロー' , "/users/#{@countsID}/follows" %>
-   </li>
-    <li class="list2">
-   <%= link_to 'フォロワー' , "/users/#{@countsID}/followers" %>
-   </li>
-   <li class="list2">
-   <%= link_to 'ブックマーク' , "/users/#{@countsID}/bookmarks" %>
-   </li>
- </ul>
+   <div class="userbox">
 
-<div class="countdisplay">
+     <%= image_tag @user.avatar.url(:thumb) %> <span class="a5 boldtext"><%= @user.nickname %></span> 
 
-<div class="countbox">
-    <div class="box-title">投稿</div>
-    <p><%= @questiond %></p>
-</div>
 
-<div class="countbox">
-    <div class="box-title">コメント</div>
-    <p><%= @answerd %></p>
-</div>
+   </div> <%# /.userbox%>
 
-<div class="countbox">
-    <div class="box-title">貰ったいいね！</div>
-    <p><%= @lastsum %></p>
-</div>
+ <% end %> <%# if user_signed_in? %>
 
-<div class="countbox">
-    <div class="box-title">フォロー</div>
-    <p><%= @follows.count %></p>
-</div>
-
-<div class="countbox">
-    <div class="box-title">フォロワー</div>
-    <p><%= @followers.count %></p>
-</div>
-
-</div>
 
 <br>
+
+     <div class="menubox">
+      <%# Single button %>
+      <div class="btn-group inline">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         メニュー <span class="caret"></span>
+        </button>
+       <ul class="dropdown-menu">
+          <%# htmlなので、@questionsIDを表示させる際にrubyの式展開は使えないっぽい %>
+        <li><a href="/users/<%= @countsID %>">投稿一覧</a></li>
+        <li><a href="/users/<%= @countsID %>/questions">コメントした投稿</a></li>
+        <li><a href="/users/<%= @countsID %>/follows">フォロー</a></li>
+        <li><a href="/users/<%= @countsID %>/followers">フォロワー</a></li>
+        <li><a href="/users/<%= @countsID %>/bookmarks">ブックマークした投稿</a></li>
+        <li><a href="/users/<%= @countsID %>/counts">統計・スコア</a></li>
+       </ul>
+      </div> <%# /.btn-group %>
+     </div> <%# ./menubox %>
+
+
+     <div class="panel panel-danger mainbox">
+      <div class="panel-body">
+       <%= @user.comment %>
+      </div>
+     </div>
+
+
+
+
+<div class="countdisplay1">
+
+<div class="countbox">
+    <div class="box-title1">投稿</div>
+    <p class="countfont"><%= @questiond %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title1">コメント</div>
+    <p class="countfont"><%= @answerd %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title1">いいね！</div>
+    <p class="countfont"><%= @lastsum %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title1">フォロー</div>
+    <p class="countfont"><%= @follows.count %></p>
+</div>
+
+<div class="countbox">
+    <div class="box-title1">フォロワー</div>
+    <p class="countfont"><%= @followers.count %></p>
+</div>
+
+</div>
+
+<br>
 <br>
 
-<div class="countdisplay">
+<div class="countdisplay2">
 
 <div class="countbox">
-    <div class="box-title">TOEIC</div>
-    <p><%= @toeic %></p>
+    <div class="box-title2">TOEIC</div>
+    <p class="countfont"><%= @toeic %></p>
 </div>
 
 <div class="countbox">
-    <div class="box-title">TOEFL</div>
-    <p><%= @toefl %></p>
+    <div class="box-title2">TOEFL</div>
+    <p class="countfont"><%= @toefl %></p>
 </div>
 
 <div class="countbox">
-    <div class="box-title">IELTS</div>
-    <p><%= @ielts %></p>
+    <div class="box-title2">IELTS</div>
+    <p class="countfont"><%= @ielts %></p>
 </div>
 
 <div class="countbox">
-    <div class="box-title">英検</div>
-    <p><%= @eiken %></p>
+    <div class="box-title2">英検</div>
+    <p class="countfont"><%= @eiken %></p>
 </div>
 
 </div>

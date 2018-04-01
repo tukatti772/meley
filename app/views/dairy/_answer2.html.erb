@@ -1,15 +1,13 @@
 <%# 回答の表示のテンプレートファイル %>
 
 
-
 <% answer.each do |roop| %>
 
-<%# 質問者と回答者が同じ場合は、色分けする %>
 
-<% if roop.user_nickname == data.name %>
+<div class="panel panel-info mainbox">
+  <div class="panel-body">
 
-<div class="showbox2">
-<p class="text1"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの投稿　　投稿：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+<p class="text1"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> 　<%= time_ago_in_words(roop.created_at) %>前</p>
 <br>
 
 <%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
@@ -39,49 +37,13 @@ pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href styl
  <%= image_tag 'heart.png', width: 20, height: 20 %>
  いいね！<%= roop.likes_count %>
 
-<% end %>
-</div>
+<% end %><%# if user_signed_in? %>
 
-</div>
+</div> <%#/#classify%>
 
-<% else %>
 
-<div class="showbox2">
-<p class="text2"><%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> さんの投稿　　投稿：<%= roop.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-<br>
+ </div> <%# /.panel-body %>
 
-<%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
-<p><%= sanitize roop.text, tags: %w(p strong em u s sub sup span h1 h2 h3 h4 h5 h6 
-pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href style class id height width target rel)%></p>
-<br>
-<br>
-
-<%# jqueryで置き換える箇所を判別するために、下記のdivを作る %>
-<div id="classify<%= roop.id %>">
-<% if user_signed_in? %>
-
-<%#以下は恐らく、返り値がnilでなければtrue,nilならfalseとなっている。Ruby独特。%>
- <% if roop.like_user(current_user.id) %>
-  <%= button_to dairyanswer_like_delete_path(roop), method: :delete, id: :like_button, remote: true do %>
-    <%= image_tag 'heart.png', width: 20, height: 20 %>
-    いいね！<%= roop.likes_count %>
-  <% end %>
- <% else %>
-  <%= button_to dairyanswer_like_path(roop), method: :post, id: :like_button, remote: true do %>
-   <%= image_tag 'nonheart.png', width: 20, height: 20 %>
-   いいね！<%= roop.likes_count %>
-  <% end %>
- <% end %>
-
-<% else %>
- <%= image_tag 'heart.png', width: 20, height: 20 %>
- いいね！<%= roop.likes_count %>
-
-<% end %>
-</div>
-
-</div>
-
-<% end %>
+</div> <%#./panel panel-info%>
 
 <% end %>
