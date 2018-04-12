@@ -27,7 +27,7 @@ def create
       tag = Tag.create(tag: tags[f])
        @newdairy.tags << tag  #newdairyに新規に作ったtag0を関連付け
      else 
-       @newdairy.tags << existTag  #newdairyに既存のタグを関連付け
+       @newdairy.tags << existTag  #newdairyに既 Xcv b,存のタグを関連付け
      end
    end
   f += 1
@@ -40,6 +40,8 @@ def create
     render 'dairy/posting'
   end
   
+
+
 end
 
 def search   #Dairyテーブル内容の検索。

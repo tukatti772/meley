@@ -2,12 +2,12 @@
 
 <%#以下は恐らく、返り値がnilでなければtrue,nilならfalseとなっている。Ruby独特。%>
  <% if iine.like_user(current_user.id) %>
-  <%= button_to like_delete_dairyanswer_path(iine), method: :delete, id: :like_button, remote: true do %>
+  <%= button_to dairyanswer_like_delete_path(iine), method: :delete, id: :like_button, remote: true do %>
     <%= image_tag 'heart.png', width: 20, height: 20 %>
     いいね！<%= iine.likes_count %>
   <% end %>
  <% else %>
-  <%= button_to like_dairyanswer_path(iine), id: :like_button, remote: true do %>
+  <%= button_to dairyanswer_like_path(iine), id: :like_button, remote: true do %>
    <%= image_tag 'nonheart.png', width: 20, height: 20 %>
    いいね！<%= iine.likes_count %>
   <% end %>
