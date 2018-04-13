@@ -267,10 +267,6 @@ html,body{
   width: 800px;
 }
 
-#error_messages{
-  color: red;
-  border: solid red;
-}
 
 /*投稿画面を覆う箱 使用中 */
 .postform{
@@ -291,14 +287,6 @@ html,body{
   width: 130px;
   margin-bottom: 50px;
   font-size: 15px;
-}
-
-.postname{
-  font-size: 20px;
-  height: 30px;
-  width: 300px;
-  border-radius: 5px;
-  border: solid 1px;
 }
 
 .postcontent{
@@ -343,11 +331,6 @@ ul.wysihtml5-toolbar .btn.btn-default{
   background-color: skyblue;
   color: white;
   border: none;
-}
-
-/* 使用中 */
-.postbuttonbox{
-  text-align: center;
 }
 
 .postbutton2{
