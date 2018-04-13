@@ -5,6 +5,7 @@ def show
  @posts = Tag.find(params[:id]).dairies.order(created_at: :desc).page(params[:page]).per(15)    #指定のタグが付いている投稿一覧を取得
  @dairykaitousu = Dairyanswer.group(:dairy_id).count
  @dairylink = "dairy"
+ @allusers = User.all
 end
 
 
