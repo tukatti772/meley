@@ -65,6 +65,8 @@ def show
   @dairydata = Dairy.find(params[:id])
   @dairyanswer = @dairydata.dairyanswers.order(created_at: :desc)
   @dairyanswerinstance = Dairyanswer.new
+  @dataforimage = User.find_by(id: @dairydata.user_id)
+  @allusers = User.all
 end
 
 def bookmark

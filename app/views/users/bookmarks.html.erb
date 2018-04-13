@@ -6,7 +6,7 @@
 
    <div class="userbox">
 
-     <%= image_tag @user.avatar.url(:thumb) %>  <span class="a5 boldtext"><%= @user.nickname %></span> 
+     <%= image_tag @user.avatar.url(:thumb), class: 'userimage'  %>  <span class="a5 boldtext"><%= @user.nickname %></span> 
 
        <% unless current_user.id == @user.id %>
 
@@ -23,7 +23,7 @@
 
    <div class="userbox">
 
-     <%= image_tag @user.avatar.url(:thumb) %> <span class="a5 boldtext"><%= @user.nickname %></span> 
+     <%= image_tag @user.avatar.url(:thumb), class: 'userimage' %> <span class="a5 boldtext"><%= @user.nickname %></span> 
 
 
    </div> <%# /.userbox%>
