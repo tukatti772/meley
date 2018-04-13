@@ -65,7 +65,7 @@
 <% @follows.each do |followlist| %>
 <div class="panel panel-info mainbox">
   <div class="panel-body">
-    <%= image_tag followlist.avatar.url(:thumb) %> <span class="font1"> <%= link_to followlist.nickname, "/users/#{followlist.id}" %> </span>
+    <%= image_tag followlist.avatar.url(:thumb), class: 'userimage' %> <span class="font1"> <%= link_to followlist.nickname, "/users/#{followlist.id}" %> </span>
     <br>
     <span class="font1"><%= followlist.comment %></span>
   </div> <%# /.panel-body %>
