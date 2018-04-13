@@ -609,8 +609,9 @@ ul.wysihtml5-toolbar .btn.btn-default{
   margin: 50px auto;
 }
 
+/* 画像を丸くする　使用中 */
 .userimage{
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 
