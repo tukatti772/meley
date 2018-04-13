@@ -29,6 +29,20 @@ html,body{
   height: 40px;
 }
 
+/* バリデーションのエラーメッセージ bootstrapを継承　使用中*/
+.alert.alert-danger.custom{
+  margin-top: 50px;
+}
+
+/* バリデーションのエラーメッセージ bootstrapを継承　devise用　使用中*/
+.alert.alert-danger.custom2{
+  width: 90%;
+  margin: 50px auto;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+}
+
 /* ナビバーの色変更用 bootstrapを継承　使用中*/
 .navbar.navbar-default.color{
   background: linear-gradient(to bottom, #FFCC99, white);
@@ -538,12 +552,6 @@ ul.wysihtml5-toolbar .btn.btn-default{
   color: #1e90ff;
 }
 
-.text3{
-  font-size: 20px;
-  text-align: center;
-  list-style: none;
-}
-
 .text4{
   font-weight: bold;
   font-size: 30px;
@@ -879,5 +887,28 @@ ul.wysihtml5-toolbar .btn.btn-default{
   padding: auto;
   text-align: center;
   }
+
+/* バリデーションのエラーメッセージ bootstrapを継承　使用中*/
+.alert.alert-danger.custom{
+  margin-top: 50px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* バリデーションのエラーメッセージ bootstrapを継承　使用中*/
+.alert.alert-danger{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* バリデーションのエラーメッセージ bootstrapを継承　devise用　使用中*/
+.alert.alert-danger.custom2{
+  width: 90%;
+  margin: 50px auto 0 auto;
+  font-size: 10px;
+  font-weight: bold;
+  list-style: none;
+}
+
 
 }
