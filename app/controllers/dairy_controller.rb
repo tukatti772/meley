@@ -4,6 +4,7 @@ def index
   @dairyposts = Dairy.all.order(created_at: :desc).page(params[:page]).per(15)
   @dairykaitousu = Dairyanswer.group(:dairy_id).count
   @dairylink = "dairy"
+  @allusers = User.all
   #ハッシュがどうなっているかは、binding.pryで確認すると非常に便利！
 end
 
