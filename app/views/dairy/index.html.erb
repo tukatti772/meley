@@ -12,7 +12,16 @@
 英語の話題をみんなでシェアして、学習に役立てよう。
 </div> <%# /.topimagebox %>
 
-</div> 
+<% unless user_signed_in? %>
+
+<div style="text-align: center;">
+<a href="/users/sign_in" class="toploginbutton">ログイン</a>
+<a href="/users/sign_up" class="toploginbutton2">新規登録</a>
+</div>
+
+<% end %> <%# unless user_signed_in? %>
+
+</div> <%# /.topiamge %>
 
 <%
 =begin

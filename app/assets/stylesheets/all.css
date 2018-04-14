@@ -29,6 +29,54 @@ html,body{
   height: 40px;
 }
 
+/* トップページのログインボタン　使用中 */
+.toploginbutton{
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  border: solid 2px #668ad8;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+  background-color: white;
+  margin: 80px 40px;
+}
+
+/* トップページのログインボタン　使用中 */
+.toploginbutton:hover {
+    background: #b3e1ff;
+  }
+
+/* トップページのログインボタン　使用中 */
+.toploginbutton2{
+  display: inline-block;
+  text-decoration: none;
+  color: green;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  border: solid 2px green;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+  background-color: white;
+  margin: 80px 40px;
+}
+
+/* トップページのログインボタン　使用中 */
+.toploginbutton2:hover {
+    background: #b3e1ff;
+  }
+
 /* バリデーションのエラーメッセージ bootstrapを継承　使用中*/
 .alert.alert-danger.custom{
   margin-top: 50px;
