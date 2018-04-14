@@ -950,10 +950,11 @@ ul.wysihtml5-toolbar .btn.btn-default{
 .toploginbutton{
   display: inline-block;
   text-decoration: none;
+  font-size: 10px;
   color: #668ad8;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
   border-radius: 50%;
   border: solid 2px #668ad8;
   text-align: center;
@@ -962,7 +963,7 @@ ul.wysihtml5-toolbar .btn.btn-default{
   font-weight: bold;
   transition: .4s;
   background-color: white;
-  margin: 10px 10px;
+  margin: 30px 20px;
 }
 
 /* トップページのログインボタン　使用中 */
@@ -974,6 +975,7 @@ ul.wysihtml5-toolbar .btn.btn-default{
 .toploginbutton2{
   display: inline-block;
   text-decoration: none;
+  font-size: 10px;
   color: green;
   width: 50px;
   height: 50px;
@@ -986,7 +988,7 @@ ul.wysihtml5-toolbar .btn.btn-default{
   font-weight: bold;
   transition: .4s;
   background-color: white;
-  margin: 10px 10px;
+  margin: 30px 20px;
 }
 
 /* トップページのログインボタン　使用中 */
