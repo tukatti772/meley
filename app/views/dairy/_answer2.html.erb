@@ -12,9 +12,20 @@
 <p class="text1"><%= image_tag userimage.avatar.url(:thumb), class: 'userimage' %>  <%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> 　<%= time_ago_in_words(roop.created_at) %>前</p>
 <br>
 
+<%= simple_format(roop.text) %>
+
+<%
+=begin
+%>
+
 <%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
 <p><%= sanitize roop.text, tags: %w(p strong em u s sub sup span h1 h2 h3 h4 h5 h6 
 pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href style class id height width target rel)%></p>
+
+<%
+=end
+%>
+
 <br>
 <br>
 
