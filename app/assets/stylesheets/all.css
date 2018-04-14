@@ -275,6 +275,8 @@ html,body{
 .postform{
   width: 90%;
   font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* 投稿タイトル　使用中 */
@@ -529,20 +531,6 @@ html,body{
   font-size: 5px;
  }
 
-.h2{
-  width: auto;
-  margin: 0 auto;
-  text-align: center;
-  font-weight: bold;
-  font-size: 15px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
-
- .a3{
-  font-size: 10px !important;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  color: white;
-}
 
 /* 使用中 */
 .a4{
@@ -565,13 +553,6 @@ html,body{
   font-weight: bold;
 }
 
-.a6{
-  text-align: center;
-  font-size: 15px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  color: orange;
-  text-decoration: underline;
-}
 
 .topimage{
   width: 100%;
@@ -758,22 +739,27 @@ html,body{
   border: solid 0.5px #006600;
 }
 
-/* 投稿フォーム　使用中 */
-.wysihtml5{
-  height: 150px;
-  width: 100%;
-  font-size: 12px;
-}
+
 
 /* タグのフォーム　使用中 */
 .tagbox{
-  width: 40px;
+  width: 60px;
   height: 30px;
   margin-bottom: 50px;
   font-size: 8px;
   border-radius: 5px;
   border: solid 0.5px #006600;
 }
+
+/* 投稿フォーム　使用中 */
+.textbox{
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+  border: solid 0.5px #006600;
+  font-size: 12px;
+}
+
 
 
 /* バリデーションのエラーメッセージ bootstrapを継承　使用中*/
