@@ -33,8 +33,11 @@
 <% end %>
 
 
-<%= f.text_area :text, placeholder: "コメントを入力してください。", class: :wysihtml5 %>
+<%= f.text_area :text, placeholder: "コメントを入力してください。", class: :textbox %>
 
+<%
+=begin
+%>
 
 <%# bootstrap-wysiwigの記述 %>
 <script type="text/javascript">
@@ -60,6 +63,10 @@ $(document).on('turbolinks:load', function(){
 })
 
 </script>
+
+<%
+=end
+%>
 
 <br>
 <br>

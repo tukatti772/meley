@@ -152,51 +152,6 @@ html,body{
   text-align: center;
 }
 
-/* wysihtml5用 使用中*/
-.wysiwyg-color-black {
-  color: black;
-}
-
-.wysiwyg-color-silver {
-  color: silver;
-}
-
-.wysiwyg-color-gray {
-  color: gray;
-}
-
-.wysiwyg-color-maroon {
-  color: maroon;
-}
-
-.wysiwyg-color-red {
-  color: red;
-}
-
-.wysiwyg-color-purple {
-  color: purple;
-}
-
-.wysiwyg-color-green {
-  color: green;
-}
-
-.wysiwyg-color-olive {
-  color: olive;
-}
-
-.wysiwyg-color-navy {
-  color: navy;
-}
-
-.wysiwyg-color-blue {
-  color: blue;
-}
-
-.wysiwyg-color-orange {
-  color: orange;
-}
-
 
 /*シェアボタン用　vertical-alignで縦位置を親要素の中央に合わせる　使用中*/
 .inline{
@@ -318,23 +273,27 @@ html,body{
 
 /*投稿画面を覆う箱 使用中 */
 .postform{
-  width: 50%;
+  width: 90%;
   font-size: 20px;
-  margin: 0 auto;
 }
 
 /* 投稿タイトル　使用中 */
 .posttitle{
   width: 100%;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
+  border-radius: 5px;
+  border: solid 0.5px #006600;
+  font-size: 18px;
 }
 
-/* 使用中 */
+/* タグのフォーム　使用中 */
 .tagbox{
   width: 130px;
   margin-bottom: 50px;
   font-size: 15px;
+  border-radius: 5px;
+  border: solid 0.5px #006600;
 }
 
 .postcontent{
@@ -355,19 +314,12 @@ html,body{
 }
 
 /* 投稿フォーム　使用中 */
-.wysihtml5{
-  height: 200px;
+.textbox{
+  height: 300px;
   width: 100%;
-}
-
-/* wysiwygエディタのボタン　使用中*/
-ul.wysihtml5-toolbar .btn.btn-default{
-  width: 70px;
-  font-size: 13px;
-}
-
-.tagform{
-  display:inline-block;
+  border-radius: 5px;
+  border: solid 0.5px #006600;
+  font-size: 15px;
 }
 
 
@@ -391,16 +343,6 @@ ul.wysihtml5-toolbar .btn.btn-default{
   border: none;
 }
 
-/* maintableのcss */
-#indextitle{
-  font-size: 28px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
-
-#indexcontent{
-  font-size: 15px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
 
 /* タグの見た目を記述  使用中*/
 .tag{
@@ -479,33 +421,6 @@ ul.wysihtml5-toolbar .btn.btn-default{
 }
 
 
-
-
-/* 汎用テキスト・boxのcss */
-.indexbox{
-  margin: 0 0 0 150px;
-}
-
-.a1{
-  padding: 0px 0px 50px 0px;
-  text-align: center;
-  font-size: 30px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
-
-.a2{
-  padding: 0px 0px 50px 0px;
-  text-align: center;
-  font-size: 20px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
-
-.a3{
-  font-size: 25px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  color: white;
-}
-
 /* 使用中 */
 .a4{
   text-align: center;
@@ -527,70 +442,11 @@ ul.wysihtml5-toolbar .btn.btn-default{
   font-weight: bold;
 }
 
-.a6{
-  text-align: center;
-  font-size: 25px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  color: orange;
-  text-decoration: underline;
-}
-
 /* ナビバーのタイトルのフォント。使用中 */
 .navbartitle{
   color: deepskyblue;
   font-weight: bold;
 }
-
-.black{
-  color: black;
-}
-
-.h1{
-  width: 40%;
-  margin: 0 auto;
-  text-align: center;
-  background: linear-gradient(transparent 70%, #a7d6ff 70%);
-  font-size: 40px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
-
-.h2{
-  width: auto;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 30px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-}
-
-.h3{
-  width: 40%;
-  margin: 0 auto;
-  text-align: center;
-  background: linear-gradient(transparent 70%, #a7d6ff 70%);
-  font-size: 40px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  color: white;
-}
-
-
-.text1{
-  font-weight: bold;
-  color: #ff4500;
-}
-
-.text2{
-  font-weight: bold;
-  color: #1e90ff;
-}
-
-.text4{
-  font-weight: bold;
-  font-size: 30px;
-  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
-  text-align: center;
-}
-
-
 
 
 /*統計ページのcss 使用中*/
@@ -898,6 +754,8 @@ ul.wysihtml5-toolbar .btn.btn-default{
   width: 100%;
   margin-top: 50px;
   margin-bottom: 50px;
+  border-radius: 5px;
+  border: solid 0.5px #006600;
 }
 
 /* 投稿フォーム　使用中 */
@@ -907,22 +765,16 @@ ul.wysihtml5-toolbar .btn.btn-default{
   font-size: 12px;
 }
 
-/* 使用中 */
+/* タグのフォーム　使用中 */
 .tagbox{
-  width: 80px;
+  width: 40px;
   height: 30px;
   margin-bottom: 50px;
   font-size: 8px;
+  border-radius: 5px;
+  border: solid 0.5px #006600;
 }
 
-/* wysiwygエディタのボタン　使用中*/
-ul.wysihtml5-toolbar .btn.btn-default{
-  width: 50px;
-  height: 25px;
-  font-size: 8px;
-  padding: auto;
-  text-align: center;
-  }
 
 /* バリデーションのエラーメッセージ bootstrapを継承　使用中*/
 .alert.alert-danger.custom{
