@@ -12,7 +12,6 @@
 <meta name="twitter:card" content="summary_large_image" /> 
 <meta name="twitter:site" content="@tukatti7772" /> 
 <meta name="twitter:title" content="英語SNS MELEY(β)" /> 
-<meta name="twitter:text" content="英語を必要とする全ての方へ。英語の話題をシェアして、学習に役立てよう。">
 <meta name="twitter:image" content="<%= asset_url('world.jpg') %>" />
 <meta property="og:url" content="http://enoutputs.herokuapp.com/<%= yield(:og_url) %>" /> 
 <meta property="og:title" content="英語SNS MELEY(β)" />
@@ -22,6 +21,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
+
+<% provide(:og_description, "英語を必要とする全ての方へ。英語の話題をシェアして、学習に役立てよう。") %>
 
 
 <div id="frame">
