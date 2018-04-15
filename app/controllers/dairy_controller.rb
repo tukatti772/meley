@@ -50,6 +50,7 @@ def search   #Dairyテーブル内容の検索。
   @dairykaitousub = Dairyanswer.group(:dairy_id).count
   @dairysearchlink = "dairy"
   @keyword = params[:keyword]
+  @allusersforsearch = User.all
 end
 
 def posting

@@ -1,7 +1,5 @@
 <%# 検索フォームのテンプレートファイル %>
 
-<br>
-<br>
 
 <p class="resulttext">
 検索ワード: <%= @keyword %>
@@ -32,10 +30,11 @@
 <div class="tag"><%= link_to "#{yeah.tag}" , "/tags/#{yeah.id}", :style => "color:white;" %></div>
 <% end %>
 
+<% userimage = @allusersforsearch.find_by(id: roop.user_id) %>
 
 <br>
 <span class="font1">
-<%= link_to "#{roop.name}" , "/users/#{roop.user_id}" %>
+<%= image_tag userimage.avatar.url(:thumb), class: 'userimage' %>  <%= link_to "#{roop.name}" , "/users/#{roop.user_id}" %>
 </span>
 
 <% if kaitousub[roop.id] == nil then %>
