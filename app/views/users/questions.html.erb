@@ -43,7 +43,7 @@
        <ul class="dropdown-menu">
           <%# htmlなので、@questionsIDを表示させる際にrubyの式展開は使えないっぽい %>
         <li><a href="/users/<%= @questionsID %>">投稿一覧</a></li>
-        <li><a href="/users/<%= @questionsID %>/questions">コメントした投稿</a></li>
+        <li style="background-color: #FFCC99;"><a href="/users/<%= @questionsID %>/questions">コメントした投稿</a></li>
         <li><a href="/users/<%= @questionsID %>/follows">フォロー</a></li>
         <li><a href="/users/<%= @questionsID %>/followers">フォロワー</a></li>
         <li><a href="/users/<%= @questionsID %>/bookmarks">ブックマークした投稿</a></li>
