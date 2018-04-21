@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
 #paperclip用の記述
 
-has_attached_file :avatar, styles: { medium: "300x300#", thumb: "30x30#" },
+has_attached_file :avatar, styles: { medium: "100x100#", thumb: "30x30#" },
 :path => ":attachment/:id/:style.:extension"
   
 
