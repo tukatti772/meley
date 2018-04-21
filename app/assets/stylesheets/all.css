@@ -551,6 +551,12 @@ html,body{
   border-radius: 50%;
 }
 
+.form-control.searchimage{
+  background-image: url(/public/assets/mushimegane.png);
+  border: none;
+  width: 50px;
+  background-size: 100%;
+}
 
 
 /* レスポンシブデザイン */
