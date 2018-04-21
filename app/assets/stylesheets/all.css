@@ -520,6 +520,10 @@ html,body{
   border-radius: 15px;
 }
 
+/* mediumサイズのユーザー画像を丸くする　使用中 */
+.userimage2{
+  border-radius: 50%;
+}
 
 
 
