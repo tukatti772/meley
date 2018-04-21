@@ -12,7 +12,7 @@
 <p class="text1"><%= image_tag userimage.avatar.url(:thumb), class: 'userimage' %>  <%= link_to "#{roop.user_nickname}", "/users/#{roop.user_id}" %> 　<%= time_ago_in_words(roop.created_at) %>前</p>
 <br>
 
-<%= simple_format(roop.text) %>
+<%= simple_format(roop.text, class: 'mobiletext') %>
 
 <%
 =begin

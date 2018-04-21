@@ -271,28 +271,6 @@ html,body{
 
 
 
-/* コンテンツのcss */
-
-#Acontents{
-  height: 87%;
-  font-size: 30px;
-  padding: 5%;
-  overflow-y: scroll;
-}
-/*↑強制的にスクロールバーを表示させることで、バーの有無によるwidthのズレに起因する
-ガタツキを防ぐ*/
-
-/* 投稿フォームのcss */
-
-#title{
-  width: 800px;
-}
-
-#tag{
-  width: 800px;
-}
-
-
 /*投稿画面を覆う箱 使用中 */
 .postform{
   width: 90%;
@@ -768,7 +746,7 @@ html,body{
   width: 60px;
   height: 30px;
   margin-bottom: 50px;
-  font-size: 8px;
+  font-size: 15px;
   border-radius: 5px;
   border: solid 0.5px #006600;
 }
@@ -865,6 +843,11 @@ html,body{
   animation: fadeIn 2s ease 0s 1 normal;
   text-align: center;
   margin-top: 50px;
+}
+
+/* モバイルでの投稿内容の文字の大きさ　使用中 */
+.mobiletext{
+  font-size: 10px;
 }
 
 @keyframes fadeIn {
