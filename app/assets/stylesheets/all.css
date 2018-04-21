@@ -551,11 +551,13 @@ html,body{
   border-radius: 50%;
 }
 
+/* 虫眼鏡の検索ボタン　使用中 */
 .form-control.searchimage{
-  background-image: url(/public/assets/mushimegane.png);
   border: none;
-  width: 50px;
-  background-size: 100%;
+  width: 30px !important;
+  background-size: 80% !important ;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
 }
 
 
