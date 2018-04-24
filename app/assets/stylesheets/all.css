@@ -141,7 +141,7 @@ html,body{
 
 /* ナビバーの色変更用 bootstrapを継承　使用中*/
 .navbar.navbar-default.color{
-  background: linear-gradient(to bottom, #FFCC99, white);
+  background: linear-gradient(to bottom, blue, white);
 }
 
 /* ナビバーのボタンの位置調整。bootstrapを継承 使用中*/
@@ -149,6 +149,7 @@ html,body{
  margin-left: 10px;
  margin-right: 10px;
 }
+
 
 /* topページ画像用 使用中*/
 .topimage{

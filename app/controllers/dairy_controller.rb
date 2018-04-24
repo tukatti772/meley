@@ -53,6 +53,13 @@ def search   #Dairyテーブル内容の検索。
   @allusersforsearch = User.all
 end
 
+def usersearch   #ユーザー検索機能
+ @usersearch = User.where('nickname LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
+ @usercommentsearch = User.where('comment LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
+ @searchsum = (@usersearch + @usercommentsearch).uniq!  #uniq!で重複したレコードを除去した配列に変える
+ @keyword = params[:keyword]
+end
+
 def posting
     redirect_to action: :index unless user_signed_in?
   #サインインしてない状態で投稿しようとした場合、indexに返す

@@ -63,12 +63,13 @@
 
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <%# 投稿検索フォーム %>
-       <form class="navbar-form navbar-left" action="/dairy/search" method="get">
+       <form class="navbar-form navbar-left" action="/dairy/search" method="get" id="searchform">
         <div class="form-group">
-         <input type="text" class="form-control" placeholder="検索内容" name="keyword">
-         <input class="form-control searchimage" type="submit" value="" style="background-image:url(<%= asset_path "mushimegane.jpeg" %>);" >
+         <input type="text" class="form-control" placeholder="投稿検索" name="keyword" id="searchbox">
         </div>
-        <button type="submit" class="btn btn-default">投稿検索</button>
+        <button type="button" class="btn btn-success active" id="searchbar" style="color: white;">投稿</button>
+        <button type="button" class="btn" id="searchbar2" style="color: white;">ユーザー</button>
+        <input class="form-control searchimage" type="submit" value="" style="background-image:url(<%= asset_path "mushimegane.jpeg" %>);" >
        </form>
 <%# 投稿検索フォーム終わり %>
 
@@ -88,12 +89,6 @@
 <%# 質問ボタン %>
 <li>
    <%= button_to "投稿", dairy_posting_path, method: :get, class: 'btn btn-default navbar-btn padding' %>
-</li>
-
-<% else %>
-
-<li>
-<span class="navbar-text" style="color: red">ログインして質問！</span>
 </li>
 
 <% end %>

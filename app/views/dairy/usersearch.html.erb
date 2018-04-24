@@ -1,1 +1,17 @@
-aaa
+<%# ユーザー検索結果 %>
+
+
+<p class="resulttext">
+検索ワード: <%= @keyword %>
+</p>
+
+
+<% @searchsum.each do |user| %>
+<div class="panel panel-info mainbox">
+  <div class="panel-body">
+    <%= image_tag user.avatar.url(:thumb), class: 'userimage' %> <span class="font1"> <%= link_to user.nickname, "/users/#{user.id}" %> </span>
+    <br>
+    <span class="font1"><%= user.comment %></span>
+  </div> <%# /.panel-body %>
+</div> <%# /.panel panel-info mainbox %>
+<% end %>
