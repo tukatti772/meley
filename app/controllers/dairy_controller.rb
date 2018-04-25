@@ -56,7 +56,7 @@ end
 def usersearch   #ユーザー検索機能
  @usersearch = User.where('nickname LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
  @usercommentsearch = User.where('comment LIKE(?)', "%#{params[:keyword]}%").order(created_at: :desc)
- @searchsum = (@usersearch + @usercommentsearch).uniq!  #uniq!で重複したレコードを除去した配列に変える
+ @searchsum = (@usersearch + @usercommentsearch).uniq  #uniqで重複したレコードを除去した新しい配列を返す
  @keyword = params[:keyword]
 end
 
