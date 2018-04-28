@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'dairy/posting'
   get 'dairy/search'
   get 'dairy/usersearch'
+  get 'dairy/tutorial'
 
 
   resources :users, only: [:questions, :counts, :follows, :followers, :bookmarks] do

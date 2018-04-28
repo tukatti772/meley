@@ -29,6 +29,57 @@ html,body{
   height: 80px;
 }
 
+
+/* チュートリアルのテキスト　使用中*/
+.invisible{
+  display: none;
+}
+
+.visible{
+  animation: fadeIn 2s ease 0s 1 normal;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  text-align: center;
+  margin: 80px auto;
+}
+
+
+#tutorial1{
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#tutorial2{
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#tutorial3{
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+/* チュートリアル関連終わり */
+
+
+
 /* 検索結果などのテキスト　使用中*/
 .resulttext{
   font-family: 'Yu Gothic',sans-serif;

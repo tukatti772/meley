@@ -19,3 +19,33 @@ $(document).on('turbolinks:load', function(){
 }); /* end function */
 
 
+/* tutorial画面 */
+$(document).on('turbolinks:load', function(){
+  $('div#tutorial1').click(function(){
+    $('div#tutorialtext1').removeClass('invisible');
+    $('div#tutorialtext1').addClass('visible');
+    $('div#tutorialtext2').removeClass('visible');
+    $('div#tutorialtext2').addClass('invisible');
+    $('div#tutorialtext3').removeClass('visible');
+    $('div#tutorialtext3').addClass('invisible');
+  }); /* end click */
+
+  $('div#tutorial2').click(function(){
+    $('div#tutorialtext1').removeClass('visible');
+    $('div#tutorialtext1').addClass('invisible');
+    $('div#tutorialtext2').removeClass('invisible');
+    $('div#tutorialtext2').addClass('visible');
+    $('div#tutorialtext3').removeClass('visible');
+    $('div#tutorialtext3').addClass('invisible');
+  }); /* end click */
+
+  $('div#tutorial3').click(function(){
+    $('div#tutorialtext1').removeClass('visible');
+    $('div#tutorialtext1').addClass('invisible');
+    $('div#tutorialtext2').removeClass('visible');
+    $('div#tutorialtext2').addClass('invisible');
+    $('div#tutorialtext3').removeClass('invisible');
+    $('div#tutorialtext3').addClass('visible');
+  }); /* end click */
+
+ }); /* end function */
