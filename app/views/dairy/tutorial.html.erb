@@ -1,49 +1,93 @@
 <%# チュートリアルページ %>
 
 
-<div class="resulttext" style="text-align: center; margin: 100px auto;">MELEYの使い方</div>
+<div class="resulttext" style="text-align: center; margin: 100px auto;">〜MELEYの使い方〜</div>
 
-<div id="tutorial1">
-1. 新規登録ボタンでユーザー登録して、ログインしてみよう！
+
+<div class="tutorial" id="tutorial1" style="margin-bottom: 50px;">
+1. ユーザー登録して、ログインしてみよう！
 </div>
 
-<br>
-<br>
-
-<div id="tutorial2">
-2. hahahaha
-</div>
-
-<br>
-<br>
-
-<div id="tutorial3">
-3. oraaaaaaaaaaaaa
-</div>
-
-<br>
-<br>
-
-<div class="invisible" id="tutorialtext1">
-ログインすると、何ができるの・・？
-<br>
-・投稿ができるようになります。<br>
-・投稿に対して、コメントすることができるようになります。<br>
-・投稿、コメントに対して、「いいね！」することができます。<br>
-・気になる投稿をブックマークして、いつでも参照できます。<br>
-・気になるユーザーをフォローすることができます。
-<br>
-<br>
-
-ログインを行わなくても、投稿・コメントの閲覧・投稿検索・ユーザー検索が可能です。
+<div class="tutorial" id="tutorial2" style="margin-bottom: 50px;">
+2. ログインしたら、投稿してみよう！
 </div>
 
 
-<div class="invisible" id="tutorialtext2">
-bbbbbb
+<div class="tutorial"  id="tutorial3" style="margin-bottom: 200px;">
+3. ユーザーのフォローとブックマークをしてみよう！
+</div>
+
+
+
+<div class="tutorialtext" id="tutorialtext1">
+
+<br>
+まずは、新規登録ボタンをクリックして、ユーザー登録してみましょう。<br>
+登録後にログインすると、下記のことができるようになります。
+<br>
+<br>
+<br>
+<span style="color: red;">・投稿と、投稿に対するコメント<br>
+・投稿、コメントに対する「いいね！」<br>
+・気になる投稿のブックマーク<br>
+・気になるユーザーのフォロー</span>
+<br>
+<br>
+<br>
+
+また、ログインを行わなくても、投稿・コメントの閲覧・投稿検索・ユーザー検索が可能です。
+<br>
+<br>
+<%= image_tag asset_path("tutorial1.jpeg"), class: 'tutorialimage' %>
+<br>
+<br>
+<div style="margin-bottom: 150px;">topに戻る</div>
+
+</div>
+
+
+<div class="tutorialtext" id="tutorialtext2">
+
+無事にログインすることができたら、投稿をしてみましょう！
+<br>
+投稿内容は、英語に関する事柄であれば何でもOK!
+例えば・・
+<br>
+<br>
+<span style="color: red;">
+・学校や塾で出てきた宿題が分からないので教えて欲しい<br>
+・海外生活で知った知識を共有したい<br>
+・日常生活で使う英語表現を共有したい<br></span>
+<br>
+<br>
+投稿時にはタグを自由に指定することができます。<br>
+同じテーマの投稿を整理するのにとても便利です！
+
+
+<%= image_tag asset_path("tutorial2.jpeg"), class: 'tutorialimage' %>
+<br>
+<br>
+<%= image_tag asset_path("tutorial3.jpeg"), class: 'tutorialimage' %>
+<br>
+<br>
+<%= image_tag asset_path("tutorial4.jpeg"), class: 'tutorialimage' %>
+<br>
+<br>
+<div style="margin-bottom: 150px;">topに戻る</div>
+<br>
+<br>
+気になるユーザーは<span style="color: red;">フォロー</span>してみよう！投稿やコメントを参考にできます。<br>
+また、気になる投稿は<span style="color: red;">ブックマーク</span>しておくと、いつでも参照することができます。<br>
+<br>
+<br>
+<%= image_tag asset_path("tutorial5.jpeg"), class: 'tutorialimage' %>
+<br>
+<br>
+<div style="margin-bottom: 150px;">topに戻る</div>
+
 </div>
 
 <br>
-<div class="invisible" id="tutorialtext3">
+<div class="tutorialtext" id="tutorialtext3">
 ssssssss
 </div>
