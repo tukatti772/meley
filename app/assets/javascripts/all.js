@@ -19,6 +19,27 @@ $(document).on('turbolinks:load', function(){
 }); /* end function */
 
 
+//チュートリアルのスクロール//
+$(document).on('turbolinks:load', function(){
+  $('.tutorial').click(function(){
+    var i = $('.tutorial').index(this); //別にidを使えば良いが、indexとeqの組み合わせで指定する技術//
+    var p = $('.tutorialtext').eq(i).offset().top; //でもidを使うよりも、行数は少なくてすみそう//
+    $('html,body').animate({scrollTop: p },'fast');
+    return false;
+  });
+});
+
+$(document).on('turbolinks:load', function(){
+  $('.backtotop').click(function(){
+    $('html,body').animate({scrollTop: 0 },'fast');
+    return false;
+  });
+});
+
+
+
+
+
 /* tutorial画面 
 $(document).on('turbolinks:load', function(){
   $('li#tutorial1').click(function(){
