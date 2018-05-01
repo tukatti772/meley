@@ -72,7 +72,7 @@ html,body{
 }
 
 .tutorialimage{
-  width: 100%;
+  width: 70%;
   height: 10%;
 }
 /* チュートリアル関連終わり */
@@ -991,6 +991,11 @@ html,body{
   font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic ProN', sans-serif;
   text-align: center;
   width: 90%;
+}
+
+.tutorialimage{
+  width: 100%;
+  height: 10%;
 }
 
 /* チュートリアル関係　終わり */
