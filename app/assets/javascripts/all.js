@@ -36,8 +36,11 @@ $(document).on('turbolinks:load', function(){
   });
 });
 
-
-
+//自作のwysiwyg用. onsubmitで呼び出す関数//
+function copytext(){
+        var x1 = $('#wysitext1').html(); //contenteditableの内容を読み取りx1に入れる//
+        return $('#posttext1').val(x1); //textarea id=posttext1にx1を代入して、returnで返り値を取得する//
+     }
 
 
 /* tutorial画面 

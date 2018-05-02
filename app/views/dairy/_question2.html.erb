@@ -25,19 +25,10 @@
 <br>
 <br>
 
-<%= simple_format(data.text, class: 'mobiletext') %>
-
-<%
-=begin
-%>
 
 <%# 表示できるタグをsanitizeで限定する configでもデフォルトを設定可能%>
-<p><%= sanitize data.text, tags: %w(p strong em u s sub sup span h1 h2 h3 h4 h5 h6 
-pre ul ol li blockquote table tr td br hr a b i small), attributes: %w(href style class id height width target rel)%></p>
+<p><%= sanitize data.text, tags: %w(p strong em u span pre br hr a b i small font), attributes: %w(color href style class id height width target rel), class: 'mobiletext' %></p>
 
-<%
-=end
-%>
 
 <br>
 <br>

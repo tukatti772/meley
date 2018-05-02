@@ -6,7 +6,9 @@
 <div class="postform">
 
 
-<%= form_for(dairy, url: dairy_index_path, html: {method: :post}) do |f| %>
+<%# onsubmit属性で、投稿の際にjavascriptの関数copytextを呼び出す %>
+
+<%= form_for(dairy, url: dairy_index_path, html: {method: :post}, html: {onsubmit: :"copytext()"}) do |f| %>
 
 <% if dairy.errors.any? %>
 
@@ -43,42 +45,30 @@
 <% end %>  <%# end of while %>
 
 
+<%# 自作wysiwygエディタのパレット %>
+
+<br>
+<button type="button" class="btn" style="font-weight: bold;" onclick="document.execCommand('bold',false,null);">Bold</button>
+<button type="button" class="btn" style="font-weight: bold;" onclick="document.execCommand('italic',false,null);">Italic</button>
+<button type="button" class="btn" style="font-weight: bold;" onclick="document.execCommand('underline',false,null);">Underline</button>
+<button type="button" class="btn" style="font-weight: bold; background-color: black;" onclick="document.execCommand('foreColor',false,'black');">&emsp;&emsp;</button>
+<button type="button" class="btn" style="font-weight: bold; background-color: red;" onclick="document.execCommand('foreColor',false,'red');">&emsp;&emsp;</button>
+<button type="button" class="btn" style="font-weight: bold; background-color: blue;" onclick="document.execCommand('foreColor',false,'blue');">&emsp;&emsp;</button>
+<button type="button" class="btn" style="font-weight: bold; background-color: green;" onclick="document.execCommand('foreColor',false,'green');">&emsp;&emsp;</button>
+<br>
+
+
+<%# f.text_areaは残すが、表示しない。submit時にcontenteditableの内容を代入してサーバーに送る %>
+
+
+<%= f.text_area :text, id: :posttext1, style: :"display: none;" %>
 
 
 
-<%= f.text_area :text, cols: 10, rows: 10, placeholder: "ここに投稿内容を入力してください。", class: 'textbox' %>
+<%# contenteditable属性とexecCommandで、wysiwygにできる。%>
+<div class="textbox" id="wysitext1" contenteditable= "true" style="margin-top: 10px; overflow: auto;" ></div>
 
-<% 
-=begin 
-%>
 
-<script type="text/javascript">
-
-$(document).on('turbolinks:load', function(){
-<%# 下の1行で、要素が存在しない場合のみツールバーを表示する%>
-<%# もしこうしなければ、turbolinksにより無限に表示される%>
-  if (!$('ul.wysihtml5-toolbar')[0]){
-   $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5({ toolbar:{ "fa": true, 'font-styles': false,
-      'color': true,
-      'emphasis': {
-        'small': false
-      },
-      'blockquote': true,
-      'lists': false,
-      'html': false,
-      'link': true,
-      'image': false,
-      'smallmodals': false }});
-    });
- } 
-})
-
-</script>
-
-<% 
-=end 
-%>
 
 
 <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
