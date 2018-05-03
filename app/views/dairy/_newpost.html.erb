@@ -48,14 +48,28 @@
 <%# 自作wysiwygエディタのパレット %>
 
 <br>
-<button type="button" class="btn" style="font-weight: bold;" onclick="document.execCommand('bold',false,null);">Bold</button>
-<button type="button" class="btn" style="font-weight: bold;" onclick="document.execCommand('italic',false,null);">Italic</button>
-<button type="button" class="btn" style="font-weight: bold;" onclick="document.execCommand('underline',false,null);">Underline</button>
+<button type="button" class="btn-xs" style="font-weight: bold;" onclick="document.execCommand('bold',false,null);">Bold</button>
+<button type="button" class="btn-xs" style="font-weight: bold;" onclick="document.execCommand('italic',false,null);">Italic</button>
+<button type="button" class="btn-xs" style="font-weight: bold;" onclick="document.execCommand('underline',false,null);">Underline</button>
+<button type="button" class="btn-xs" id="colorbtn" style="font-weight: bold;">Color</button>
+<button type="button" class="btn-xs" id="linkbtn" style="font-weight: bold;">Link</button>
+<button type="button" class="btn-xs" id="linkbtn" style="font-weight: bold;" onclick="document.execCommand('unlink',false,null);">Unlink</button>
+
+<%# 色のパレット %>
+<div id="slidebutton" style="margin-top: 20px;">
 <button type="button" class="btn" style="font-weight: bold; background-color: black;" onclick="document.execCommand('foreColor',false,'black');">&emsp;&emsp;</button>
 <button type="button" class="btn" style="font-weight: bold; background-color: red;" onclick="document.execCommand('foreColor',false,'red');">&emsp;&emsp;</button>
 <button type="button" class="btn" style="font-weight: bold; background-color: blue;" onclick="document.execCommand('foreColor',false,'blue');">&emsp;&emsp;</button>
 <button type="button" class="btn" style="font-weight: bold; background-color: green;" onclick="document.execCommand('foreColor',false,'green');">&emsp;&emsp;</button>
+</div> <%# /#slidebutton %>
+
+
+<%# リンク入力欄 %>
+<div id="inserturl" style="margin-top: 30px;">
+<textarea rows="1" cols="35" id="inputurl" placeholder="urlを入力" style="font-size: 15px;"></textarea>
 <br>
+<button type="button" class="btn-sm" style="font-weight: bold;" onclick="makelink()">リンクを貼る</button>
+</div>
 
 
 <%# f.text_areaは残すが、表示しない。submit時にcontenteditableの内容を代入してサーバーに送る %>

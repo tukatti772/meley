@@ -43,6 +43,42 @@ function copytext(){
      }
 
 
+//投稿画面の色のパレットの出し入れ//
+$(document).on('turbolinks:load', function(){
+  $('#slidebutton').hide();        //色のパネルを非表示にする
+  $('#colorbtn').click(function(e){
+    var d = $('#slidebutton');
+    if (d.css('display') === 'block'){
+      d.slideUp(300);
+    } else {
+      d.slideDown(300);
+    }   //end if
+   });  // end click function
+}); // end function
+
+
+//投稿画面のlink入力画面の出し入れ//
+$(document).on('turbolinks:load', function(){
+  $('#inserturl').hide();        //色のパネルを非表示にする
+  $('#linkbtn').click(function(){
+    var e = $('#inserturl');
+    if (e.css('display') === 'block'){
+      e.slideUp(300);
+    } else {
+      e.slideDown(300);
+    }   //end if
+   });  // end click function
+}); // end function
+
+
+//投稿欄のlinkボタンクリック時の関数//
+function makelink(){
+  var link = $("#inputurl").val();
+  document.execCommand('createLink', false, link);
+ }
+
+
+
 /* tutorial画面 
 $(document).on('turbolinks:load', function(){
   $('li#tutorial1').click(function(){
